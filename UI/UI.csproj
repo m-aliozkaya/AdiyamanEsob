@@ -1,0 +1,164 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Business\Business.csproj" />
+      <ProjectReference Include="..\Core\Core.csproj" />
+      <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+      <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Areas\Admin\Pages\News" />
+      <Folder Include="wwwroot\upload" />
+      <Folder Include="wwwroot\view-resources\views\shared" />
+      <Folder Include="wwwroot\view-resources\views\_bundles" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\lib\animate\animate.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\css\all.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-brands-400.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-brands-400.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-regular-400.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-regular-400.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-solid-900.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-v4compatibility.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-v4compatibility.woff2" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\jquery.validate.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\jquery.validate.unobtrusive.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\jquery.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\lity\lity.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\lity\lity.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\swiper\swiper-bundle.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\swiper\swiper-bundle.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\toastr\toastr.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\toastr\toastr.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\custom.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\dark.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\style.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\css\fonts.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\lists\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\lists\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\lists\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\lists\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\8.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\blog\images\categories\9.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\construction.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\blog\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\blog\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\blog\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\blog\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\blog\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\10.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\11.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\12.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\13.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\14.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\15.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\16.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\17.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\18.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\19.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\20.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\21.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\8.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\clients\9.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\10.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\11.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\12.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\8.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\9.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\10.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\11.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\12.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\8.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\gallery\thumbs\9.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\icons\bank.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\icons\building.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\icons\drawer.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\icons\paint-brush.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\icons\paper-money.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\icons\traffic-cone.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\logo.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\logo@2x.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\marker.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\projects\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\projects\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\projects\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\projects\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\projects\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\projects\6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\projects\7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\projects\8.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\services\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\services\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\services\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\services\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\services\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\services\bottom-trust.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\services\parallax.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\slider\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\slider\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\team\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\team\2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\team\3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\team\4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\team\5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\videos\1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\videos\1.mp4" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\videos\1.webm" />
+      <_ContentIncludedByDefault Remove="wwwroot\assets\demos\finance\images\hero-22\1.png" />
+    </ItemGroup>
+
+</Project>

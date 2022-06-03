@@ -1,0 +1,30 @@
+[
+  {
+    "outputFileName": "wwwroot/admin/css/bundle.min.css",
+    "inputFiles": [
+      "wwwroot/admin/css/adminlte.min.css",
+      "wwwroot/admin/plugins/toastr-2.1.3/toastr.min.css",
+      "wwwroot/admin/plugins/bootstrap-4.6.1/css/bootstrap.min.css",
+      "wwwroot/admin/plugins/ekko-lightbox/ekko-lightbox.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/admin/js/bundle.min.js",
+    "inputFiles": [
+      "wwwroot/admin/plugins/jquery-3.6.0/jquery-3.6.0.min.js",
+      "wwwroot/admin/plugins/jquery-validation-1.19.3/jquery.validate.min.js",
+      "wwwroot/admin/plugins/bootstrap-4.6.1/js/bootstrap.bundle.min.js",
+      "wwwroot/admin/plugins/toastr-2.1.3/toastr.min.js",
+      "wwwroot/admin/js/adminlte.min.js",
+      "wwwroot/admin/js/demo.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  }
+]

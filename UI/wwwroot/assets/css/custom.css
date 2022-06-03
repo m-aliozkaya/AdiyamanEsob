@@ -1,0 +1,134 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+
+#header { background-color: #a2d2ff; color: #08488D; }
+
+#header-wrap { background-color: #FFF; }
+
+.booked-bl-simple-city{
+	font-size: 15px;
+}
+
+.mega-menu-style-2{
+	max-width: 900px;
+}
+
+.header-wrap-clone{
+	height: 100px;
+}
+
+.play-icon {
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	color:  #EEE;
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 1px;
+	font-weight: 500;
+}
+
+.play-icon i {
+	position: relative;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.85);
+	text-align: center;
+	line-height: 28px;
+	color: #222;
+	padding: 1px 0 0 3px;
+	font-size: 10px;
+	margin-right: 5px;
+}
+
+/* ----------------------------------------------------------------
+	Canvas: Finance
+-----------------------------------------------------------------*/
+
+:root {
+	--themecolor: #264653;
+	--themecolorrgba: 38, 70, 83;
+	--secondarycolor: #E9C46A;
+	--secondarycolorrgba: 233, 196, 106;
+}
+
+.color-2,
+.h-color-2:hover { color: var(--secondarycolor, #E9C46A) !important; }
+
+.bg-color-2,
+.h-bg-color-2:hover { background-color: var(--secondarycolor, #E9C46A) !important; }
+
+
+.services-grid .feature-box {
+	padding: 2rem;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: .5rem;
+	border: 1px solid var(--secondarycolor);
+}
+
+.services-grid .feature-box:hover {
+	background-size: cover;
+}
+
+.hover-button {
+	display: block;
+	margin-top: 20px;
+	font-weight: 600;
+}
+
+.dark .hover-button { color: #FFF; }
+
+.services-grid .feature-box { background-color: var(--themecolor); }
+
+.dark .services-grid .feature-box .fbox-icon i { background-color: rgba(255,255,255,0.15); }
+
+
+.services-grid .feature-box,
+.services-grid .feature-box .fbox-icon,
+.services-grid .feature-box .fbox-content,
+.hover-button  { transition: all .4s ease, border-color .0s ease; }
+
+@media (min-width: 992px) {
+	
+	.services-grid .feature-box {
+		padding: 3rem;
+		background-size: 0;
+		border: 1px solid rgba(255,255,255,0.1);
+	}
+
+	.services-grid .feature-box:hover {
+		transform: translateY(-6px);
+		border-color: var(--themecolor);
+	}
+
+	.services-grid .feature-box:not(:hover) .hover-button {
+		opacity: 0;
+		transform: translateY(-5px);
+	}
+
+	.services-grid .feature-box .fbox-icon,
+	.services-grid .feature-box .fbox-content {
+		transform: translateY(20px);
+	}
+
+	.services-grid .feature-box:hover .fbox-icon,
+	.services-grid .feature-box:hover .fbox-content { transform: translateY(0px); }
+
+	.dark .services-grid .feature-box:hover .fbox-icon i { background-color: #FFF; }
+}
+
+@media (max-width: 991.98px) {
+	.services-grid .feature-box .fbox-icon i { background-color: #FFF; }
+}
+
+h4.menu-title{
+	margin: 0;
+	padding: 14px 0;
+}

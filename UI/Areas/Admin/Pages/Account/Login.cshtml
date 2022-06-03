@@ -1,0 +1,63 @@
+﻿@page
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model UI.Areas.Admin.Pages.Account.Login
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Paneli</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
+    <link rel="stylesheet" href="/admin/css/adminlte.min.css"/>
+    <link rel="stylesheet" href="/admin/css/login.css"/>
+    <link rel="stylesheet" href="/lib/toastr/toastr.min.css"/>
+</head>
+
+<body>
+<div class="login-dark">
+    <form method="post">
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration">
+            <i class="icon ion-ios-locked-outline"></i>
+        </div>
+        <div class="form-group">
+            <input class="form-control"
+                   asp-for="Username"
+                   placeholder="Kullanıcı Adı"/>
+            <span class="text-danger" asp-validation-for="Username"></span>
+        </div>
+        <div class="form-group">
+            <input class="form-control"
+                   asp-for="Password"
+                   type="password"
+                   placeholder="Şifre"/>
+            <span class="text-danger" asp-validation-for="Password"></span>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">
+                Giriş Yap
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/toastr/toastr.min.js"></script>
+<partial name="_ValidationScriptsPartial"/>
+
+@if (ViewData["ErrorMessage"] is not null)
+{
+    <script>
+        toastr.error('@ViewData["ErrorMessage"]', '', {timeOut: 1500});
+    </script>
+}
+
+</body>
+</html>
