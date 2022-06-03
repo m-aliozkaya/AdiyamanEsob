@@ -11,8 +11,10 @@ public class ContentEntity : BaseEntity, IContentEntity
     
     public DateTime CreationDate { get; set; }
     
+    [MaxLength(MaxLength)]
     public string Title  { get; set; }
     
+    [MaxLength(MaxLength)]
     public string SeoUrl  { get; set; }
     
     public string Content  { get; set; }

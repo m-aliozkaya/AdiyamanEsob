@@ -10,7 +10,18 @@ public class EsobContext : DbContext
     {
     }
 
-    public DbSet<Book> Books { get; set; }
     public DbSet<User> Users { get; set; }
-    public DbSet<Author> Authors { get; set; }
+    public DbSet<AboutArticle> AboutArticles { get; set; }
+    public DbSet<Announcement> Announcements { get; set; }
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<Circular> Circulars { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
+    public DbSet<Faq> Faqs { get; set; }
+    public DbSet<News> News { get; set; }
+    public DbSet<Organization> Organizations { get; set; }
+    public DbSet<OrganizationMember> OrganizationMembers { get; set; }
+    public DbSet<Price> Prices { get; set; }
+    public DbSet<Project> Projects { get; set; }
+    public DbSet<Room> Rooms { get; set; }
+    public DbSet<Video> Videos { get; set; }
 }
