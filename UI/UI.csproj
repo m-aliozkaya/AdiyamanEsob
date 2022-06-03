@@ -25,37 +25,15 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.161" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Areas\Admin\Pages\News" />
       <Folder Include="wwwroot\upload" />
-      <Folder Include="wwwroot\view-resources\views\shared" />
-      <Folder Include="wwwroot\view-resources\views\_bundles" />
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\lib\animate\animate.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\css\bootstrap.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\js\bootstrap.bundle.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\css\all.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-brands-400.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-brands-400.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-regular-400.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-regular-400.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-solid-900.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-v4compatibility.ttf" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\font-awesome\webfonts\fa-v4compatibility.woff2" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\jquery.validate.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\jquery.validate.unobtrusive.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\jquery.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\lity\lity.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\lity\lity.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\swiper\swiper-bundle.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\swiper\swiper-bundle.min.js" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\toastr\toastr.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\lib\toastr\toastr.min.js" />
       <_ContentIncludedByDefault Remove="wwwroot\css\custom.css" />
       <_ContentIncludedByDefault Remove="wwwroot\css\dark.css" />
       <_ContentIncludedByDefault Remove="wwwroot\css\style.css" />
