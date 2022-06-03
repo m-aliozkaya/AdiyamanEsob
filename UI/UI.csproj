@@ -139,4 +139,12 @@
       <_ContentIncludedByDefault Remove="wwwroot\assets\demos\finance\images\hero-22\1.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="Web.config">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

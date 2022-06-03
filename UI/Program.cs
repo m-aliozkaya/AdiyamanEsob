@@ -7,6 +7,8 @@ using DataAccess.Context;
 using Entities;
 using Entities.Dto;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +28,10 @@ builder.Services.AddDbContextPool<EsobContext>(options =>
 builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeAreaFolder("Admin", "/");
+    options.Conventions.AddAreaFolderApplicationModelConvention("Admin", "/", x =>
+    {
+        x.Filters.Add(new RequestSizeLimitAttribute(524288000));
+    });
 });
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
