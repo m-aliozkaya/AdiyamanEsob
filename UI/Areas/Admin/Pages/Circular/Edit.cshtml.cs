@@ -53,14 +53,14 @@ public class Edit : PageModel
     {
         if (Circular.Id > 0)
         {
-            await FileHelper.UpdateFileAsync(UploadFile, "circular", Circular.File);
-            Circular.File = UploadFile.FileName;
+            var result = await FileHelper.UpdateFileAsync(UploadFile, "circular", Circular.File);
+            Circular.File= result.Data;
             await _circularService.UpdateAsync(Circular);
         }
         else
         {
-            await FileHelper.UploadFileAsync(UploadFile, "circular");
-            Circular.File = UploadFile.FileName;
+            var result=await FileHelper.UploadFileAsync(UploadFile, "circular");
+            Circular.File = result.Data;
             await _circularService.AddAsync(Circular);
         }
 

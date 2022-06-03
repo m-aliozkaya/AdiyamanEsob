@@ -8,14 +8,14 @@ public static class FileHelper
 {
     private const string UploadPath = "wwwroot/upload/";
     
-    public static async Task<IResult> UploadFileAsync(IFormFile file, string path)
+    public static async Task<IDataResult<string>> UploadFileAsync(IFormFile file, string path)
     {
         if (file == null || file.Length == 0)  
-            return new ErrorResult("Dosya seçilmedi");
-  
+            return new ErrorDataResult<string>("Dosya seçilmedi");
+        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
         var filePath = Path.Combine(  
             Directory.GetCurrentDirectory(), UploadPath,
-            path, file.FileName);
+            path, fileName);
 
         var fileInfo = new FileInfo(filePath);
 
@@ -27,10 +27,10 @@ public static class FileHelper
         await using var stream = fileInfo.Create();
         await file.CopyToAsync(stream);
 
-        return new SuccessResult();
+        return new SuccessDataResult<string>(data:fileName);
     }
 
-    public static async Task<IResult> UpdateFileAsync(IFormFile file, string path, string oldPath)
+    public static async Task<IDataResult<string>> UpdateFileAsync(IFormFile file, string path, string oldPath)
     {
         DeleteFile(path, oldPath);
 
