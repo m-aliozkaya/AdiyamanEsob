@@ -1,0 +1,40 @@
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Project.Edit
+
+@{
+    ViewData["Title"] = "Proje Düzenle";
+}
+
+<form class="col-md-8 container" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Project.Id"/>
+    <input type="hidden" asp-for="Project.Image"/>
+    <h1 class="mb-5 mt-2">Proje @ViewData["ActionName"]</h1>
+    <div class="form-group">
+        <label asp-for="Project.Title"></label>
+        <input asp-for="Project.Title" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Project.Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Project.Content"></label>
+        <textarea asp-for="Project.Content" class="form-control"></textarea>
+        <span class="text-danger" asp-validation-for="Project.Content"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UploadFile" class="d-block"></label>
+        <input type="file" accept="image/*" asp-for="UploadFile"/>
+        <span class="text-danger" asp-validation-for="UploadFile"></span>
+    </div>
+    @if (!string.IsNullOrEmpty(Model.Project.Image))
+    {
+        <div class="form-group">
+            <label asp-for="Project.Image"></label>
+        <img alt="Avatar" class="img-fluid" src="/upload/project/@Model.Project.Image" />
+        </div>
+    }
+    <div class="row m-0">
+        <a href="/admin/project/" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            @ViewData["ActionName"]
+        </button>
+    </div>
+</form>
