@@ -1,0 +1,27 @@
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Faq.Edit
+
+@{
+    ViewData["Title"] = "SSS " + ViewData["ActionName"];
+}
+
+<form class="col-md-8 container" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Faq.Id"/>
+    <h1 class="mb-5 mt-2">Genelge @ViewData["ActionName"]</h1>
+    <div class="form-group">
+        <label asp-for="Faq.Title"></label>
+        <input asp-for="Faq.Title" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Faq.Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Faq.Content"></label>
+        <textarea asp-for="Faq.Content" class="form-control"></textarea>
+        <span class="text-danger" asp-validation-for="Faq.Content"></span>
+    </div>
+    <div class="row m-0">
+        <a href="/admin/faq/" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            @ViewData["ActionName"]
+        </button>
+    </div>
+</form>

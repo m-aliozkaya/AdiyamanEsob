@@ -19,6 +19,9 @@ namespace Business.DependencyResolvers
 
             builder.RegisterType<AboutArticleManager>().As<IAboutArticleService>();
             builder.RegisterType<EfAboutArticleDal>().As<IAboutArticleDal>();
+
+            builder.RegisterType<FaqManager>().As<IFaqService>();
+            builder.RegisterType<EfFaqDal>().As<IFaqDal>();
         }
     }
 }
