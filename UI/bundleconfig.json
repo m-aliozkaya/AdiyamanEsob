@@ -5,7 +5,8 @@
       "wwwroot/admin/css/adminlte.min.css",
       "wwwroot/admin/plugins/toastr-2.1.3/toastr.min.css",
       "wwwroot/admin/plugins/bootstrap-4.6.1/css/bootstrap.min.css",
-      "wwwroot/admin/plugins/ekko-lightbox/ekko-lightbox.css"
+      "wwwroot/admin/plugins/ekko-lightbox/ekko-lightbox.css",
+      "wwwroot/admin/css/custom.css"
     ],
     "minify": {
       "enabled": true,

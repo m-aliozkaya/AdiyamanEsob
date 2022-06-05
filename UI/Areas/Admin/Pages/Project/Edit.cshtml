@@ -25,7 +25,11 @@
             </div>
         </div>
     }
-
+    <div class="form-group">
+        <label asp-for="UploadFile" class="d-block"></label>
+        <input type="file" accept="image/*" asp-for="UploadFile" value="/upload/project/@Model.Project.Image" onchange="loadFile(event, 'outputImage')"/>
+        <span class="text-danger" asp-validation-for="UploadFile"></span>
+    </div>
     <div class="form-group">
         <label asp-for="Project.Title"></label>
         <input asp-for="Project.Title" class="form-control"/>
@@ -33,15 +37,9 @@
     </div>
     <div class="form-group">
         <label asp-for="Project.Content"></label>
-        <textarea asp-for="Project.Content" class="form-control"></textarea>
+        <textarea asp-for="Project.Content" class="form-control editor"></textarea>
         <span class="text-danger" asp-validation-for="Project.Content"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="UploadFile" class="d-block"></label>
-        <input type="file" accept="image/*" asp-for="UploadFile" value="/upload/project/@Model.Project.Image" onchange="loadFile(event, 'outputImage')"/>
-        <span class="text-danger" asp-validation-for="UploadFile"></span>
-    </div>
-
     <div class="row m-0">
         <a href="/admin/project/" class="btn btn-secondary ml-auto">Geri Dön</a>
         <button type="submit" class="btn btn-success ml-2">
@@ -69,8 +67,19 @@
             output.src = "";
             output.parentElement.classList.add("d-none");
         }
-
     };
+    $(function () {
+            let allEditors = document.querySelectorAll('.editor');
+            for (let i = 0; i < allEditors.length; ++i) {
+                ClassicEditor
+                    .create(allEditors[i])
+                    .then(editor => {
+                        window.editor = editor;
+                    })
+                    .catch(error => {
+                    });
+            }
+        });
 </script>
 
 }
