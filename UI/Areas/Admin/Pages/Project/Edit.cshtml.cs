@@ -29,6 +29,7 @@ public class Edit : PageModel
         if (id.HasValue)
         {
             Project = _projectService.GetAsync(id.Value).Result.Data;
+            
             ViewData["ActionName"] = "Düzenle";
         }
         else
