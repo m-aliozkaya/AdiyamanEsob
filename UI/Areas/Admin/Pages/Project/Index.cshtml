@@ -1,75 +1,101 @@
 @page
+@using Core.Utilities.Extensions
 @model UI.Areas.Admin.Pages.Project.Index
 
 <section class="content">
     <!-- Default box -->
     <div class="d-flex justify-content-end mb-4">
-        <a href="/admin/project/edit" class="btn btn-success">Yeni Genelge Ekle</a>
+        <a href="/admin/project/edit" class="btn btn-success">Yeni Proje Ekle</a>
     </div>
+        @if (Model.Projects.Count <= 0)
+        {
+            <div class="alert alert-danger">Proje bulunamadı.</div>
+        }
+        else
+        {
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <b class="text-danger">Projeler</b>
+                    </h3>
+                </div>
 
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                <b class="text-danger">Afişler</b>
-            </h3>
-        </div>
-        <div class="card-body p-0">
-            <table class="table table-striped projects table-responsive">
-                <thead>
-                <tr>
-                    <th style="width: 200px" class="text-center">
-                        Title
-                    </th>
-                    <th style="width: 6%" class="text-center">
-                        Content
-                    </th>
-                    <th style="width: 150px" class="text-center">
-                        Image
-                    </th>
-                    <th style="width: 10%">
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
+                <div class="card-body p-0 table-responsive">
 
-                @foreach (var item in Model.Projects)
-                {
-                    <tr>
-                        <td class="align-middle">
-                            @item.Title
-                            <br/>
-                        </td>
-                        <td class="align-middle">
-                            @item.Content
-                            <br/>
-                        </td>
-                        <td class="zoom-gallery d-flex justify-content-center">
-                            @if (!string.IsNullOrEmpty(item.Image))
-                            {
-                                    <a data-toggle="lightbox" href="/upload/project/@item.Image">
-                                        <img alt="Avatar" class="img-fluid" src="/upload/project/@item.Image" style="height:75px" asp-append-version="true">
+                    <table class="table table-striped projects">
+                        <thead>
+                        <tr>
+                            <th style="width: 150px" class="text-center">
+                                Proje İsmi
+                            </th>
+                            <th style="width: 300px" class="text-center">
+                                İçerik
+                            </th>
+                            <th style="width: 150px" class="text-center">
+                                Resim
+                            </th>
+                            <th style="width: 10%">
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach (var item in Model.Projects)
+                        {
+                            <tr>
+                                <td class="align-middle">
+                                    @item.Title
+                                    <br/>
+                                </td>
+                                <td class="align-middle">
+                                    @item.Content.ShortText()
+                                    <br/>
+                                </td>
+                                <td class="zoom-gallery d-flex justify-content-center">
+                                    @if (!string.IsNullOrEmpty(item.Image))
+                                    {
+                                        <a data-toggle="lightbox" href="/upload/project/@item.Image">
+                                            <img alt="Avatar" class="img-fluid" src="/upload/project/@item.Image" style="height:75px" asp-append-version="true">
+                                        </a>
+                                        <br/>
+                                    }
+                                </td>
+                                <td class="project-actions text-right align-middle text-center" style="min-width:300px">
+                                    <a class="btn btn-info btn-sm" href="/admin/project/edit/@item.Id">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Düzenle
                                     </a>
-                                    <br />
-                            }
-                        </td>
-                        <td class="project-actions text-right align-middle text-center" style="min-width:300px">
-                            <a class="btn btn-info btn-sm" href="/admin/project/edit/@item.Id">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Edit
-                            </a>
-                            <a class="btn btn-danger btn-sm" href="/admin/project/del/@item.Id">
-                                <i class="fas fa-trash">
-                                </i>
-                                delete
-                            </a>
-                        </td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-        </div>
-        <!-- /.card-body -->
-    </div>
+                                    <a class="btn btn-danger btn-sm" href="/admin/project/delete/@item.Id">
+                                        <i class="fas fa-trash">
+                                        </i>
+                                        Sil
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+
+                </div>
+        
+                <!-- /.card-body -->
+            </div>
+            }
     <!-- /.card -->
 </section>
+
+@section Scripts{
+    <script src="~/admin/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+
+    <script>
+    $(function () {
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+          alwaysShowClose: true
+        });
+      });
+    })
+</script>
+}
