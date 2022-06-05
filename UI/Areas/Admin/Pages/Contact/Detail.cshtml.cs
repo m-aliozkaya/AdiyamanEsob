@@ -16,12 +16,13 @@ public class Detail : PageModel
     public Entities.Entity.Contact Contact { get; set; }
     public async Task<IActionResult> OnGet(int id)
     {
-       Contact=(await _contactService.GetByIdAsync(id)).Data;
-        if (Contact==null)
+        Contact = (await _contactService.GetByIdAsync(id)).Data;
+        if (Contact == null)
         {
             return RedirectToPage("Index");
         }
+        Contact.IsRead= true;
+        await _contactService.UpdateAsync(Contact);
         return Page();
-       return Page();
     }
 }

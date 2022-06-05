@@ -37,7 +37,9 @@
                                     {
                                         <tr>
                                             <td class="mailbox-star align-middle">
-                                                <label class="badge badge-primary">New</label>
+                                                @if(!item.IsRead){
+                                                    <label class="badge badge-primary">New</label>
+                                                }
                                             </td>
                                             <td class="mailbox-name align-middle" style="min-width:175px">@item.Name</td>
                                             <td class="mailbox-subject align-middle" style="min-width:250px; width:500px">
