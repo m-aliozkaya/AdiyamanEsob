@@ -137,6 +137,7 @@
       <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\videos\1.mp4" />
       <_ContentIncludedByDefault Remove="wwwroot\assets\demos\construction\images\videos\1.webm" />
       <_ContentIncludedByDefault Remove="wwwroot\assets\demos\finance\images\hero-22\1.png" />
+      
     </ItemGroup>
 
     <ItemGroup>
