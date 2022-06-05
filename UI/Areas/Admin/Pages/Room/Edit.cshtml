@@ -2,30 +2,12 @@
 @model UI.Areas.Admin.Pages.Room.Edit
 
 @{
-    ViewData["Title"] = "Oda Düzenle";
+    ViewData["Title"] = "Oda " + ViewData["ActionName"];
 }
 
 <form class="col-md-8 container" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="Room.Id"/>
     <h1 class="mb-5 mt-2">Oda @ViewData["ActionName"]</h1>
-
-    <div class="form-group">
-        <label asp-for="Room.IsCentre"></label>
-        <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" asp-for="Room.IsCentre" onchange=" 
-                                                                                                                          if ($(this).is(':checked')) {
-                                                                                                                               $('#Room_IsCentre_Message').Text='Aktif';
-                                                                                                                           } else {
-                                                                                                                               $('#Room_IsCentre_Message').Text='Pasif';
-                                                                                                                           }
-                                                                                                       ">
-            <label class="custom-control-label" for="Room_IsCentre" id="Room_IsCentre_Message"></label>
-
-
-        </div>
-
-        <span class="text-danger" asp-validation-for="Room.IsCentre"></span>
-    </div>
     <div class="form-group">
         <label asp-for="Room.Title"></label>
         <input asp-for="Room.Title" class="form-control"/>
@@ -60,6 +42,12 @@
         <label asp-for="Room.Website"></label>
         <input asp-for="Room.Website" class="form-control"/>
         <span class="text-danger" asp-validation-for="Room.Website"></span>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+            @Html.CheckBoxFor(model => model.Room.IsCentre, new { @class = "custom-control-input", @id = "customSwitch2" })
+            <label class="custom-control-label" for="customSwitch2">Merkez Mi</label>
+        </div>
     </div>
     <div class="row m-0">
         <a href="/admin/room/" class="btn btn-secondary ml-auto">Geri Dön</a>

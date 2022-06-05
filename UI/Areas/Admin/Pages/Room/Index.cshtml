@@ -1,5 +1,9 @@
-@page
+@page "{isCentre:bool?}"
 @model UI.Areas.Admin.Pages.Room.Index
+
+@{
+    ViewData["Title"] = ViewData["RoomType"] + " Odalar";
+}
 
 <section class="content">
     <!-- Default box -->
@@ -7,107 +11,76 @@
         <a href="/admin/room/edit" class="btn btn-success">Yeni Oda Ekle</a>
     </div>
 
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                <b class="text-danger">Odalar</b>
-            </h3>
-        </div>
-        <div class="card-body p-0">
-            <table class="table table-striped projects table-responsive">
-                <thead>
-                <tr>
-                    <th style="width: 200px" class="text-center">
-                        IsCentre
-                    </th>
-                    <th style="width: 200px" class="text-center">
-                        Title
-                    </th>
-                    <th style="width: 6%" class="text-center">
-                        Leader
-                    </th>
-                    <th style="width: 150px" class="text-center">
-                        Secretary
-                    </th>
-                    <th style="width: 150px" class="text-center">
-                        Address
-                    </th>
-                    <th style="width: 150px" class="text-center">
-                        Phone
-                    </th>
-                    <th style="width: 150px" class="text-center">
-                        Fax
-                    </th>
-                    <th style="width: 150px" class="text-center">
-                        Website
-                    </th>
-
-                    <th style="width: 10%">
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-
-                @foreach (var item in Model.Rooms)
-                {
+    @if (Model.Rooms.Count <= 0)
+    {
+        <div class="alert alert-danger">@ViewData["RoomType"] Oda bulunamadı.</div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <b class="text-danger">@ViewData["RoomType"] Odalar</b>
+                </h3>
+            </div>
+            <div class="card-body p-0 table-responsive">
+                <table class="table table-striped projects">
+                    <thead>
                     <tr>
-                        <td class="project-state align-middle">
-                            @if (item.IsCentre)
-                            {
-                                <span class="badge badge-success">Aktif</span>
-                            }
-                            else
-                            {
-                                <span class="badge badge-danger">Aktif değil</span>
-                            }
-                        </td>
-                        <td class="align-middle">
-                            @item.Title
-                            <br/>
-                        </td>
-                        <td class="align-middle">
-                            @item.Leader
-                            <br/>
-                        </td>
-                        <td class="align-middle">
-                            @item.Secretary
-                            <br/>
-                        </td>
-                        <td class="align-middle">
-                            @item.Address
-                            <br/>
-                        </td>
-                        <td class="align-middle">
-                            @item.Phone
-                            <br/>
-                        </td>
-                        <td class="align-middle">
-                            @item.Fax
-                            <br/>
-                        </td>
-                        <td class="align-middle">
-                            @item.Website
-                            <br/>
-                        </td>
-
-                        <td class="project-actions text-right align-middle text-center" style="min-width:300px">
-                            <a class="btn btn-info btn-sm" href="/admin/room/edit/@item.Id">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Edit
-                            </a>
-                            <a class="btn btn-danger btn-sm" href="/admin/room/delete/@item.Id">
-                                <i class="fas fa-trash">
-                                </i>
-                                Delete
-                            </a>
-                        </td>
+                        <th>
+                            Oda Başlığı
+                        </th>
+                        <th>
+                            Oda Başkanı
+                        </th>
+                        <th>
+                            Oda Sekreteri
+                        </th>
+                        <th style="width: 10%">
+                        </th>
                     </tr>
-                }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+
+                    @foreach (var item in Model.Rooms)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                @item.Title
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.Leader
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.Secretary
+                                <br/>
+                            </td>
+                            <td class="project-actions text-right align-middle text-center" style="min-width:300px">
+                                <a class="btn btn-primary btn-sm" href="/admin/room/detail/@item.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Detaylı Gör
+                                </a>
+                                <a class="btn btn-info btn-sm" href="/admin/room/edit/@item.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Düzenle
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="/admin/room/delete/@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
+        <!-- /.card -->
+    }
 </section>
