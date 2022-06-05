@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@ViewData["Title"]</title>
-    <link href="~/admin/css/bundle.min.css" rel="stylesheet">
+    <link href="~/admin/css/bundle.min.css" asp-append-version="true" rel="stylesheet">
     @await RenderSectionAsync("Styles", required: false)
 
     <!-- IonIcons -->
@@ -90,6 +90,7 @@ to get the desired effect
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                         
                             <a href="/admin/room/edit" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Oda Ekle</p>
@@ -111,38 +112,37 @@ to get the desired effect
                             <a href="/admin/room?isCentre=false" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Şubeleri Göster</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="fas fa-handshake nav-icon"></i>
+                        <i class="fas fa-address-card nav-icon"></i>
                         <p>
-                            Hizmetler
+                            Hakkımızda Yazıları
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/admin/service/addService" class="nav-link">
+                            <a href="/admin/aboutArticle/edit" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Hizmet Ekle</p>
+                                <p>Hakkımızda Yazısı Ekle</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/service" class="nav-link">
+                            <a href="/admin/aboutArticle" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Hizmetler</p>
+                                <p>Hakkımızda Yazıları</p>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
+
                         <i class="nav-icon fas fa-edit"></i>
                         <p>
                             Haberler
+
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -245,7 +245,10 @@ to get the desired effect
 </div>
 
 <!-- ./wrapper -->
-<script src="~/admin/js/bundle.min.js"></script>
+
+<script src="~/admin/js/bundle.min.js" asp-append-version="true"></script>
+<partial name="_ValidationScriptsPartial"/>
+
 @await RenderSectionAsync("Scripts", required: false)
 
 </body>

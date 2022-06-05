@@ -19,6 +19,12 @@ namespace Business.DependencyResolvers
 
             builder.RegisterType<RoomManager>().As<IRoomService>();
             builder.RegisterType<EfRoomDal>().As<IRoomDal>();
+
+            builder.RegisterType<ProjectManager>().As<IProjectService>();
+            builder.RegisterType<EfProjectDal>().As<IProjectDal>();
+            
+            builder.RegisterType<AboutArticleManager>().As<IAboutArticleService>();
+            builder.RegisterType<EfAboutArticleDal>().As<IAboutArticleDal>();
         }
     }
 }

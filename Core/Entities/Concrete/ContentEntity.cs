@@ -11,14 +11,22 @@ public class ContentEntity : BaseEntity, IContentEntity
     
     public DateTime CreationDate { get; set; }
     
+    [Required]
     [MaxLength(MaxLength)]
     public string Title  { get; set; }
     
     [MaxLength(MaxLength)]
     public string SeoUrl  { get; set; }
     
+    [Required]
     public string Content  { get; set; }
     
+    [Required]
     [MaxLength(MaxLength)]
     public string Description { get; set; }
+
+    public ContentEntity()
+    {
+        CreationDate = DateTime.Now;
+    }
 }

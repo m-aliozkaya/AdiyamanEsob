@@ -7,6 +7,7 @@ public interface ICircularService
 {
     Task<IDataResult<Circular>> GetAsync(int id);
     Task<IDataResult<List<Circular>>> GetListAsync();
+    Task<IDataResult<List<Circular>>> GetListAsync(int? year);
     Task<IDataResult<Circular>> AddAsync(Circular circular);
     Task<IDataResult<Circular>> UpdateAsync(Circular circular);
     Task<IDataResult<Circular>> DeleteAsync(int id);
