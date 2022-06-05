@@ -16,6 +16,9 @@ namespace Business.DependencyResolvers
 
             builder.RegisterType<CircularManager>().As<ICircularService>();
             builder.RegisterType<EfCircularDal>().As<ICircularDal>();
+
+            builder.RegisterType<AboutArticleManager>().As<IAboutArticleService>();
+            builder.RegisterType<EfAboutArticleDal>().As<IAboutArticleDal>();
         }
     }
 }
