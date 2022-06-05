@@ -1,0 +1,31 @@
+﻿@page "{id:int}"
+@model UI.Areas.Admin.Pages.AboutArticle.Detail
+
+@{
+    ViewData["Title"] = "A";
+}
+
+<div class="container col-md-8">
+    <section>
+        <div class="container section-padding pb-0">
+            <div id="blog-detail">
+                <div class="blog-header mb-4">
+                    <h1 class="mb-0 date">@Model.AboutArticle.Title</h1>
+                    <div class="text-muted">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        @Model.AboutArticle.CreationDate.ToShortDateString()
+                    </div>
+                </div>
+                <p>
+                    @Html.Raw(Model.AboutArticle.Content)
+                </p>
+            </div>
+            <div class="row m-0">
+                <a href="/admin/aboutArticle" class="btn btn-secondary ml-auto">Geri Dön</a>
+                <a href="/admin/aboutArticle/edit/@Model.AboutArticle.Id" class="btn btn-success ml-2">
+                    Düzenle
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
