@@ -1,0 +1,70 @@
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Room.Edit
+
+@{
+    ViewData["Title"] = "Oda Düzenle";
+}
+
+<form class="col-md-8 container" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Room.Id"/>
+    <h1 class="mb-5 mt-2">Oda @ViewData["ActionName"]</h1>
+
+    <div class="form-group">
+        <label asp-for="Room.IsCentre"></label>
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" asp-for="Room.IsCentre" onchange=" 
+                                                                                                                          if ($(this).is(':checked')) {
+                                                                                                                               $('#Room_IsCentre_Message').Text='Aktif';
+                                                                                                                           } else {
+                                                                                                                               $('#Room_IsCentre_Message').Text='Pasif';
+                                                                                                                           }
+                                                                                                       ">
+            <label class="custom-control-label" for="Room_IsCentre" id="Room_IsCentre_Message"></label>
+
+
+        </div>
+
+        <span class="text-danger" asp-validation-for="Room.IsCentre"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Title"></label>
+        <input asp-for="Room.Title" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Leader"></label>
+        <input asp-for="Room.Leader" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Leader"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Secretary"></label>
+        <input asp-for="Room.Secretary" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Secretary"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Address"></label>
+        <input asp-for="Room.Address" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Address"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Phone"></label>
+        <input asp-for="Room.Phone" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Phone"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Fax"></label>
+        <input asp-for="Room.Fax" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Fax"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Website"></label>
+        <input asp-for="Room.Website" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Website"></span>
+    </div>
+    <div class="row m-0">
+        <a href="/admin/room/" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            @ViewData["ActionName"]
+        </button>
+    </div>
+</form>
