@@ -1,76 +1,115 @@
-﻿@page
+﻿@page "{year:int?}"
 @model UI.Areas.Admin.Pages.Circular.Index
 
 <section class="content">
+    <!-- Button trigger modal -->
+
     <!-- Default box -->
     <div class="d-flex justify-content-end mb-4">
+        <a href="/admin/circular" class="btn btn-warning mr-2">
+            Tüm Genelgeleri Göster
+        </a>
+        <a href="#" class="btn btn-primary mr-2" data-toggle="modal" data-target="#filterYear">
+            Yıla göre filtrele
+        </a>
         <a href="/admin/circular/edit" class="btn btn-success">Yeni Genelge Ekle</a>
     </div>
 
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">
-                <b class="text-danger">Afişler</b>
-            </h3>
-        </div>
-        <div class="card-body p-0">
-            <table class="table table-striped projects table-responsive">
-                <thead>
-                <tr>
-                    <th style="width: 200px" class="text-center">
-                        Title
-                    </th>
-                    <th style="width: 6%" class="text-center">
-                        Year
-                    </th>
-                    <th style="width: 150px" class="text-center">
-                        File
-                    </th>
-                    <th style="width: 10%">
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-
-                @foreach (var item in Model.Circulars)
-                {
+    @if (Model.Circulars.Count <= 0)
+    {
+        <div class="alert alert-danger">@ViewData["YearInfo"] Genelge bulunamadı.</div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <b class="text-danger">Genelgeler</b>
+                </h3>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects table-responsive">
+                    <thead>
                     <tr>
-                        <td class="align-middle">
-                            @item.Title
-                            <br/>
-                        </td>
-                        <td class="align-middle">
-                            @item.Year
-                            <br/>
-                        </td>
-                        <td class="zoom-gallery d-flex justify-content-center">
-                            @if (!string.IsNullOrEmpty(item.File))
-                            {
-                                <div class="form-group">
-                                    <a class="btn btn-primary btn-sm" href="/upload/circular/@item.File" target="_blank">
-                                        Yüklü dosyayı göster
-                                    </a>
-                                </div>
-                            }
-                        </td>
-                        <td class="project-actions text-right align-middle text-center" style="min-width:300px">
-                            <a class="btn btn-info btn-sm" href="/admin/circular/edit/@item.Id">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Edit
-                            </a>
-                            <a class="btn btn-danger btn-sm" href="/admin/circular/delete/@item.Id">
-                                <i class="fas fa-trash">
-                                </i>
-                                Delete
-                            </a>
-                        </td>
+                        <th style="width: 200px" class="text-center">
+                            Title
+                        </th>
+                        <th style="width: 6%" class="text-center">
+                            Year
+                        </th>
+                        <th style="width: 150px" class="text-center">
+                            File
+                        </th>
+                        <th style="width: 10%">
+                        </th>
                     </tr>
-                }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+
+                    @foreach (var item in Model.Circulars)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                @item.Title
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.Year
+                                <br/>
+                            </td>
+                            <td class="zoom-gallery d-flex justify-content-center">
+                                @if (!string.IsNullOrEmpty(item.File))
+                                {
+                                    <div class="form-group">
+                                        <a class="btn btn-primary btn-sm" href="/upload/circular/@item.File" target="_blank">
+                                            Yüklü dosyayı göster
+                                        </a>
+                                    </div>
+                                }
+                            </td>
+                            <td class="project-actions text-right align-middle text-center" style="min-width:300px">
+                                <a class="btn btn-info btn-sm" href="/admin/circular/edit/@item.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="/admin/circular/delete/@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
+        <!-- /.card -->
+    }
+
+    <!-- Modal -->
+    <div class="modal fade" id="filterYear" tabindex="-1" role="dialog" aria-labelledby="filterYearLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterYearLabel">Yıllara Göre Filtrele</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="get">
+                    <div class="modal-body">
+                        <label asp-for="YearFilter" class=""></label>
+                        <input type="number" value="@Model.YearFilter" name="year" class="form-control"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Filtrele</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <!-- /.card -->
 </section>

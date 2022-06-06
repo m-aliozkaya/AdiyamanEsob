@@ -14,14 +14,14 @@ public class CircularManager : ICircularService
     {
         _circularDal = circularDal;
     }
-    
+
     public async Task<IDataResult<Circular>> GetAsync(int id)
     {
         var result = await _circularDal.GetAsync(x => x.Id == id);
 
         if (result is not null)
         {
-            return new SuccessDataResult<Circular>(result); 
+            return new SuccessDataResult<Circular>(result);
         }
 
         return new ErrorDataResult<Circular>();
@@ -30,6 +30,21 @@ public class CircularManager : ICircularService
     public async Task<IDataResult<List<Circular>>> GetListAsync()
     {
         var result = await _circularDal.GetAllAsync();
+        return new SuccessDataResult<List<Circular>>(result);
+    }
+
+    public async Task<IDataResult<List<Circular>>> GetListAsync(int? year)
+    {
+        List<Circular> result;
+        if (!year.HasValue)
+        {
+            result = await _circularDal.GetAllAsync();
+        }
+        else
+        {
+            result = await _circularDal.GetAllAsync(x => x.Year == year);
+        }
+
         return new SuccessDataResult<List<Circular>>(result);
     }
 
@@ -42,7 +57,7 @@ public class CircularManager : ICircularService
     public async Task<IDataResult<Circular>> UpdateAsync(Circular circular)
     {
         if (circular is null) return new ErrorDataResult<Circular>();
-        
+
         await _circularDal.UpdateAsync(circular);
         return new SuccessDataResult<Circular>(circular);
     }
@@ -50,9 +65,9 @@ public class CircularManager : ICircularService
     public async Task<IDataResult<Circular>> DeleteAsync(int id)
     {
         var result = await GetAsync(id);
-        
+
         if (!result.Success) return new ErrorDataResult<Circular>();
-        
+
         await _circularDal.DeleteAsync(result.Data);
         return new SuccessDataResult<Circular>(result.Data);
     }

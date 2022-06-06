@@ -2,8 +2,6 @@
 
 namespace Entities.Entity;
 
-public class AboutArticle : BaseEntity
+public class AboutArticle : ContentEntity
 {
-    public string Title { get; set; }
-    public string Content { get; set; }
 }

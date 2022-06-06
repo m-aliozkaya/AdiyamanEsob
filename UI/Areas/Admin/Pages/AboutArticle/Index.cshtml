@@ -1,0 +1,111 @@
+﻿@page
+@model UI.Areas.Admin.Pages.AboutArticle.Index
+
+@{
+    ViewData["Title"] = "Hakkımızda Yazıları";
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="d-flex justify-content-end mb-4">
+        <a href="/admin/aboutArticle/edit" class="btn btn-success">Yeni Hakkımızda Yazısı Ekle</a>
+    </div>
+
+    @if (Model.AboutArticles.Count <= 0)
+    {
+        <div class="alert alert-danger">Hakkımızda yazısı bulunamadı.</div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <b class="text-danger">Hakkımızda Yazıları</b>
+                </h3>
+            </div>
+            <div class="card-body p-0 table-responsive">
+                <table class="table table-striped projects">
+                    <thead>
+                    <tr>
+                        <th style="width: 150px">
+                            Başlık
+                        </th>
+                        <th style="width: 50px">
+                            Oluşturulma Tarihi
+                        </th>
+                        <th style="width: 250px" class="text-center">
+                            Açıklama
+                        </th>
+                        <th style="width: 100px" class="text-center">
+                            Durum
+                        </th>
+                        <th style="width: 50px">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach (var item in Model.AboutArticles)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                @item.Title
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.CreationDate.ToShortDateString()
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.Description
+                                <br/>
+                            </td>
+                            <td class="project-state align-middle">
+                                @if (item.IsActive)
+                                {
+                                    <span class="badge badge-success">Aktif</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">Aktif değil</span>
+                                }
+                            </td>
+                            <td class="project-actions text-right align-middle text-center" style="min-width:300px">
+                                <a class="btn btn-primary btn-sm" href="/admin/aboutArticle/detail/@item.Id">
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    Detaylı Gör
+                                </a>
+                                <a class="btn btn-info btn-sm" href="/admin/aboutArticle/edit/@item.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Düzenle
+                                </a>
+                                @if (item.IsActive)
+                                {
+                                    <a class="btn btn-secondary btn-sm" href="/admin/aboutArticle/changeStatus/@item.Id">
+                                        Deaktive et
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success btn-sm" href="/admin/aboutArticle/changeStatus/@item.Id">
+                                        Aktifleştir
+                                    </a>
+                                }
+                                <a class="btn btn-danger btn-sm" href="/admin/aboutArticle/delete/@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    }
+</section>

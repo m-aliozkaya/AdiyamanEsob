@@ -1,0 +1,58 @@
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Room.Edit
+
+@{
+    ViewData["Title"] = "Oda " + ViewData["ActionName"];
+}
+
+<form class="col-md-8 container" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Room.Id"/>
+    <h1 class="mb-5 mt-2">Oda @ViewData["ActionName"]</h1>
+    <div class="form-group">
+        <label asp-for="Room.Title"></label>
+        <input asp-for="Room.Title" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Leader"></label>
+        <input asp-for="Room.Leader" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Leader"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Secretary"></label>
+        <input asp-for="Room.Secretary" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Secretary"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Address"></label>
+        <input asp-for="Room.Address" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Address"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Phone"></label>
+        <input asp-for="Room.Phone" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Phone"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Fax"></label>
+        <input asp-for="Room.Fax" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Fax"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Room.Website"></label>
+        <input asp-for="Room.Website" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Room.Website"></span>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+            @Html.CheckBoxFor(model => model.Room.IsCentre, new { @class = "custom-control-input", @id = "customSwitch2" })
+            <label class="custom-control-label" for="customSwitch2">Merkez Mi</label>
+        </div>
+    </div>
+    <div class="row m-0">
+        <a href="/admin/room/" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            @ViewData["ActionName"]
+        </button>
+    </div>
+</form>

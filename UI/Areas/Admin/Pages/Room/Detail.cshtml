@@ -1,0 +1,52 @@
+﻿@page "{id:int}"
+@model UI.Areas.Admin.Pages.Room.Detail
+
+@{
+    ViewData["Title"] = "Oda Detayı";
+}
+
+<div class="container col-md-8">
+    <section>
+        <div class="container section-padding pb-0">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0 date">@Model.Room.Title</h3>
+                    @if (Model.Room.IsCentre)
+                    {
+                        <span class="badge badge-danger">Merkez Oda</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-secondary">Şube</span>
+                    }
+                </div>
+                <div class="card-body">
+                    <p>
+                        <span class="h6">Başkanı:</span> @Model.Room.Leader
+                    </p>
+                    <p>
+                        <span class="h6">Sekreteri:</span> @Model.Room.Secretary
+                    </p>
+                    <p>
+                        <span class="h6">Adresi:</span> @Model.Room.Address
+                    </p>
+                    <p>
+                        <span class="h6">Numarası:</span> @Model.Room.Phone
+                    </p>
+                    <p>
+                        <span class="h6">Fax Numarası:</span> @Model.Room.Fax
+                    </p>
+                    <p>
+                        <span class="h6">Websitesi:</span> @Model.Room.Website
+                    </p>
+                </div>
+            </div>
+            <div class="row m-0">
+                <a href="/admin/room" class="btn btn-secondary ml-auto">Geri Dön</a>
+                <a href="/admin/room/edit/@Model.Room.Id" class="btn btn-success ml-2">
+                    Düzenle
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

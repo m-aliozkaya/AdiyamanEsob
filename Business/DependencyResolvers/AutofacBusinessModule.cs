@@ -21,7 +21,15 @@ namespace Business.DependencyResolvers
             builder.RegisterType<EfContactDal>().As<IContactDal>();
 
             builder.RegisterType<MailManager>().As<IMailService>();
+           
+            builder.RegisterType<RoomManager>().As<IRoomService>();
+            builder.RegisterType<EfRoomDal>().As<IRoomDal>();
+
+            builder.RegisterType<ProjectManager>().As<IProjectService>();
+            builder.RegisterType<EfProjectDal>().As<IProjectDal>();
             
+            builder.RegisterType<AboutArticleManager>().As<IAboutArticleService>();
+            builder.RegisterType<EfAboutArticleDal>().As<IAboutArticleDal>();
         }
     }
 }

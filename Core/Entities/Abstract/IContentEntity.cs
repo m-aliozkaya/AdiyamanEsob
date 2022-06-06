@@ -7,5 +7,4 @@ public interface IContentEntity : IPassivable
     string SeoUrl  { get; set; }
     string Content  { get; set; }
     string Description { get; set; }
-
 }
