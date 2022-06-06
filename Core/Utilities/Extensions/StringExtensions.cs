@@ -4,7 +4,7 @@ namespace Core.Utilities.Extensions;
 
 public static class StringExtensions
 {
-    public static string ShortText(this string text, int length = 150)
+    public static string ShortText(this string text, int length = 250)
     {
         return text.Substring(0, Math.Min(text.Length, length)) + "...";
     }

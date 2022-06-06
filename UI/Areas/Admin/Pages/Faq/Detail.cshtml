@@ -1,0 +1,27 @@
+﻿@page "{id:int}"
+@model UI.Areas.Admin.Pages.Faq.Detail
+
+@{
+    ViewData["Title"] = @Model.Faq.Title + " Detay";
+}
+
+<div class="container col-md-8">
+    <section>
+        <div class="container section-padding pb-0">
+            <div id="blog-detail">
+                <div class="blog-header mb-4">
+                    <h1 class="mb-0 date">@Model.Faq.Title</h1>
+                </div>
+                <p>
+                    @Html.Raw(Model.Faq.Content)
+                </p>
+            </div>
+            <div class="row m-0">
+                <a href="/admin/faq" class="btn btn-secondary ml-auto">Geri Dön</a>
+                <a href="/admin/faq/edit/@Model.Faq.Id" class="btn btn-success ml-2">
+                    Düzenle
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

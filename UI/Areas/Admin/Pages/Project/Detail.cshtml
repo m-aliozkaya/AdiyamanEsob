@@ -1,0 +1,28 @@
+﻿@page "{id:int}"
+@model UI.Areas.Admin.Pages.Project.Detail
+
+@{
+    ViewData["Title"] = @Model.Project.Title + " Detay";
+}
+
+<div class="container col-md-8">
+    <section>
+        <div class="container section-padding pb-0">
+            <div id="blog-detail">
+                <div class="blog-header mb-4">
+                    <h1 class="mb-0 date mb-2">@Model.Project.Title</h1>
+                    <img src="/upload/project/@Model.Project.Image" class="img-fluid" alt="@Model.Project.Title"/>
+                </div>
+                <p>
+                    @Html.Raw(Model.Project.Content)
+                </p>
+            </div>
+            <div class="row m-0">
+                <a href="/admin/project" class="btn btn-secondary ml-auto">Geri Dön</a>
+                <a href="/admin/project/edit/@Model.Project.Id" class="btn btn-success ml-2">
+                    Düzenle
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
