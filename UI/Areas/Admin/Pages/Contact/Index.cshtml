@@ -19,7 +19,13 @@
 </section>
 <!-- Main content -->
 <section class="content">
-    <div class="row">
+    @if (Model.Contacts.Count <= 0)
+    {
+        <div class="alert alert-danger">Mesaj bulunamadı.</div>
+    }
+    else
+    {
+        <div class="row">
         <!-- /.col -->
         <div class="col-md-12 container">
             <div class="card card-primary card-outline">
@@ -28,38 +34,33 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body p-0">
-                    @if (Model.Contacts.Count > 0)
-                    {
-                        <div class="table-responsive mailbox-messages">
-                            <table class="table table-hover table-striped">
-                                <tbody>
-                                    @foreach (var item in Model.Contacts)
-                                    {
-                                        <tr>
-                                            <td class="mailbox-star align-middle">
-                                                @if(!item.IsRead){
-                                                    <label class="badge badge-primary">New</label>
-                                                }
-                                            </td>
-                                            <td class="mailbox-name align-middle" style="min-width:175px">@item.Name</td>
-                                            <td class="mailbox-subject align-middle" style="min-width:250px; width:500px">
-                                                @(item.Message[..Math.Min(item.Message.Length, 150)])...
-                                            </td>
-                                            <td class="mailbox-date text-sm align-middle text-center" style="min-width:175px">@item.Date.ToString("d MMMM yyyy")</td>
-                                            <td class="align-middle">
-                                                <a href="/admin/contact/detail/@item.Id" class="btn btn-info btn-sm">Görüntüle</a>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                            <!-- /.table -->
+                    <div class="table-responsive mailbox-messages">
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                            @foreach (var item in Model.Contacts)
+                            {
+                                <tr>
+                                    <td class="mailbox-star align-middle">
+                                        @if (!item.IsRead)
+                                        {
+                                            <label class="badge badge-primary">New</label>
+                                        }
+                                    </td>
+                                    <td class="mailbox-name align-middle" style="min-width:175px">@item.Name</td>
+                                    <td class="mailbox-subject align-middle" style="min-width:250px; width:500px">
+                                        @(item.Message[..Math.Min(item.Message.Length, 150)])...
+                                    </td>
+                                    <td class="mailbox-date text-sm align-middle text-center" style="min-width:175px">@item.Date.ToString("d MMMM yyyy")</td>
+                                    <td class="align-middle">
+                                        <a href="/admin/contact/detail/@item.Id" class="btn btn-info btn-sm">Görüntüle</a>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                        <!-- /.table -->
                     </div>
-                    }
-                    else
-                    {
-                        <div class="alert alert-danger">Mesaj bulunamadı.</div>
-                    }
+
                     <!-- /.mail-box-messages -->
                 </div>
                 <!-- /.card-body -->
@@ -68,5 +69,7 @@
         </div>
         <!-- /.col -->
     </div>
+    }
+    
     <!-- /.row -->
 </section>
