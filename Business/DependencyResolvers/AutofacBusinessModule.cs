@@ -17,6 +17,17 @@ namespace Business.DependencyResolvers
             builder.RegisterType<CircularManager>().As<ICircularService>();
             builder.RegisterType<EfCircularDal>().As<ICircularDal>();
 
+            builder.RegisterType<ContactManager>().As<IContactService>();
+            builder.RegisterType<EfContactDal>().As<IContactDal>();
+
+            builder.RegisterType<MailManager>().As<IMailService>();
+           
+            builder.RegisterType<RoomManager>().As<IRoomService>();
+            builder.RegisterType<EfRoomDal>().As<IRoomDal>();
+
+            builder.RegisterType<ProjectManager>().As<IProjectService>();
+            builder.RegisterType<EfProjectDal>().As<IProjectDal>();
+            
             builder.RegisterType<AboutArticleManager>().As<IAboutArticleService>();
             builder.RegisterType<EfAboutArticleDal>().As<IAboutArticleDal>();
 

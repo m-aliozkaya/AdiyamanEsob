@@ -6,10 +6,11 @@ namespace Entities.Entity;
 
 public class Circular : BaseEntity
 {
+    [DisplayName("Genelge Yılı")]
     public int Year { get; set; }
     
     [Required]
-    [DisplayName("İsim")]
+    [DisplayName("Genelge Başlığı")]
     public string Title { get; set; }
     public string File { get; set; }
 }

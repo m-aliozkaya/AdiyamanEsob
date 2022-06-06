@@ -1,0 +1,41 @@
+﻿@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Contact.Detail
+
+@{
+    ViewData["Title"] = "Mesaj Detayı";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- /.col -->
+            <div class="col-md-9 container">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">Mesaj İçeriği</h3>
+                        <div class="card-tools">
+                            <a href="/admin/contact" class="btn btn-primary">Gelen Kutusuna Dön</a>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0">
+                        <div class="mailbox-read-info">
+                            <span class="mailbox-read-time float-right">@Model.Contact.Date.ToString("d MMMM yyyy")</span>
+                            <h6>Gönderen: @Model.Contact.Name</h6>
+                            <h6>Telefon: @Model.Contact.Phone</h6>
+                            <h6>Email: @Model.Contact.Email</h6>
+                        </div>
+                        <div class="mailbox-read-message">
+                            <p>@Model.Contact.Message</p>
+                        </div>
+                        <!-- /.mailbox-read-message -->
+                    </div>
+                    <!-- /.card-footer -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>

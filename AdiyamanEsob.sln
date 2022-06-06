@@ -1,16 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{DC7C8F39-9B07-4E4E-8729-CDE8B3C8B99D}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{DC7C8F39-9B07-4E4E-8729-CDE8B3C8B99D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{8D30126D-A57B-43A7-B49B-25F6807237F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{8D30126D-A57B-43A7-B49B-25F6807237F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{AA5B4DE5-E839-4A25-99C6-EDF195E513AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{AA5B4DE5-E839-4A25-99C6-EDF195E513AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A94B5271-EAE0-4D91-8C97-2AFECF8D1482}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{6EA883F6-C735-4C10-9FFD-03BB5E1156E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{6EA883F6-C735-4C10-9FFD-03BB5E1156E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{98E10A70-AC22-4A3E-8D22-68866F5886AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{98E10A70-AC22-4A3E-8D22-68866F5886AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,11 +42,17 @@ Global
 		{98E10A70-AC22-4A3E-8D22-68866F5886AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98E10A70-AC22-4A3E-8D22-68866F5886AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DC7C8F39-9B07-4E4E-8729-CDE8B3C8B99D} = {A94B5271-EAE0-4D91-8C97-2AFECF8D1482}
 		{8D30126D-A57B-43A7-B49B-25F6807237F6} = {A94B5271-EAE0-4D91-8C97-2AFECF8D1482}
 		{AA5B4DE5-E839-4A25-99C6-EDF195E513AD} = {A94B5271-EAE0-4D91-8C97-2AFECF8D1482}
 		{6EA883F6-C735-4C10-9FFD-03BB5E1156E3} = {A94B5271-EAE0-4D91-8C97-2AFECF8D1482}
 		{98E10A70-AC22-4A3E-8D22-68866F5886AB} = {A94B5271-EAE0-4D91-8C97-2AFECF8D1482}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF0D848F-232F-4B4B-AD71-BEB495AEC1FB}
 	EndGlobalSection
 EndGlobal
