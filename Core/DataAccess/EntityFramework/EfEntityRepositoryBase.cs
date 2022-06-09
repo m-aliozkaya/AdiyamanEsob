@@ -30,6 +30,13 @@ namespace Core.DataAccess.EntityFramework
             await Context.SaveChangesAsync();
         }
 
+        public async Task<int> GetCountAsync(Expression<Func<TEntity, bool>> filter = null)
+        {
+            return filter == null
+                ? await Context.Set<TEntity>().CountAsync()
+                : await Context.Set<TEntity>().CountAsync(filter);
+        }
+
         public async Task UpdateAsync(TEntity entity)
         {
             var updatedEntity = Context.Entry(entity);

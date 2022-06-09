@@ -1,26 +1,27 @@
-@page
+﻿@page "{currentPage:int=1}"
 @using Core.Utilities.Extensions
-@model UI.Areas.Admin.Pages.Project.Index
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model UI.Areas.Admin.Pages.News.Index
 
 @{
-    ViewData["Title"] = "Projeler";
+    ViewData["Title"] = "Haberler";
 }
 
 <section class="content">
     <!-- Default box -->
     <div class="d-flex justify-content-end mb-4">
-        <a href="/admin/project/edit" class="btn btn-success">Yeni Proje Ekle</a>
+        <a href="/admin/news/edit" class="btn btn-success">Yeni Haber Ekle</a>
     </div>
-    @if (Model.Projects.Count <= 0)
+    @if (Model.News.Count <= 0)
     {
-        <div class="alert alert-danger">Proje bulunamadı.</div>
+        <div class="alert alert-danger">Haber bulunamadı.</div>
     }
     else
     {
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
-                    <b class="text-danger">Projeler</b>
+                    <b class="text-danger">Haberler</b>
                 </h3>
             </div>
 
@@ -38,13 +39,15 @@
                         <th style="width: 150px" class="text-center">
                             Resim
                         </th>
+                        <th style="width: 150px" class="text-center">
+                            Durum
+                        </th>
                         <th style="width: 10%">
                         </th>
                     </tr>
                     </thead>
                     <tbody>
-
-                    @foreach (var item in Model.Projects)
+                    @foreach (var item in Model.News)
                     {
                         <tr>
                             <td class="align-middle">
@@ -58,24 +61,46 @@
                             <td class="zoom-gallery d-flex justify-content-center">
                                 @if (!string.IsNullOrEmpty(item.Image))
                                 {
-                                    <a data-toggle="lightbox" href="/upload/project/@item.Image">
-                                        <img alt="Avatar" class="img-fluid" src="/upload/project/@item.Image" style="height:75px" asp-append-version="true">
+                                    <a data-toggle="lightbox" href="/upload/news/small/@item.Image">
+                                        <img alt="Avatar" class="img-fluid" src="/upload/news/small/@item.Image" style="height:75px" asp-append-version="true">
                                     </a>
                                     <br/>
                                 }
                             </td>
+                            <td class="project-state align-middle">
+                                @if (item.IsActive)
+                                {
+                                    <span class="badge badge-success">Aktif</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">Aktif değil</span>
+                                }
+                            </td>
                             <td class="project-actions text-right align-middle text-center" style="min-width:300px">
-                                <a class="btn btn-primary btn-sm" href="/admin/project/detail/@item.Id">
+                                <a class="btn btn-primary btn-sm" href="/admin/news/detail/@item.SeoUrl">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Detay
                                 </a>
-                                <a class="btn btn-info btn-sm" href="/admin/project/edit/@item.Id">
+                                @if (item.IsActive)
+                                {
+                                    <a class="btn btn-secondary btn-sm" href="/admin/news/changeStatus/@item.Id">
+                                        Deaktive et
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success btn-sm" href="/admin/news/changeStatus/@item.Id">
+                                        Aktifleştir
+                                    </a>
+                                }
+                                <a class="btn btn-info btn-sm" href="/admin/news/edit/@item.Id">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Düzenle
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="/admin/project/delete/@item.Id">
+                                <a class="btn btn-danger btn-sm mt-2" href="/admin/news/delete/@item.Id">
                                     <i class="fas fa-trash">
                                     </i>
                                     Sil
@@ -85,18 +110,18 @@
                     }
                     </tbody>
                 </table>
-
             </div>
 
             <!-- /.card-body -->
         </div>
     }
     <!-- /.card -->
+    <paginator current-page="@Model.Paging.CurrentPage" link-url="admin/news" total-pages="@Model.Paging.TotalPages"></paginator>
 </section>
 
 @section Scripts{
     <script src="~/admin/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
-
+    
     <script>
     $(function () {
       $(document).on('click', '[data-toggle="lightbox"]', function(event) {
@@ -106,5 +131,14 @@
         });
       });
     })
-</script>
+    </script>
+    
+    <script src="/lib/toastr/toastr.min.js"></script>
+    
+    @if (TempData["ErrorMessage"] is not null)
+    {
+        <script>
+            toastr.error('@TempData["ErrorMessage"]', '', {timeOut: 1500});
+        </script>
+    }
 }

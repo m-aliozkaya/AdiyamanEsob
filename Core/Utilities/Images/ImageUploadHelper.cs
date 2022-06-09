@@ -2,81 +2,127 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Core.Utilities.Files;
+using Core.Utilities.Result.Abstract;
+using Core.Utilities.Result.Concrete;
 
 namespace Core.Utilities.Images;
 
 public static class ImageUploadHelper
 {
-    public static void CheckDirectory(string path)
+    private const string UploadPath = "wwwroot/upload/";
+
+    private static void CheckDirectory(string path)
     {
-        if (!Directory.Exists(path))
+        var fileInfo = new FileInfo(path);
+
+        if (fileInfo.Directory is { Exists: false })
         {
-            Directory.CreateDirectory(path);
+            fileInfo.Directory.Create();
         }
     }
 
-    public static async Task<string> UploadImage(IFormFile img, string path)
+    public static async Task<IDataResult<string>> UploadImage(IFormFile img, string path)
     {
-        CheckDirectory(path);
-
-        var fileName = Guid.NewGuid().ToString() + ".jpg";
-
-        var filePath = Path.Combine(path, fileName);
+        if (img == null || img.Length == 0)  
+            return new ErrorDataResult<string>("Dosya seçilmedi");
+        
+        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(img.FileName);
+        var filePath = Path.Combine(  
+            Directory.GetCurrentDirectory(), UploadPath,
+            path, fileName);
+        
+        CheckDirectory(filePath);
+        
         var image = await ImageHelper.Resize(img, 1024);
         ImageHelper.SaveImage(image, filePath);
 
-        return fileName;
+        return new SuccessDataResult<string>(data:fileName);
     }
 
-    public static async Task<string> UploadImage(IFormFile img, string path, int width, int height)
+    public static async Task<IDataResult<string>> UploadImage(IFormFile img, string path, int width, int height)
     {
-        CheckDirectory(path);
-
-        var fileName = Guid.NewGuid().ToString() + ".jpg";
-
-        var filePath = Path.Combine(path, fileName);
+        if (img == null || img.Length == 0)  
+            return new ErrorDataResult<string>("Dosya seçilmedi");
+        
+        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(img.FileName);
+        var filePath = Path.Combine(  
+            Directory.GetCurrentDirectory(), UploadPath,
+            path, fileName);
+        
+        CheckDirectory(filePath);
+        
         var image = await ImageHelper.Crop(img, width, height);
         ImageHelper.SaveImage(image, filePath);
 
-        return fileName;
+        return new SuccessDataResult<string>(data:fileName);
     }
 
-    public static async void UploadImage(IFormFile img, string path, string fileName, int width, int height)
+    public static async Task<IDataResult<string>> UploadResponsiveImages(IFormFile img, string path)
     {
-        CheckDirectory(path);
-
-        var filePath = Path.Combine(path, fileName);
-        var image = await ImageHelper.Crop(img, width, height);
-        ImageHelper.SaveImage(image, filePath);
+        if (img == null || img.Length == 0)  
+            return new ErrorDataResult<string>("Dosya seçilmedi");
+        
+        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(img.FileName);
+        
+        var mediumFilePath = Path.Combine(  
+            Directory.GetCurrentDirectory(), UploadPath,
+            path, "medium", fileName);
+        
+        var smallFilePath = Path.Combine(  
+            Directory.GetCurrentDirectory(), UploadPath,
+            path, "small", fileName);
+        
+        CheckDirectory(mediumFilePath);
+        CheckDirectory(smallFilePath);
+        
+        var mediumImage = await ImageHelper.Resize(img, 1024);
+        var smallImage = await ImageHelper.Resize(img, 350);
+        ImageHelper.SaveImage(mediumImage, mediumFilePath);
+        ImageHelper.SaveImage(smallImage, smallFilePath);
+        
+        return new SuccessDataResult<string>(data:fileName);
     }
-
-    public static async void UploadImage(IFormFile img, string path, string fileName)
+    public static async Task<IDataResult<string>> UploadResponsiveImages(IFormFile img, string path, int width, int height)
     {
-        CheckDirectory(path);
-
-        var filePath = Path.Combine(path, fileName);
-        var image = await ImageHelper.Resize(img, 1024);
-        ImageHelper.SaveImage(image, filePath);
-    }
-
-    public static async Task<string> UploadResponsiveImages(IFormFile img, string path, int width, int height)
-    {
-        var smallImgPath = Path.Combine(path, "small");
-        var mediumImgPath = Path.Combine(path, "medium");
-
-        var fileName = Guid.NewGuid().ToString() + ".jpg";
-
-        var smallImg = Path.Combine(smallImgPath, fileName);
-        var mediumImg = Path.Combine(mediumImgPath, fileName);
-
-        CheckDirectory(smallImgPath);
-        CheckDirectory(mediumImgPath);
+        if (img == null || img.Length == 0)  
+            return new ErrorDataResult<string>("Dosya seçilmedi");
+        
+        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(img.FileName);
+        
+        var mediumFilePath = Path.Combine(  
+            Directory.GetCurrentDirectory(), UploadPath,
+            path, fileName);
+        
+        var smallFilePath = Path.Combine(  
+            Directory.GetCurrentDirectory(), UploadPath,
+            path, fileName);
+        
+        CheckDirectory(mediumFilePath);
+        CheckDirectory(smallFilePath);
 
         var croppedImg = await ImageHelper.Crop(img, width, height);
         var resizedImg = await ImageHelper.Resize(croppedImg, 350);
-        ImageHelper.SaveImage(croppedImg, mediumImg);
-        ImageHelper.SaveImage(resizedImg, smallImg);
+        ImageHelper.SaveImage(croppedImg, mediumFilePath);
+        ImageHelper.SaveImage(resizedImg, smallFilePath);
+        
+        return new SuccessDataResult<string>(data:fileName);
+    }
+    
+    public static async Task<IDataResult<string>> UpdateImageAsync(IFormFile file, string path, string oldPath)
+    {
+        FileHelper.DeleteFile(path, oldPath);
+        return await UploadImage(file, path);
+    }
+    
+    public static async Task<IDataResult<string>> UpdateResponsiveImageAsync(IFormFile file, string path, string oldPath)
+    {
+        var mediumPath = Path.Combine(path, "medium");
+        FileHelper.DeleteFile(mediumPath, oldPath);
+        
+        var smallPath = Path.Combine(path, "small");
+        FileHelper.DeleteFile(smallPath, oldPath);
 
-        return fileName;
+        return await UploadResponsiveImages(file, path);
     }
 }

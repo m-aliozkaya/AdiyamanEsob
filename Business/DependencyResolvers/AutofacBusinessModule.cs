@@ -33,6 +33,9 @@ namespace Business.DependencyResolvers
 
             builder.RegisterType<FaqManager>().As<IFaqService>();
             builder.RegisterType<EfFaqDal>().As<IFaqDal>();
+
+            builder.RegisterType<NewsManager>().As<INewsService>();
+            builder.RegisterType<EfNewsDal>().As<INewsDal>();
         }
     }
 }
