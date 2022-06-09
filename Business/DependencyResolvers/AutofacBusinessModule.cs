@@ -39,6 +39,12 @@ namespace Business.DependencyResolvers
         
 			builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
 			builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
+		
+			builder.RegisterType<OrganizationManager>().As<IOrganizationService>();
+			builder.RegisterType<EfOrganizationDal>().As<IOrganizationDal>();
+		
+			builder.RegisterType<OrganizationManager>().As<IOrganizationService>();
+			builder.RegisterType<EfOrganizationDal>().As<IOrganizationDal>();
 		}
     }
 }
