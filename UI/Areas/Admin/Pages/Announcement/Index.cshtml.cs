@@ -23,7 +23,9 @@ public class Index : PageModel
     public async Task<IActionResult> OnGet(int currentPage)
     {
         var result = await _announcementService.GetAllByPage(RecordsPerPage, currentPage);
+
         Announcement = result.Data.Announcements;
+
 
         Paging = new PagingDto
         {

@@ -5,11 +5,14 @@ using Core.Utilities.Seo;
 using DataAccess.Abstract;
 using Entities.Dto;
 using Entities.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Concrete;
 
 public class AnnouncementManager : IAnnouncementService
 {
+    private const int HomeAnnouncementsCount = 5;
+
     private readonly IAnnouncementDal _announcementDal;
 
     public AnnouncementManager(IAnnouncementDal announcementDal)
@@ -91,5 +94,16 @@ public class AnnouncementManager : IAnnouncementService
 
         await _announcementDal.DeleteAsync(result.Data);
         return new SuccessDataResult<Announcement>(result.Data);
+    }
+
+    public async Task<IDataResult<List<Announcement>>> GetHomeAnnouncements()
+    {
+        // var result = await _announcementDal.GetQueryable()
+        //     .Where(x => x.IsActive == true)
+        //     .OrderByDescending(x => x.CreationDate)
+        //     .Take(HomeAnnouncementsCount).ToListAsync();
+        //
+        // return new SuccessDataResult<List<Announcement>>(result);
+        return new SuccessDataResult<List<Announcement>>(new List<Announcement>());
     }
 }
