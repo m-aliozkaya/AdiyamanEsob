@@ -45,6 +45,9 @@ namespace Business.DependencyResolvers
 		
 			builder.RegisterType<OrganizationManager>().As<IOrganizationService>();
 			builder.RegisterType<EfOrganizationDal>().As<IOrganizationDal>();
+		
+			builder.RegisterType<OrganizationMemberManager>().As<IOrganizationMemberService>();
+			builder.RegisterType<EfOrganizationMemberDal>().As<IOrganizationMemberDal>();
 		}
     }
 }

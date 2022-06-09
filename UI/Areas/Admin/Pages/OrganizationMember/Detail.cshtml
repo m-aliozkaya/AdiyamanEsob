@@ -1,0 +1,28 @@
+@page "{id:int}"
+@model UI.Areas.Admin.Pages.OrganizationMember.Detail
+
+@{
+    ViewData["Title"] = Model.OrganizationMember.Title + " Detay";
+}
+
+<div class="container col-md-8">
+    <section>
+        <div class="container section-padding pb-0">
+            <div id="blog-detail">
+                <div class="blog-header mb-4">
+                    <h1 class="mb-0 date mb-2">@Model.OrganizationMember.Title</h1>
+                    <img src="/upload/organizationmember/@Model.OrganizationMember.Image" class="img-fluid" alt="@Model.OrganizationMember.Title"/>
+                </div>
+                <p>
+                    @Model.OrganizationMember.Name
+                </p>
+            </div>
+            <div class="row m-0">
+                <a href="/admin/organizationmember" class="btn btn-secondary ml-auto">Geri Dön</a>
+                <a href="/admin/organizationmember/edit/@Model.OrganizationMember.Id" class="btn btn-success ml-2">
+                    Düzenle
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
