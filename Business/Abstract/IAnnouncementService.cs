@@ -18,4 +18,6 @@ public interface IAnnouncementService
     Task<IDataResult<Announcement>> UpdateAsync(Announcement announcement);
 
     Task<IDataResult<Announcement>> DeleteAsync(int id);
+
+    Task<IDataResult<List<Announcement>>> GetHomeAnnouncements();
 }
