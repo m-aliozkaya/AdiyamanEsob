@@ -8,4 +8,6 @@ public class Price : BaseEntity
     public DateTime DecisionDate { get; set; }
     public string Title { get; set; }
     public string Content { get; set; }
+    public int DecisionNumber { get; set; }
+
 }

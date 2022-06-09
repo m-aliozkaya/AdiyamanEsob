@@ -36,6 +36,11 @@ namespace Business.DependencyResolvers
 
             builder.RegisterType<NewsManager>().As<INewsService>();
             builder.RegisterType<EfNewsDal>().As<INewsDal>();
+
+            builder.RegisterType<PriceManager>().As<IPriceService>();
+            builder.RegisterType<EfPriceDal>().As<IPriceDal>();
+            
+            // Add Dependencies
         }
     }
 }

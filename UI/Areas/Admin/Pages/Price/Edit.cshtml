@@ -1,0 +1,83 @@
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Price.Edit
+
+@{
+    ViewData["Title"] = "Tarife " + ViewData["ActionName"];
+}
+
+@section Styles {
+    <link href="/lib/bootstrap/css/bootstrap-datepicker3.min.css" rel="stylesheet"/>
+}
+
+<form class="col-md-8 container" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Price.Id"/>
+    <h1 class="mb-5 mt-2">Oda @ViewData["ActionName"]</h1>
+    <div class="form-group">
+        <label asp-for="Price.Title"></label>
+        <input asp-for="Price.Title" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Price.Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price.Content"></label>
+        <textarea asp-for="Price.Content" class="form-control editor"></textarea>
+        <span class="text-danger" asp-validation-for="Price.Content"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price.DecisionNumber"></label>
+        <input asp-for="Price.DecisionNumber" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Price.DecisionNumber"></span>
+    </div>
+    <div class="form-group mb-4">
+        <div class="datepicker date input-group p-0 shadow-sm">
+            <input type="text" asp-for="DecisionDate" class="form-control datepicker">
+            <div class="input-group-append">
+                <span class="input-group-text px-4">
+                    <i class="fa fa-clock-o"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+            @Html.CheckBoxFor(model => model.Price.IsCentre, new {@class = "custom-control-input", @id = "customSwitch2"})
+            <label class="custom-control-label" for="customSwitch2">Merkez Mi</label>
+        </div>
+    </div>
+    <div class="row m-0">
+        <a href="/admin/price/" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            @ViewData["ActionName"]
+        </button>
+    </div>
+</form>
+
+@section scripts{
+
+    <script src="/admin/plugins/ck-editor-5/ckeditor.js"></script>
+    @* <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script> *@
+    <script src="/lib/bootstrap/js/bootstrap-datepicker.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+            clearBtn: true,
+            format: "dd/mm/yyyy"
+            });
+        });
+    </script>
+    <script>
+    $(function () {
+        let allEditors = document.querySelectorAll('.editor');
+        for (let i = 0; i < allEditors.length; ++i) {
+            ClassicEditor
+                .create(allEditors[i])
+                .then(editor => {
+                    window.editor = editor;
+                })
+                .catch(error => {
+                });
+        }
+    });
+</script>
+
+}
