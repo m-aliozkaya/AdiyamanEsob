@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
@@ -36,9 +36,6 @@ namespace Business.DependencyResolvers
 
             builder.RegisterType<NewsManager>().As<INewsService>();
             builder.RegisterType<EfNewsDal>().As<INewsDal>();
-        
-			builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
-			builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
-		}
+        }
     }
 }
