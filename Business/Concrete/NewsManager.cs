@@ -5,11 +5,14 @@ using Core.Utilities.Seo;
 using DataAccess.Abstract;
 using Entities.Dto;
 using Entities.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Concrete;
 
 public class NewsManager : INewsService
 {
+    private const int HomeNewsCount = 5;
+
     private readonly INewsDal _newsDal;
 
     public NewsManager(INewsDal newsDal)
@@ -91,5 +94,15 @@ public class NewsManager : INewsService
 
         await _newsDal.DeleteAsync(result.Data);
         return new SuccessDataResult<News>(result.Data);
+    }
+
+    public async Task<IDataResult<List<News>>> GetHomeNews()
+    {
+        var result = await _newsDal.GetQueryable()
+            .Where(x => x.IsActive == true)
+            .OrderByDescending(x => x.CreationDate)
+            .Take(HomeNewsCount).ToListAsync();
+
+        return new SuccessDataResult<List<News>>(result);
     }
 }

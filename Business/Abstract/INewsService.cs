@@ -18,4 +18,6 @@ public interface INewsService
     Task<IDataResult<News>> UpdateAsync(News news);
 
     Task<IDataResult<News>> DeleteAsync(int id);
+
+    Task<IDataResult<List<News>>> GetHomeNews();
 }

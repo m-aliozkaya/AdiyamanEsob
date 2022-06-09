@@ -49,7 +49,12 @@ public class Edit : PageModel
         if (News.Id > 0)
         {
             var result = await ImageUploadHelper.UpdateResponsiveImageAsync(UploadFile, "news", News.Image);
-            News.Image= result.Data;
+
+            if (result.Success)
+            {
+                News.Image= result.Data;
+            }
+            
             await _newsService.UpdateAsync(News);
         }
         else

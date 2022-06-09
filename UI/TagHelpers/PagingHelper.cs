@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace UI.TagHelpers;
 
-[HtmlTargetElement("paginator", Attributes = "total-pages, current-page, link-url")]
+[HtmlTargetElement("paginator", Attributes = "total-pages, current-page, link-url, custom-list-class")]
 public class PagingHelper : TagHelper
 {
     private const int LinksPerPage = 5;
@@ -13,6 +13,7 @@ public class PagingHelper : TagHelper
     private const string PageSelectedClass = "active";
     private const string PageDisabledClass = "disabled";
 
+    public string CustomListClass { get; set; }
     public int CurrentPage { get; set; }
     public int TotalPages { get; set; }
     public string LinkUrl { get; set; }
@@ -62,6 +63,12 @@ public class PagingHelper : TagHelper
 
         linkDiv.InnerHtml.AppendHtml(GeneratePageLinks("Son Sayfa", TotalPages));
         linkDiv.AddCssClass(PageListClass);
+
+        if (!string.IsNullOrEmpty(CustomListClass))
+        {
+            linkDiv.AddCssClass(CustomListClass);
+        }
+        
         outerDiv.InnerHtml.AppendHtml(linkDiv);
 
         output.TagName = "nav";

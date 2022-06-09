@@ -19,5 +19,6 @@ namespace Core.DataAccess
 
         Task DeleteAsync(T entity);
         Task<int> GetCountAsync(Expression<Func<T, bool>> filter = null);
+        IQueryable<T> GetQueryable();
     }
 }
