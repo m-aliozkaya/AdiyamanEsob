@@ -49,7 +49,16 @@ public class Edit : PageModel
         if (Announcement.Id > 0)
         {
             var result = await ImageUploadHelper.UpdateResponsiveImageAsync(UploadFile, "announcement", Announcement.Image);
+
             Announcement.Image= result.Data;
+
+
+            if (result.Success)
+            {
+                Announcement.Image= result.Data;
+            }
+            
+
             await _announcementService.UpdateAsync(Announcement);
         }
         else

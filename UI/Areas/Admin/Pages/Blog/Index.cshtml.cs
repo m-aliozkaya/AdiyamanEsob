@@ -3,29 +3,27 @@ using Entities.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace UI.Areas.Admin.Pages.Announcement;
+namespace UI.Areas.Admin.Pages.Blog;
 
 public class Index : PageModel
 {
-    private readonly IAnnouncementService _announcementService;
+    private readonly IBlogService _blogService;
     private const int RecordsPerPage = 6;
     public PagingDto Paging { get; set; }
     
     [TempData]
     public string ErrorMessage { get; set; }
     
-    public List<Entities.Entity.Announcement> Announcement { get; set; }
+    public List<Entities.Entity.Blog> Blog { get; set; }
     
-    public Index(IAnnouncementService announcementService)
+    public Index(IBlogService blogService)
     {
-        _announcementService = announcementService;
+        _blogService = blogService;
     }
     public async Task<IActionResult> OnGet(int currentPage)
     {
-        var result = await _announcementService.GetAllByPage(RecordsPerPage, currentPage);
-
-        Announcement = result.Data.Announcements;
-
+        var result = await _blogService.GetAllByPage(RecordsPerPage, currentPage);
+        Blog = result.Data.Blogs;
 
         Paging = new PagingDto
         {

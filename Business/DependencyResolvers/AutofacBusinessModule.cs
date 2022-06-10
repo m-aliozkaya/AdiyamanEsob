@@ -37,17 +37,23 @@ namespace Business.DependencyResolvers
             builder.RegisterType<NewsManager>().As<INewsService>();
             builder.RegisterType<EfNewsDal>().As<INewsDal>();
         
-			builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
-			builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
+			      builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
+			      builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
 		
-			builder.RegisterType<OrganizationManager>().As<IOrganizationService>();
-			builder.RegisterType<EfOrganizationDal>().As<IOrganizationDal>();
-		
-			builder.RegisterType<OrganizationManager>().As<IOrganizationService>();
-			builder.RegisterType<EfOrganizationDal>().As<IOrganizationDal>();
-		
-			builder.RegisterType<OrganizationMemberManager>().As<IOrganizationMemberService>();
-			builder.RegisterType<EfOrganizationMemberDal>().As<IOrganizationMemberDal>();
+			      builder.RegisterType<BlogManager>().As<IBlogService>();
+			      builder.RegisterType<EfBlogDal>().As<IBlogDal>();
+
+            builder.RegisterType<PriceManager>().As<IPriceService>();
+            builder.RegisterType<EfPriceDal>().As<IPriceDal>();
+            
+            builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
+			      builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
+            
+            builder.RegisterType<OrganizationMemberManager>().As<IOrganizationMemberService>();
+			      builder.RegisterType<EfOrganizationMemberDal>().As<IOrganizationMemberDal>();
+            // Add Dependencies
+        }   
+
 		}
-    }
+
 }

@@ -20,7 +20,12 @@
     {
       "library": "toastr.js@2.1.4",
       "destination": "wwwroot/lib/toastr/",
-      "files": ["toastr.min.css", "toastr.min.js"]
+      "files": [ "toastr.min.css", "toastr.min.js" ]
+    },
+    {
+      "library": "bootstrap-datepicker@1.9.0",
+      "destination": "wwwroot/lib/bootstrap/",
+      "files": [ "js/bootstrap-datepicker.js", "css/bootstrap-datepicker3.min.css" ]
     }
   ]
 }
