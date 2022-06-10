@@ -14,7 +14,7 @@ public class Edit : PageModel
     [BindProperty]
     public Entities.Entity.Video Video { get; set; }
 
-    [DisplayName("Dosya")]
+    [DisplayName("Video Resmi")]
     [Required]
     [BindProperty]
     public IFormFile UploadFile { get; set; }

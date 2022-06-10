@@ -64,19 +64,13 @@
                             <td class="align-middle">
                                 @if (!string.IsNullOrEmpty(item.VideoPath))
                                 {
-                                    <a data-toggle="lightbox" href="https://www.youtube.com/embed/@item.VideoPath">
-                                        <iframe asp-append-version="true" src="https://www.youtube.com/embed/@item.VideoPath" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-                                    </a>
+                                    <iframe asp-append-version="true" src="https://www.youtube.com/embed/@item.VideoPath" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
                                     <br/>
                                 }
 
                             </td>
                             <td class="video-actions text-right align-middle text-center" style="min-width:300px">
-                                <a class="btn btn-primary btn-sm" href="/admin/video/detail/@item.Id">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Detay
-                                </a>
                                 <a class="btn btn-info btn-sm" href="/admin/video/edit/@item.Id">
                                     <i class="fas fa-pencil-alt">
                                     </i>
@@ -115,3 +109,4 @@
     })
 </script>
 }
+
