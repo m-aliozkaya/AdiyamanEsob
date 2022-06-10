@@ -39,6 +39,9 @@ namespace Business.DependencyResolvers
         
 			builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
 			builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
+		
+			builder.RegisterType<SettingManager>().As<ISettingService>();
+			builder.RegisterType<EfSettingDal>().As<ISettingDal>();
 		}
     }
 }
