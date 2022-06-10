@@ -5,8 +5,8 @@
 }
 
 <form method="post" class="container col-md-8">
-    @Html.AntiForgeryToken()
     <h1 class="mb-5 mt-2">İletişim Ayarları</h1>
+    <input type="hidden" asp-for="Setting.Id" />
     <div class="form-group">
         <label asp-for="Setting.Facebook"></label>
         <input type="text" class="form-control" asp-for="Setting.Facebook" placeholder="Facebook sayfa linki">

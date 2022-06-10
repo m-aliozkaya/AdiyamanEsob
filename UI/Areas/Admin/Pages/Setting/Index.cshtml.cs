@@ -18,8 +18,17 @@ namespace UI.Areas.Admin.Pages.Setting
         public async Task<IActionResult> OnGet()
         {
             var result = await _settingService.GetByIdAsync(1);
-            Setting = result.Data;
+            
+            Setting = result.Data??new Entities.Entity.Setting();
             return Page();
+        }
+        public async Task<IActionResult> OnPost()
+        {
+            if(Setting.Id>0)
+                await _settingService.UpdateAsync(Setting);
+            else
+                await _settingService.AddAsync(Setting);
+            return Redirect("/admin");
         }
     }
 }
