@@ -1,0 +1,46 @@
+﻿@model List<Entities.Entity.Faq>
+
+<!-- Post Content
+============================================= -->
+<div class="postcontent col-lg-9">
+    <div id="faqs" class="faqs">
+
+        <div id="faqs-list" class="fancy-title title-bottom-border">
+            <h3>Sıkça Sorulan Sorular:</h3>
+        </div>
+
+        <ul class="iconlist faqlist">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <i class="icon-caret-right"></i>
+                    <strong>
+                        <a href="#" data-scrollto="#faq-@item.Id">@item.Title</a>
+                    </strong>
+                </li>
+            }
+
+        </ul>
+
+        <div class="divider">
+            <i class="icon-circle"></i>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <h3 id="faq-@item.Id">
+                <strong>Q.</strong> @item.Title
+            </h3>
+            <p>
+                @Html.Raw(item.Content)
+            </p>
+
+            <div class="divider divider-right">
+                <a href="#" data-scrollto="#faqs-list">
+                    <i class="icon-chevron-up"></i>
+                </a>
+            </div>
+        }
+
+    </div><!-- .postcontent end -->
+</div>
