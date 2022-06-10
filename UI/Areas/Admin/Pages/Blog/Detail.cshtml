@@ -1,0 +1,32 @@
+@page "{seoUrl}"
+@model UI.Areas.Admin.Pages.Blog.Detail
+
+@{
+    ViewData["Title"] = Model.Blog.Title + " Detay";
+}
+
+<div class="container col-md-8">
+    <section>
+        <div class="container section-padding pb-0">
+            <div id="blog-detail">
+                <div class="blog-header mb-4">
+                    <h1 class="mb-0 date mb-2">@Model.Blog.Title</h1>
+                    <div class="text-muted">
+                        <i class="far fa-calendar-alt mr-2"></i>
+                        @Model.Blog.CreationDate.ToShortDateString()
+                    </div>
+                    <img src="/upload/blog/medium/@Model.Blog.Image" class="img-fluid mt-2" alt="@Model.Blog.Title"/>
+                </div>
+                <p>
+                    @Html.Raw(Model.Blog.Content)
+                </p>
+            </div>
+            <div class="row m-0">
+                <a href="/admin/blog" class="btn btn-secondary ml-auto">Geri Dön</a>
+                <a href="/admin/blog/edit/@Model.Blog.Id" class="btn btn-success ml-2">
+                    Düzenle
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
