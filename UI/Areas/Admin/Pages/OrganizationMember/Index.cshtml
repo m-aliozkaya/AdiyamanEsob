@@ -1,5 +1,4 @@
-@page
-@using Core.Utilities.Extensions
+@page "{seoUrl}"
 @model UI.Areas.Admin.Pages.OrganizationMember.Index
 
 @{
@@ -9,18 +8,18 @@
 <section class="content">
     <!-- Default box -->
     <div class="d-flex justify-content-end mb-4">
-        <a href="/admin/organizationmember/edit" class="btn btn-success">Yeni Organizasyon Üyesi Ekle</a>
+        <a href="/admin/organizationmember/edit?OrganizationId=@Model.Organization.Id" class="btn btn-success">Yeni Üye Ekle</a>
     </div>
     @if (Model.OrganizationMembers.Count <= 0)
     {
-        <div class="alert alert-danger">Organizasyon Üyesi bulunamadı.</div>
+        <div class="alert alert-danger">@Model.Organization.Name Üyesi bulunamadı.</div>
     }
     else
     {
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">
-                    <b class="text-danger">Organizasyon Üyeleri</b>
+                    <b class="text-danger">@Model.Organization.Name Üyeleri</b>
                 </h3>
             </div>
 
@@ -29,13 +28,16 @@
                 <table class="table table-striped organizationmembers">
                     <thead>
                     <tr>
-                        <th style="width: 150px" class="text-center">
-                            Organizasyon Üyesi Başlığı
+                        <th>
+                            Üye Ünvanı
                         </th>
-                        <th style="width: 300px" class="text-center">
-                            Organizasyon Üyesi İsmi
+                        <th>
+                            Üye İsmi
                         </th>
-                        <th style="width: 150px" class="text-center">
+                        <th >
+                            Üye Başlığı
+                        </th>
+                        <th style="width: 150px">
                             Resim
                         </th>
                         <th style="width: 10%">
@@ -48,11 +50,15 @@
                     {
                         <tr>
                             <td class="align-middle">
-                                @item.Title
+                                @item.Degree
                                 <br/>
                             </td>
                             <td class="align-middle">
                                 @item.Name
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.Title
                                 <br/>
                             </td>
                             <td class="zoom-gallery d-flex justify-content-center">
@@ -65,11 +71,6 @@
                                 }
                             </td>
                             <td class="organizationmember-actions text-right align-middle text-center" style="min-width:300px">
-                                <a class="btn btn-primary btn-sm" href="/admin/organizationmember/detail/@item.Id">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Detay
-                                </a>
                                 <a class="btn btn-info btn-sm" href="/admin/organizationmember/edit/@item.Id">
                                     <i class="fas fa-pencil-alt">
                                     </i>

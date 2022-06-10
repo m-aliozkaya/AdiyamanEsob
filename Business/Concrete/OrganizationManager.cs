@@ -28,6 +28,18 @@ public class OrganizationManager : IOrganizationService
         return new ErrorDataResult<Organization>();
     }
 
+    public async Task<IDataResult<Organization>> GetAsync(string seoUrl)
+    {
+        var result = await _organizationDal.GetAsync(x => x.SeoUrl == seoUrl);
+
+        if (result is not null)
+        {
+            return new SuccessDataResult<Organization>(result); 
+        }
+
+        return new ErrorDataResult<Organization>();
+    }
+
     public async Task<IDataResult<List<Organization>>> GetListAsync()
     {
         var result = await _organizationDal.GetAllAsync();
@@ -45,6 +57,7 @@ public class OrganizationManager : IOrganizationService
     {
         if (organization is null) return new ErrorDataResult<Organization>();
         
+        organization.SeoUrl = SeoHelper.GetFriendlyTitle(organization.Name);
         await _organizationDal.UpdateAsync(organization);
         return new SuccessDataResult<Organization>(organization);
     }

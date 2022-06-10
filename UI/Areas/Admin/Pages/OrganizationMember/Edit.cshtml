@@ -1,4 +1,4 @@
-@page "{id:int?}"
+@page "{id:int?}/{organizationId:int?}"
 @model UI.Areas.Admin.Pages.OrganizationMember.Edit
 
 @{
@@ -31,9 +31,13 @@
         <span class="text-danger" asp-validation-for="UploadFile"></span>
     </div>
     <div class="form-group">
-        <label asp-for="OrganizationMember.Title"></label>
-        <input asp-for="OrganizationMember.Title" class="form-control"/>
-        <span class="text-danger" asp-validation-for="OrganizationMember.Title"></span>
+        <label>Organizasyon</label>
+        <select asp-for="OrganizationMember.OrganizationId" asp-items="Model.Options" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="OrganizationMember.Degree"></label>
+        <input asp-for="OrganizationMember.Degree" class="form-control editor"/>
+        <span class="text-danger" asp-validation-for="OrganizationMember.Degree"></span>
     </div>
     <div class="form-group">
         <label asp-for="OrganizationMember.Name"></label>
@@ -41,12 +45,12 @@
         <span class="text-danger" asp-validation-for="OrganizationMember.Name"></span>
     </div>
     <div class="form-group">
-        <label>Organizasyon</label>
-        @Html.DropDownListFor(m => m.OrganizationMember.OrganizationId, new SelectList(Model.Organizations, "Id", "Name"), new {@class = "form-control"})
-        <span class="text-danger" asp-validation-for="OrganizationMember.Name"></span>
+        <label asp-for="OrganizationMember.Title"></label>
+        <input asp-for="OrganizationMember.Title" class="form-control"/>
+        <span class="text-danger" asp-validation-for="OrganizationMember.Title"></span>
     </div>
     <div class="row m-0">
-        <a href="/admin/organizationmember/" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <a href="/admin/organizationmember/@ViewData["ReturnUrl"]" class="btn btn-secondary ml-auto">Geri Dön</a>
         <button type="submit" class="btn btn-success ml-2">
             @ViewData["ActionName"]
         </button>
