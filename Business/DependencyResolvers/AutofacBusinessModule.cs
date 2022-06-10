@@ -49,7 +49,10 @@ namespace Business.DependencyResolvers
             builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
 			      builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
             // Add Dependencies
-        }   
+        
+			builder.RegisterType<VideoManager>().As<IVideoService>();
+			builder.RegisterType<EfVideoDal>().As<IVideoDal>();
+		}   
 
 		}
 
