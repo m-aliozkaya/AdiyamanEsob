@@ -16967,3 +16967,6 @@ label.checkbox { padding-left: 20px; }
 	animation-name: fadeOutUpSmall;
 }
 
+#slider{
+	min-height: 550px!important;
+}
