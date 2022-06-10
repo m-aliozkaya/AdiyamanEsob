@@ -1,0 +1,47 @@
+@page "{id:int}"
+@using Core.Utilities.Extensions
+@model UI.Areas.Admin.Pages.Price.Detail
+
+@{
+    ViewData["Title"] = "Fiyat Detayı";
+}
+
+<div class="container col-md-8">
+    <section>
+        <div class="container section-padding pb-0">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0 date">@Model.Price.Title</h3>
+                    @if (Model.Price.IsCentre)
+                    {
+                        <span class="badge badge-danger">Merkez Tarifesi</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-secondary">İlçe Tarifesi</span>
+                    }
+                </div>
+                <div class="card-body">
+                    <p>
+                        <span class="h6">Başlığı:</span> @Model.Price.Title
+                    </p>
+                    <p>
+                        <span class="h6">İçeriği:</span> @Model.Price.Content.StripTags()
+                    </p>
+                    <p>
+                        <span class="h6">Karar Sayısı:</span> @Model.Price.DecisionNumber
+                    </p>
+                    <p>
+                        <span class="h6">Karar Tarihi:</span> @Model.Price.DecisionDate.ToShortDateString()
+                    </p>
+                </div>
+            </div>
+            <div class="row m-0">
+                <a href="/admin/price" class="btn btn-secondary ml-auto">Geri Dön</a>
+                <a href="/admin/price/edit/@Model.Price.Id" class="btn btn-success ml-2">
+                    Düzenle
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

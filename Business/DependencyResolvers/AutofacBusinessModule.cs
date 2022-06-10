@@ -37,11 +37,20 @@ namespace Business.DependencyResolvers
             builder.RegisterType<NewsManager>().As<INewsService>();
             builder.RegisterType<EfNewsDal>().As<INewsDal>();
         
-			builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
-			builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
+			      builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
+			      builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
 		
-			builder.RegisterType<BlogManager>().As<IBlogService>();
-			builder.RegisterType<EfBlogDal>().As<IBlogDal>();
+			      builder.RegisterType<BlogManager>().As<IBlogService>();
+			      builder.RegisterType<EfBlogDal>().As<IBlogDal>();
+
+            builder.RegisterType<PriceManager>().As<IPriceService>();
+            builder.RegisterType<EfPriceDal>().As<IPriceDal>();
+            
+            builder.RegisterType<AnnouncementManager>().As<IAnnouncementService>();
+			      builder.RegisterType<EfAnnouncementDal>().As<IAnnouncementDal>();
+            // Add Dependencies
+        }   
+
 		}
-    }
+
 }
