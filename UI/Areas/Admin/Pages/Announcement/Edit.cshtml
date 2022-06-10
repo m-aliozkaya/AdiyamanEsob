@@ -1,19 +1,19 @@
-﻿@page "{id:int?}"
-@model UI.Areas.Admin.Pages.News.Edit
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Announcement.Edit
 
 @{
-    ViewData["Title"] = "Haber " + ViewData["ActionName"];
+    ViewData["Title"] = "Duyuru " + ViewData["ActionName"];
 }
 
 <form class="col-md-8 container" method="post" enctype="multipart/form-data">
-    <input type="hidden" asp-for="News.Id"/>
-    <input type="hidden" asp-for="News.Image"/>
-    
-    @if (!string.IsNullOrEmpty(Model.News.Image))
+    <input type="hidden" asp-for="Announcement.Id"/>
+    <input type="hidden" asp-for="Announcement.Image"/>
+
+    @if (!string.IsNullOrEmpty(Model.Announcement.Image))
     {
         <div class="form-group">
             <div class="col-sm-6 p-0 mt-2">
-                <img src="/upload/news/medium/@Model.News.Image" id="outputImage" width="100%" alt="Image to upload"/>
+                <img src="/upload/announcement/medium/@Model.Announcement.Image" id="outputImage" width="100%" alt="Image to upload"/>
             </div>
         </div>
     }
@@ -25,35 +25,35 @@
             </div>
         </div>
     }
-    <h1 class="mb-5 mt-2">Haber @ViewData["ActionName"]</h1>
+    <h1 class="mb-5 mt-2">Duyuru @ViewData["ActionName"]</h1>
     <div class="form-group">
         <label asp-for="UploadFile" class="d-block"></label>
         <input type="file" asp-for="UploadFile" onchange="loadFile(event, 'outputImage')"/>
         <span class="text-danger" asp-validation-for="UploadFile"></span>
     </div>
     <div class="form-group">
-        <label asp-for="News.Title"></label>
-        <input asp-for="News.Title" class="form-control">
-        <span asp-validation-for="News.Title" class="text-danger"></span>
+        <label asp-for="Announcement.Title"></label>
+        <input asp-for="Announcement.Title" class="form-control">
+        <span asp-validation-for="Announcement.Title" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="News.Description"></label>
-        <textarea asp-for="News.Description" class="form-control"></textarea>
-        <span asp-validation-for="News.Description" class="text-danger"></span>
+        <label asp-for="Announcement.Description"></label>
+        <textarea asp-for="Announcement.Description" class="form-control"></textarea>
+        <span asp-validation-for="Announcement.Description" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="News.Content"></label>
-        <textarea asp-for="News.Content" class="form-control editor"></textarea>
-        <span asp-validation-for="News.Content" class="text-danger"></span>
+        <label asp-for="Announcement.Content"></label>
+        <textarea asp-for="Announcement.Content" class="form-control editor"></textarea>
+        <span asp-validation-for="Announcement.Content" class="text-danger"></span>
     </div>
     <div class="form-group">
         <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
-            @Html.CheckBoxFor(model => model.News.IsActive, new { @class = "custom-control-input", @id = "customSwitch2" })
+            @Html.CheckBoxFor(model => model.Announcement.IsActive, new { @class = "custom-control-input", @id = "customSwitch2" })
             <label class="custom-control-label" for="customSwitch2">Durum</label>
         </div>
     </div>
     <div class="row m-0">
-        <a href="/admin/news" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <a href="/admin/announcement" class="btn btn-secondary ml-auto">Geri Dön</a>
         <button type="submit" class="btn btn-success ml-2">
             @ViewData["ActionName"]
         </button>

@@ -55,5 +55,10 @@ namespace Core.DataAccess.EntityFramework
                 ? await Context.Set<TEntity>().ToListAsync()
                 : await Context.Set<TEntity>().Where(filter).ToListAsync();
         }
+
+        public  IQueryable<TEntity> GetQueryable()
+        {
+            return Context.Set<TEntity>();
+        }
     }
 }

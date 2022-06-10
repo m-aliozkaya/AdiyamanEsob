@@ -111,12 +111,18 @@ public static class ImageUploadHelper
     
     public static async Task<IDataResult<string>> UpdateImageAsync(IFormFile file, string path, string oldPath)
     {
+        if (file == null || file.Length == 0)  
+            return new ErrorDataResult<string>("Dosya seçilmedi");
+        
         FileHelper.DeleteFile(path, oldPath);
         return await UploadImage(file, path);
     }
     
     public static async Task<IDataResult<string>> UpdateResponsiveImageAsync(IFormFile file, string path, string oldPath)
     {
+        if (file == null || file.Length == 0)  
+            return new ErrorDataResult<string>("Dosya seçilmedi");
+        
         var mediumPath = Path.Combine(path, "medium");
         FileHelper.DeleteFile(mediumPath, oldPath);
         

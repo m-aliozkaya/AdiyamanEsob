@@ -1,0 +1,45 @@
+﻿@model List<Entities.Entity.News>
+
+<div class="col-lg-8 mb-5 mb-lg-0">
+    <section id="slider" class="slider-element swiper_wrapper" style="height: 100%;">
+        <div class="slider-inner">
+
+            <div class="swiper-container swiper-parent">
+                <div class="swiper-wrapper">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide dark">
+                            <a href="/haberler/@item.SeoUrl">
+                                <!-- Slider Content -->
+                                <div class="swiper-slide-bg" style="background-image: url('upload/news/medium/@item.Image');"></div>
+                                <div class="bg-overlay-content text-overlay-mask dark align-items-end justify-content-start">
+                                    <figcaption>
+                                        <h3>
+                                            <strong>@item.Title</strong>
+                                        </h3>
+                                        <div class="info">
+                                            <span class="s1">
+                                                <span>
+                                                    <i class="fa fa-clock-o"></i>@item.CreationDate.ToShortDateString()
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </figcaption>
+                                </div>
+                            </a>
+                        </div>
+                    }
+
+                </div>
+                <div class="slider-arrow-left">
+                    <i class="icon-angle-left"></i>
+                </div>
+                <div class="slider-arrow-right">
+                    <i class="icon-angle-right"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

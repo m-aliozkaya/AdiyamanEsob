@@ -5749,6 +5749,7 @@ body:not(.stretched) .slider-parallax .slider-inner { left: auto; }
 		display: flex !important;
 		flex-direction: column;
 		justify-content: center;
+		height: 400px!important;
 	}
 
 	#slider .slider-inner {
@@ -7574,7 +7575,6 @@ body:not(.device-touch) .portfolio {
 .entry-image img {
 	display: block;
 	position: relative;
-	width: 100%;
 	height: auto;
 }
 
