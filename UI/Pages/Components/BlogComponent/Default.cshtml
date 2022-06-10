@@ -1,0 +1,86 @@
+﻿@model List<Entities.Entity.Blog>
+
+@{
+    var singleBlog = Model.FirstOrDefault();
+
+}
+
+@if (Model.Count > 0)
+{
+    {
+        Model.Remove(singleBlog);
+    }
+
+    <!-- Dark Section Spotlight
+    ============================================= -->
+    <div class="section dark">
+        <div class="container">
+            <h2 class="font-secondary font-weight-medium">Blog Yazıları</h2>
+            <div class="row border-between">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <!-- Post Article -->
+                    <article class="entry border-bottom-0 mb-0">
+                        <div class="entry-image">
+                            <a href="/blog/@singleBlog.SeoUrl">
+                                <img src="/upload/blog/medium/@singleBlog.Image" alt="@singleBlog.Title">
+                            </a>
+                        </div>
+                        <div class="entry-title">
+                            <h3>
+                                <a href="/blog/@singleBlog.SeoUrl" class="stretched-link color-underline">@singleBlog.Title</a>
+                            </h3>
+                        </div>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>
+                                    <a href="#">@singleBlog.CreationDate.ToShortDateString()</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="entry-content">
+                            <p>
+                                @Html.Raw(singleBlog.Description)
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-lg-5">
+                    <h3 class="font-secondary font-weight-medium mb-4 h4">Öne Çıkanlar</h3>
+                    @if (Model.Count > 0)
+                    {
+                        <div class="row posts-md col-mb-30">
+                            @foreach (var item in Model)
+                            {
+                                <article class="entry col-12">
+                                    <div class="grid-inner row gutter-20">
+                                        <div class="entry-image col-md-4">
+                                            <a href="/blog/@item.SeoUrl">
+                                                <img src="/upload/blog/small/@item.Image" alt="@item.Title">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="entry-title title-xs">
+                                                <h3>
+                                                    <a href="/blog/@item.SeoUrl" class="stretched-link color-underline">@item.Title</a>
+                                                </h3>
+                                            </div>
+                                            <div class="entry-meta">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">@item.CreationDate.ToShortDateString()</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Dark Section Spotlight End -->
+}
