@@ -8,6 +8,7 @@
 <form class="col-md-8 container" method="post" enctype="multipart/form-data">
     <input type="hidden" asp-for="Announcement.Id"/>
     <input type="hidden" asp-for="Announcement.Image"/>
+
     @if (!string.IsNullOrEmpty(Model.Announcement.Image))
     {
         <div class="form-group">
