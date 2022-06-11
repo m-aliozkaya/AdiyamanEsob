@@ -10,7 +10,7 @@ namespace UI.Areas.Admin.Pages.Setting;
 
 public class OrganizationSchemaModel : PageModel
 {
-    [DisplayName("Organizasyon Þemasý")]
+    [DisplayName("Organizasyon ÅžemasÄ±")]
     [Required]
     [BindProperty]
     public IFormFile UploadFile { get; set; }
@@ -25,7 +25,7 @@ public class OrganizationSchemaModel : PageModel
     {
         var result = await _settingService.GetByIdAsync(1);
         FilePath = result.Data?.OrganizationSchema;
-        ViewData["ActionName"] = string.IsNullOrEmpty(FilePath) ? "Ekle" : "Düzenle";
+        ViewData["ActionName"] = string.IsNullOrEmpty(FilePath) ? "Ekle" : "DÃ¼zenle";
         return Page();
     }
     public async Task<IActionResult> OnPost()
@@ -44,7 +44,7 @@ public class OrganizationSchemaModel : PageModel
         }
         
 
-        ViewData["Message"] = "Organizasyon þemasý baþarýyla kaydedildi";
+        ViewData["Message"] = "Organizasyon ï¿½emasï¿½ baï¿½arï¿½yla kaydedildi";
         return Redirect("/admin");
     }
 }
