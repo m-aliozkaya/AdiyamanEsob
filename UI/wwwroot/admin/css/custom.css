@@ -5,3 +5,7 @@
 .ck-editor__editable_inline {
     min-height: 250px;
 }
+
+.nav-link {
+    padding: 0.45rem 1rem!important;
+}
