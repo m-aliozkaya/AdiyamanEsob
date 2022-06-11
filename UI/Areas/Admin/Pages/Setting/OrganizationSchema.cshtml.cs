@@ -45,6 +45,6 @@ public class OrganizationSchemaModel : PageModel
         
 
         ViewData["Message"] = "Organizasyon þemasý baþarýyla kaydedildi";
-        return Page();
+        return Redirect("/admin");
     }
 }
