@@ -1,4 +1,4 @@
-﻿using Autofac;
+using Autofac;
 using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
@@ -60,6 +60,9 @@ namespace Business.DependencyResolvers
             
 			      builder.RegisterType<VideoManager>().As<IVideoService>();
 			      builder.RegisterType<EfVideoDal>().As<IVideoDal>();
+            
+            builder.RegisterType<LegislationManager>().As<ILegislationService>();
+			      builder.RegisterType<EfLegislationDal>().As<ILegislationDal>();
         }
     }
 }

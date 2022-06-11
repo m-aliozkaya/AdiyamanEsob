@@ -24,5 +24,6 @@ public class EsobContext : DbContext
     public DbSet<Project> Projects { get; set; }
     public DbSet<Room> Rooms { get; set; }
     public DbSet<Video> Videos { get; set; }
+    public DbSet<Legislation> Legislations { get; set; }    
     public DbSet<Setting> Settings { get; set; }
 }
