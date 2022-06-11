@@ -10,6 +10,8 @@ public class PagingHelper : TagHelper
     private const string PageListClass = "pagination justify-content-center";
     private const string PageListItemClass = "page-item";
     private const string PageLinkClass = "page-link";
+    private string _firstLink = "<i class=\"fas fa-fast-backward\"></i>";
+    private string _lastLink = "<i class=\"fas fa-fast-forward\"></i>";
     private const string PageSelectedClass = "active";
     private const string PageDisabledClass = "disabled";
 
@@ -55,19 +57,22 @@ public class PagingHelper : TagHelper
         }
 
         var linkDiv = new TagBuilder("ul");
-        linkDiv.InnerHtml.AppendHtml(GeneratePageLinks("İlk Sayfa", 1));
+        
+        if (!string.IsNullOrEmpty(CustomListClass))
+        {
+            linkDiv.AddCssClass(CustomListClass);
+            _firstLink = "<i class=\"icon-fast-backward\"></i>";
+            _lastLink = "<i class=\"icon-fast-forward\"></i>";
+        }
+        
+        linkDiv.InnerHtml.AppendHtml(GeneratePageLinks(_firstLink, 1));
         for (var i = startPage; i <= endPage; i++)
         {
             linkDiv.InnerHtml.AppendHtml(GeneratePageLinks(i));
         }
 
-        linkDiv.InnerHtml.AppendHtml(GeneratePageLinks("Son Sayfa", TotalPages));
+        linkDiv.InnerHtml.AppendHtml(GeneratePageLinks(_lastLink, TotalPages));
         linkDiv.AddCssClass(PageListClass);
-
-        if (!string.IsNullOrEmpty(CustomListClass))
-        {
-            linkDiv.AddCssClass(CustomListClass);
-        }
         
         outerDiv.InnerHtml.AppendHtml(linkDiv);
 
@@ -88,7 +93,7 @@ public class PagingHelper : TagHelper
             }
         };
         a.AddCssClass(PageLinkClass);
-        a.InnerHtml.Append(buttonName);
+        a.InnerHtml.AppendHtml(buttonName);
 
         li.InnerHtml.AppendHtml(a);
 
@@ -124,4 +129,5 @@ public class PagingHelper : TagHelper
         
         return li;
     }
+
 }

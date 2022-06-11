@@ -3,24 +3,24 @@ using Entities.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace UI.Pages.Blog;
+namespace UI.Pages.News;
 
 public class Index : PageModel
 {
-    private readonly IBlogService _blogService;
+    private readonly INewsService _newsService;
     private const int RecordsPerPage = 8;
     public PagingDto Paging { get; set; }
-    public List<Entities.Entity.Blog> Blogs { get; set; }
+    public List<Entities.Entity.News> News { get; set; }
 
-    public Index(IBlogService blogService)
+    public Index(INewsService newsService)
     {
-        _blogService = blogService;
+        _newsService = newsService;
     }
     
     public async Task<IActionResult> OnGet(int currentPage)
     {
-        var result = await _blogService.GetAllByPage(RecordsPerPage, currentPage);
-        Blogs = result.Data.Blogs;
+        var result = await _newsService.GetAllByPage(RecordsPerPage, currentPage);
+        News = result.Data.News;
 
         Paging = new PagingDto
         {

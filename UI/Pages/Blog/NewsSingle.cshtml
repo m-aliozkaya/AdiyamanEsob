@@ -1,8 +1,8 @@
-﻿@page "/haberler/{seoUrl}"
-@model UI.Pages.News.NewsSingle
+﻿@page "/blog/{seoUrl}"
+@model UI.Pages.Blog.NewsSingle
 
 @{
-    ViewData["Title"] = Model.News.Title;
+    ViewData["Title"] = Model.Blog.Title;
 }
 
 @section HeaderTitle
@@ -12,18 +12,18 @@
     <section id="page-title">
 
         <div class="container clearfix">
-            <h1>Haberler</h1>
-            <span>@Model.News.Title</span>
+            <h1>Bloglar</h1>
+            <span>@Model.Blog.Title</span>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="/">Anasayfa</a>
                 </li>
                 <li class="breadcrumb-item" aria-current="page">
-                    <a href="/haberler">
-                        Haberler
-                    </a> 
+                    <a href="/blog">
+                        Blog Yazıları
+                    </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">@Model.News.Title</li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Blog.Title</li>
             </ol>
         </div>
 
@@ -43,7 +43,7 @@
             <!-- Entry Title
             ============================================= -->
             <div class="entry-title">
-                <h2>@Model.News.Title</h2>
+                <h2>@Model.Blog.Title</h2>
             </div><!-- .entry-title end -->
 
             <!-- Entry Meta
@@ -51,7 +51,7 @@
             <div class="entry-meta">
                 <ul>
                     <li>
-                        <i class="icon-calendar3"></i>@Model.News.CreationDate.ToShortDateString()
+                        <i class="icon-calendar3"></i>@Model.Blog.CreationDate.ToShortDateString()
                     </li>
                 </ul>
             </div><!-- .entry-meta end -->
@@ -59,13 +59,13 @@
             <!-- Entry Image
             ============================================= -->
             <div class="entry-image">
-                <img class="img-fluid" src="/upload/news/medium/@Model.News.Image" alt="@Model.News.Title">
+                <img class="img-fluid" src="/upload/blog/medium/@Model.Blog.Image" alt="@Model.Blog.Title">
             </div><!-- .entry-image end -->
 
             <!-- Entry Content
             ============================================= -->
             <div class="entry-content mt-0">
-                @Html.Raw(Model.News.Content)
+                @Html.Raw(Model.Blog.Content)
             </div>
         </div><!-- .entry end -->
 

@@ -1,5 +1,5 @@
-﻿@page "/blog/{currentPage:int=1}"
-@model UI.Pages.Blog.Index
+﻿@page "/haberler/{currentPage:int=1}"
+@model UI.Pages.News.Index
 
 @{
     ViewData["Title"] = "Blog";
@@ -12,64 +12,60 @@
     <section id="page-title">
 
         <div class="container clearfix">
-            <h1>Blog</h1>
-            <span>Bilgilendirici blog yazılarımıza bir göz atın.</span>
+            <h1>Haberler</h1>
+            <span>En yeni haberleri takip edin</span>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="/">Anasayfa</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                <li class="breadcrumb-item active" aria-current="page">Haberler</li>
             </ol>
         </div>
 
     </section><!-- #page-title end -->
 }
 
-<div class="container clearfix">
+@if (Model.News.Count <= 0)
+{
+    <div class="alert alert-danger">Haber bulunamadı.</div>
+}
+else
+{
+    <div class="container clearfix">
 
-    @if (Model.Blogs.Count <= 0)
-    {
-        <div class="alert alert-danger">Blog bulunamadı.</div>
-    }
-    else
-    {
         <!-- Posts
         ============================================= -->
         <div id="posts" class="post-grid row grid-container gutter-30" data-layout="fitRows">
 
-            @foreach (var item in Model.Blogs)
+            @foreach (var item in Model.News)
             {
                 <div class="entry col-lg-3 col-md-4 col-sm-6 col-12">
                     <div class="grid-inner">
                         <div class="entry-image">
-                            <img src="/upload/blog/small/@item.Image" alt="@item.Title">
+                            <img src="/upload/news/small/@item.Image" alt="@item.Title">
                         </div>
                         <div class="entry-title">
                             <h2>
-                                <a href="/blog/@item.SeoUrl">@item.Title</a>
+                                <a href="/haberler/@item.SeoUrl">@item.Title</a>
                             </h2>
                         </div>
                         <div class="entry-meta">
                             <ul>
-                                <li>
-                                    <i class="icon-calendar3"></i>@item.CreationDate.ToShortDateString()
-                                </li>
+                                <li><i class="icon-calendar3"></i>@item.CreationDate.ToShortDateString()</li>
                             </ul>
                         </div>
                         <div class="entry-content">
                             <p>
                                 @item.Description
                             </p>
-                            <a href="/blog/@item.SeoUrl" class="more-link">Devamını oku</a>
+                            <a href="/haberler/@item.SeoUrl" class="more-link">Devamını oku</a>
                         </div>
                     </div>
                 </div>
             }
 
-        </div>
-        <!-- #posts end -->
+        </div><!-- #posts end -->
 
-        <paginator custom-list-class="pagination-circle" current-page="@Model.Paging.CurrentPage" link-url="blog" total-pages="@Model.Paging.TotalPages"></paginator>
-    }
-
-</div>
+        <paginator custom-list-class="pagination-circle" current-page="@Model.Paging.CurrentPage" link-url="haberler" total-pages="@Model.Paging.TotalPages"></paginator>
+    </div>
+}
