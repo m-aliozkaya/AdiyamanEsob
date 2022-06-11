@@ -1,0 +1,108 @@
+﻿@model Entities.Dto.EnterpriseComponentDto
+
+<!-- Footer
+============================================= -->
+<footer id="footer">
+    <div class="container">
+
+        <!-- Footer Widgets
+        ============================================= -->
+        <div class="footer-widgets-wrap row col-mb-50">
+
+            <!-- Footer Widget 3
+            ============================================= -->
+            <div class="col-lg-2 col-sm-6">
+                <div class="widget widget_links">
+                    <h4 class="mb-3 mb-sm-4 nott ls0">Hakkımızda</h4>
+                    <ul>
+                        @foreach (var item in Model.AboutArticles)
+                        {
+                            <li>
+                                <a href="/hakkimizda/@item.SeoUrl">@item.Title</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Widget 3
+            ============================================= -->
+            <div class="col-lg-2 col-sm-6">
+                <div class="widget widget_links">
+                    <h4 class="mb-3 mb-sm-4 nott ls0">Organizasyon</h4>
+                    <ul>
+                        <li>
+                            <a href="/orgutlenme-semasi">Örgütlenme Şeması</a>
+                        </li>
+                        @foreach (var item in Model.Organization)
+                        {
+                            <li>
+                                <a href="/organizasyon/@item.SeoUrl">@item.Name</a>
+                            </li> 
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Widget 3
+            ============================================= -->
+            <div class="col-lg-2 col-sm-6">
+                <div class="widget widget_links">
+                    <h4 class="mb-3 mb-sm-4 nott ls0">Diğer</h4>
+                    <ul>
+                        <li>
+                            <a href="/projeler">Projeler</a>
+                        </li>
+                        <li>
+                            <a href="/mevzuatlar">Mevzuatlar</a>
+                        </li>
+                        <li>
+                            <a href="/odalar">Odalar</a>
+                        </li>
+                        <li>
+                            <a href="/haberler">Haberler</a>
+                        </li>
+                        <li>
+                            <a href="/duyurular">Duyurular</a>
+                        </li>
+                        <li>
+                            <a href="/blog">Blog</a>
+                        </li>
+                        <li>
+                            <a href="/iletisim">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-sm-6">
+                <div class="widget widget_links">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12617.095726608373!2d38.25290508428607!3d37.76017464046244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1533139c5be96ea5%3A0xcbea8570c17c02c2!2sAd%C4%B1yaman%20Esnaf%20Ve%20Sanatkar%20Odalar%C4%B1%20Birli%C4%9Fi!5e0!3m2!1str!2str!4v1653588819916!5m2!1str!2str" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
+        <div class="container">
+
+            <div class="row align-items-center justify-content-between col-mb-30">
+                <div class="col-lg-auto text-center text-lg-left">
+                    Copyrights &copy; 2018 All Rights Reserved by Canvas Inc.<br>
+                    <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
+                </div>
+
+                <div class="col-lg-auto text-center text-lg-left">
+                    <div class="copyrights-menu copyright-links m-0">
+                        <a href="#">Home</a>/<a href="#">About</a>/<a href="#">Features</a>/<a href="#">Portfolio</a>/<a href="#">FAQs</a>/<a href="#">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- #copyrights end -->
+
+</footer><!-- #footer end -->

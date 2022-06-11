@@ -1,0 +1,59 @@
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Organization.Edit
+
+@{
+    ViewData["Title"] = "Organizasyon Düzenle";
+}
+
+<form class="col-md-8 container" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Organization.Id"/>
+    
+    
+    <div class="form-group">
+        <label asp-for="Organization.Name"></label>
+        <input asp-for="Organization.Name" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Organization.Name"></span>
+    </div>
+    <div class="row m-0">
+        <a href="/admin/organization/" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            @ViewData["ActionName"]
+        </button>
+    </div>
+</form>
+
+@section scripts{
+
+    <script src="/admin/plugins/ck-editor-5/ckeditor.js"></script>
+
+    <script>
+    let loadFile = function (event, id) {
+        let output = document.getElementById(id);
+        output.style.border = "none";
+        if(event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                output.src = e.target.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            output.parentElement.classList.remove("d-none");
+        }else {
+            output.src = "";
+            output.parentElement.classList.add("d-none");
+        }
+    };
+    $(function () {
+            let allEditors = document.querySelectorAll('.editor');
+            for (let i = 0; i < allEditors.length; ++i) {
+                ClassicEditor
+                    .create(allEditors[i])
+                    .then(editor => {
+                        window.editor = editor;
+                    })
+                    .catch(error => {
+                    });
+            }
+        });
+</script>
+
+}

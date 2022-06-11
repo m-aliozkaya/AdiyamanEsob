@@ -1,0 +1,28 @@
+﻿@model List<Entities.Entity.Organization>
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+        <i class="fas fa-users nav-icon"></i>
+        <p>
+            Organizasyon
+            <i class="right fas fa-angle-left"></i>
+        </p>
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a href="/admin/setting/organizationSchema" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Organizasyon Şeması</p>
+            </a>
+        </li>
+        @foreach (var item in Model)
+        {
+            <li class="nav-item">
+                <a href="/admin/organizationMember/@item.SeoUrl" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>@item.Name Üyeleri</p>
+                </a>
+            </li>
+        }
+    </ul>
+</li>

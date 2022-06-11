@@ -11,7 +11,7 @@ namespace Business.Concrete;
 
 public class AnnouncementManager : IAnnouncementService
 {
-    private const int HomeAnnouncementsCount = 5;
+    private const int HomeAnnouncementsCount = 4;
 
     private readonly IAnnouncementDal _announcementDal;
 
@@ -98,12 +98,11 @@ public class AnnouncementManager : IAnnouncementService
 
     public async Task<IDataResult<List<Announcement>>> GetHomeAnnouncements()
     {
-        // var result = await _announcementDal.GetQueryable()
-        //     .Where(x => x.IsActive == true)
-        //     .OrderByDescending(x => x.CreationDate)
-        //     .Take(HomeAnnouncementsCount).ToListAsync();
-        //
-        // return new SuccessDataResult<List<Announcement>>(result);
-        return new SuccessDataResult<List<Announcement>>(new List<Announcement>());
+        var result = await _announcementDal.GetQueryable()
+            .Where(x => x.IsActive == true)
+            .OrderByDescending(x => x.CreationDate)
+            .Take(HomeAnnouncementsCount).ToListAsync();
+        
+        return new SuccessDataResult<List<Announcement>>(result);
     }
 }

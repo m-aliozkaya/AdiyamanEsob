@@ -12,6 +12,7 @@ namespace Business.Concrete;
 public class BlogManager : IBlogService
 {
     private const int HomeBlogCount = 5;
+    private const int HomeLatestBlogCount = 3;
 
     private readonly IBlogDal _blogDal;
 
@@ -96,12 +97,22 @@ public class BlogManager : IBlogService
         return new SuccessDataResult<Blog>(result.Data);
     }
 
-    public async Task<IDataResult<List<Blog>>> GetHomeBlog()
+    public async Task<IDataResult<List<Blog>>> GetHomeBlogs()
     {
         var result = await _blogDal.GetQueryable()
-            .Where(x => x.IsActive == true)
+            .Where(x => x.IsActive && x.IsHome)
             .OrderByDescending(x => x.CreationDate)
             .Take(HomeBlogCount).ToListAsync();
+
+        return new SuccessDataResult<List<Blog>>(result);
+    }
+    
+    public async Task<IDataResult<List<Blog>>> GetLatestBlogs()
+    {
+        var result = await _blogDal.GetQueryable()
+            .Where(x => x.IsActive)
+            .OrderByDescending(x => x.CreationDate)
+            .Take(HomeLatestBlogCount).ToListAsync();
 
         return new SuccessDataResult<List<Blog>>(result);
     }

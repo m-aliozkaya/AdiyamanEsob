@@ -19,5 +19,6 @@ public interface IBlogService
 
     Task<IDataResult<Blog>> DeleteAsync(int id);
 
-    Task<IDataResult<List<Blog>>> GetHomeBlog();
+    Task<IDataResult<List<Blog>>> GetHomeBlogs();
+    Task<IDataResult<List<Blog>>> GetLatestBlogs();
 }

@@ -1,0 +1,90 @@
+@page
+@model UI.Areas.Admin.Pages.Organization.Index
+
+@{
+    ViewData["Title"] = "Organizasyonlar";
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="d-flex justify-content-end mb-4">
+        <a href="/admin/organization/edit" class="btn btn-success">Yeni Organizasyon Ekle</a>
+    </div>
+    @if (Model.Organizations.Count <= 0)
+    {
+        <div class="alert alert-danger">Organizasyon bulunamadı.</div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <b class="text-danger">Organizasyonlar</b>
+                </h3>
+            </div>
+
+            <div class="card-body p-0 table-responsive">
+
+                <table class="table table-striped organizations">
+                    <thead>
+                    <tr>
+                        <th style="min-width: 150px">
+                            Organizasyon İsmi
+                        </th>
+                        <th style="width: 10%">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach (var item in Model.Organizations)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                @item.Name
+                                <br/>
+                            </td>
+                            <td class="organization-actions text-right align-middle text-center" style="min-width:300px">
+                                <a class="btn btn-primary btn-sm" href="/admin/organizationMember/@item.SeoUrl">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Üyeleri Gör
+                                </a>
+                                <a class="btn btn-info btn-sm" href="/admin/organization/edit/@item.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Düzenle
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="/admin/organization/delete/@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!-- /.card-body -->
+        </div>
+    }
+    <!-- /.card -->
+</section>
+
+@section Scripts{
+    <script src="~/admin/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+
+    <script>
+    $(function () {
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+          alwaysShowClose: true
+        });
+      });
+    })
+</script>
+}

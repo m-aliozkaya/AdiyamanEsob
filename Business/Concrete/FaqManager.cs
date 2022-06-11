@@ -33,6 +33,12 @@ public class FaqManager : IFaqService
         return new SuccessDataResult<List<Faq>>(result);
     }
 
+    public async Task<IDataResult<List<Faq>>> GetActiveFaq()
+    {
+        var result = await _faqDal.GetAllAsync(x => x.IsActive);
+        return new SuccessDataResult<List<Faq>>(result);
+    }
+
     public async Task<IDataResult<Faq>> AddAsync(Faq faq)
     {
         await _faqDal.AddAsync(faq);

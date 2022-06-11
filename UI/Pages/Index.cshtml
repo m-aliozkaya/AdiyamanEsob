@@ -1,4 +1,5 @@
 ﻿@page
+@using Entities.Entity
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -9,126 +10,7 @@
     ============================================= -->
     <div class="row border-between">
         @await Component.InvokeAsync("NewsComponent")
-        <div class="col-lg-4">
-            <h2 class="font-secondary font-weight-medium mb-4 h2">Duyurular</h2>
-
-            <div class="row posts-md col-mb-30">
-                <article class="entry col-12">
-                    <div class="grid-inner row gutter-20">
-                        <div class="entry-image col-md-4">
-                            <a href="demo-blog-single.html">
-                                <img src="assets/demos/blog/images/hero/1.jpg" alt="Image">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="entry-title title-xs">
-                                <h3>
-                                    <a href="demo-blog-single.html" class="stretched-link color-underline">SGK İl Müdürlüğünden ziyaret</a>
-                                </h3>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li>
-                                        <a href="#">Mar 11, 2016</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="entry col-12">
-                    <div class="grid-inner row gutter-20">
-                        <div class="entry-image col-md-4">
-                            <a href="demo-blog-single.html">
-                                <img src="assets/demos/blog/images/hero/2.jpg" alt="Image">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="entry-title title-xs">
-                                <h3>
-                                    <a href="demo-blog-single.html" class="stretched-link color-underline">Esnaf ve Sanatkârlar Odaları Birliğinden, Aşı kampanyasına destek</a>
-                                </h3>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li>
-                                        <a href="#">Mar 11, 2016</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="entry col-12">
-                    <div class="grid-inner row gutter-20">
-                        <div class="entry-image col-md-4">
-                            <a href="demo-blog-single.html">
-                                <img src="assets/demos/blog/images/hero/3.jpg" alt="Image">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="entry-title title-xs">
-                                <h3>
-                                    <a href="demo-blog-single.html" class="stretched-link color-underline">“Servis Aracı Şoförü” (MYK) Belge Takdim Töreni gerçekleştirildi.</a>
-                                </h3>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li>
-                                        <a href="#">Mar 11, 2016</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="entry col-12">
-                    <div class="grid-inner row gutter-20">
-                        <div class="entry-image col-md-4">
-                            <a href="demo-blog-single.html">
-                                <img src="assets/demos/blog/images/hero/4.jpg" alt="Image">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="entry-title title-xs">
-                                <h3>
-                                    <a href="demo-blog-single.html" class="stretched-link color-underline">13. Ahilik Haftası Töreni Tedbirler kapsamında kutlandı.</a>
-                                </h3>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li>
-                                        <a href="#">Mar 11, 2016</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- <article class="entry col-12">
-                    <div class="grid-inner row gutter-20">
-                        <div class="entry-image col-md-4">
-                            <a href="demo-blog-single.html"><img src="assets/demos/blog/images/hero/1.jpg" alt="Image"></a>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="entry-title title-xs">
-                                <h3><a href="demo-blog-single.html" class="stretched-link color-underline">Esnaf ve Sanatkârlar Odaları Birliğinden, Aşı kampanyasına destek</a></h3>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li><a href="#">Mar 11, 2016</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </article> -->
-            </div>
-
-        </div>
+        @await Component.InvokeAsync("AnnouncementComponent")
     </div> <!-- Hero Area End -->
 
 </div>
@@ -333,428 +215,58 @@
     </div> <!-- Video Section End -->
 </div>
 
-<!-- Dark Section Spotlight
-============================================= -->
-<div class="section dark">
-    <div class="container">
-        <h2 class="font-secondary font-weight-medium">Blog Yazıları</h2>
-        <div class="row border-between">
-            <div class="col-lg-7 mb-5 mb-lg-0">
-                <!-- Post Article -->
-                <article class="entry border-bottom-0 mb-0">
-                    <div class="entry-image">
-                        <a href="demo-blog-single.html">
-                            <img src="assets/demos/blog/images/hero/full/5.jpg" alt="Image 3">
-                        </a>
-                    </div>
-                    <div class="entry-title">
-                        <h3>
-                            <a href="demo-blog-single.html" class="stretched-link color-underline">Statement from Vice President Joe Biden on Record Number of Americans Filing for Unemployment</a>
-                        </h3>
-                    </div>
-                    <div class="entry-meta">
-                        <ul>
-                            <li>
-                                <a href="#">Mar 11, 2016</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="entry-content">
-                        <p>Asperiores, tenetur, blanditiis, quaerat odit ex exercitationem pariatur quibusdam veritatis quisquam laboriosam esse beatae hic perferendis. Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </article>
-            </div>
-
-            <div class="col-lg-5">
-                <h3 class="font-secondary font-weight-medium mb-4 h4">Öne Çıkanlar</h3>
-
-                <div class="row posts-md col-mb-30">
-                    <article class="entry col-12">
-                        <div class="grid-inner row gutter-20">
-                            <div class="entry-image col-md-4">
-                                <a href="demo-blog-single.html">
-                                    <img src="assets/demos/blog/images/hero/2.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="entry-title title-xs">
-                                    <h3>
-                                        <a href="demo-blog-single.html" class="stretched-link color-underline">What Everyone’s Getting Wrong About the Toilet Paper Shortage</a>
-                                    </h3>
-                                </div>
-                                <div class="entry-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Mar 11, 2016</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="entry col-12">
-                        <div class="grid-inner row gutter-20">
-                            <div class="entry-image col-md-4">
-                                <a href="demo-blog-single.html">
-                                    <img src="assets/demos/blog/images/hero/3.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="entry-title title-xs">
-                                    <h3>
-                                        <a href="demo-blog-single.html" class="stretched-link color-underline">Designing an e-commerce site for a Cloth store — a UI/UX case</a>
-                                    </h3>
-                                </div>
-                                <div class="entry-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Mar 11, 2016</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="entry col-12">
-                        <div class="grid-inner row gutter-20">
-                            <div class="entry-image col-md-4">
-                                <a href="demo-blog-single.html">
-                                    <img src="assets/demos/blog/images/hero/4.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="entry-title title-xs">
-                                    <h3>
-                                        <a href="demo-blog-single.html" class="stretched-link color-underline">The Path: “I stayed loyal to those who gave me opportunities, and tried to remain humble every step of the way.”</a>
-                                    </h3>
-                                </div>
-                                <div class="entry-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Mar 11, 2016</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="entry col-12">
-                        <div class="grid-inner row gutter-20">
-                            <div class="entry-image col-md-4">
-                                <a href="demo-blog-single.html">
-                                    <img src="assets/demos/blog/images/hero/5.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="entry-title title-xs">
-                                    <h3>
-                                        <a href="demo-blog-single.html" class="stretched-link color-underline">Designing an e-commerce site for a Cloth store — a UI/UX case</a>
-                                    </h3>
-                                </div>
-                                <div class="entry-meta">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Mar 11, 2016</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div> <!-- Dark Section Spotlight End -->
+@await Component.InvokeAsync("BlogComponent")
 
 <div class="container clearfix">
 
-<div class="row col-mb-80">
-<!-- Post Content
-============================================= -->
-<div class="postcontent col-lg-9">
+    <div class="row col-mb-80">
+        @await Component.InvokeAsync("FaqComponent")
 
-    <div id="faqs" class="faqs">
+        <div class="sidebar col-lg-3">
+            <div class="sidebar-widgets-wrap">
 
-        <div id="faqs-list" class="fancy-title title-bottom-border">
-            <h3>Sıkça Sorulan Sorular:</h3>
-        </div>
+                <div class="widget widget_links clearfix">
 
-        <ul class="iconlist faqlist">
-            <li>
-                <i class="icon-caret-right"></i>
-                <strong>
-                    <a href="#" data-scrollto="#faq-1">How do I become an author?</a>
-                </strong>
-            </li>
-            <li>
-                <i class="icon-caret-right"></i>
-                <strong>
-                    <a href="#" data-scrollto="#faq-2">Helpful Resources for Authors</a>
-                </strong>
-            </li>
-            <li>
-                <i class="icon-caret-right"></i>
-                <strong>
-                    <a href="#" data-scrollto="#faq-3">How much money can I make?</a>
-                </strong>
-            </li>
-            <li>
-                <i class="icon-caret-right"></i>
-                <strong>
-                    <a href="#" data-scrollto="#faq-4">Can I offer my items for free on a promotional basis?</a>
-                </strong>
-            </li>
-        </ul>
+                    <h4>Sayfalar</h4>
+                    @await Component.InvokeAsync("PagesComponent")
 
-        <div class="divider">
-            <i class="icon-circle"></i>
-        </div>
-
-        <h3 id="faq-1"><strong>Q.</strong> How do I become an author?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum voluptates doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque explicabo suscipit animi at quaerat aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde quas beatae vero vitae nulla.</p>
-
-        <div class="divider divider-right">
-            <a href="#" data-scrollto="#faqs-list">
-                <i class="icon-chevron-up"></i>
-            </a>
-        </div>
-
-        <h3 id="faq-2"><strong>Q.</strong> Helpful Resources for Authors</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, placeat, architecto rem dolorem dignissimos repellat veritatis in et eos doloribus magnam aliquam ipsa alias assumenda officiis quasi sapiente suscipit veniam odio voluptatum. Enim at asperiores quod velit minima officia accusamus cumque eligendi consequuntur fuga? Maiores, quasi, voluptates, exercitationem fuga voluptatibus a repudiandae expedita omnis molestiae alias repellat perferendis dolores dolor.</p>
-
-        <div class="divider divider-right">
-            <a href="#" data-scrollto="#faqs-list">
-                <i class="icon-chevron-up"></i>
-            </a>
-        </div>
-
-        <h3 id="faq-3"><strong>Q.</strong> How much money can I make?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, fugiat iste nisi tempore nesciunt nemo fuga? Nesciunt, delectus laboriosam nisi repudiandae nam fuga saepe animi recusandae. Asperiores, provident, esse, doloremque, adipisci eaque alias dolore molestias assumenda quasi saepe nisi ab illo ex nesciunt nobis laboriosam iusto quia nulla ad voluptatibus iste beatae voluptas corrupti facilis accusamus recusandae sequi debitis reprehenderit quibusdam. Facilis eligendi a exercitationem nisi et placeat excepturi velit!</p>
-
-        <div class="divider divider-right">
-            <a href="#" data-scrollto="#faqs-list">
-                <i class="icon-chevron-up"></i>
-            </a>
-        </div>
-
-        <h3 id="faq-4"><strong>Q.</strong> Can I offer my items for free on a promotional basis?</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, fugiat iste nisi tempore nesciunt nemo fuga? Nesciunt, delectus laboriosam nisi repudiandae nam fuga saepe animi recusandae. Asperiores, provident, esse, doloremque, adipisci eaque alias dolore molestias assumenda quasi saepe nisi ab illo ex nesciunt nobis laboriosam iusto quia nulla ad voluptatibus iste beatae voluptas corrupti facilis accusamus recusandae sequi debitis reprehenderit quibusdam. Facilis eligendi a exercitationem nisi et placeat excepturi velit!</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed facere eos harum ipsum quia recusandae sunt fugit ad quaerat sapiente. Iure, ut maiores commodi voluptas ullam sunt harum autem veniam.</p>
-
-        <div class="divider divider-right">
-            <a href="#" data-scrollto="#faqs-list">
-                <i class="icon-chevron-up"></i>
-            </a>
-        </div>
-    </div>
-
-</div><!-- .postcontent end -->
-<!-- Sidebar
-============================================= -->
-<div class="sidebar col-lg-3">
-    <div class="sidebar-widgets-wrap">
-
-        <div class="widget widget_links clearfix">
-
-            <h4>Sayfalar</h4>
-            <ul>
-                <li>
-                    <a href="#">
-                        <div>AESOB Hakkında</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Tarihçe</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Organların Görev ve Yetkileri</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Temsil Edilen Kurumlar</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Eski Başkanlarımız</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Örgütlenme Şeması</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Yönetim Kurulu Üyeleri</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Denetim Kurulu Üyeleri</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Disiplin Kurulu Üyeleri</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Genelgeler</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Duyurular</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Haberler</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Üye Kayıt İşlemleri</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>Blog</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <div>İletişim</div>
-                    </a>
-                </li>
-            </ul>
-
-        </div>
-
-        <div class="widget clearfix">
-
-            <h4>Son Yazılar</h4>
-            <div class="posts-sm row col-mb-30" id="post-list-sidebar">
-                <div class="entry col-12">
-                    <div class="grid-inner row no-gutters">
-                        <div class="col-auto">
-                            <div class="entry-image">
-                                <a href="#">
-                                    <img src="assets/img/3.jpg" alt="Image">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col pl-3">
-                            <div class="entry-title">
-                                <h4>
-                                    <a href="#">Lorem ipsum dolor sit amet, consectetur</a>
-                                </h4>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li>10th July 2021</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="entry col-12">
-                    <div class="grid-inner row no-gutters">
-                        <div class="col-auto">
-                            <div class="entry-image">
-                                <a href="#">
-                                    <img src="assets/img/2.jpg" alt="Image">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col pl-3">
-                            <div class="entry-title">
-                                <h4>
-                                    <a href="#">Elit Assumenda vel amet dolorum quasi</a>
-                                </h4>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li>10th July 2021</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                @await Component.InvokeAsync("LastBlogComponent")
+
+                <div class="widget clearfix">
+
+                    <h4>Sosyal Medya Hesaplarımız</h4>
+                    <a href="@Model.Setting.Facebook" class="social-icon si-colored si-small si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                        <i class="icon-facebook"></i>
+                        <i class="icon-facebook"></i>
+                    </a>
+
+                    <a href="@Model.Setting.Linkedin" class="social-icon si-colored si-small si-linkedin" data-toggle="tooltip" data-placement="top" title="Linked In">
+                        <i class="icon-linkedin"></i>
+                        <i class="icon-linkedin"></i>
+                    </a>
+
+                    <a href="@Model.Setting.Twitter" class="social-icon si-colored si-small si-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                        <i class="icon-twitter"></i>
+                        <i class="icon-twitter"></i>
+                    </a>
+
+                    <a href="@Model.Setting.Youtube" class="social-icon si-colored si-small si-youtube" data-toggle="tooltip" data-placement="top" title="Youtube">
+                        <i class="icon-youtube"></i>
+                        <i class="icon-youtube"></i>
+                    </a>
+
+                    <a href="@Model.Setting.Instagram" class="social-icon si-colored si-small si-instagram" data-toggle="tooltip" data-placement="top" title="Instagram">
+                        <i class="icon-instagram"></i>
+                        <i class="icon-instagram"></i>
+                    </a>
+
                 </div>
 
-                <div class="entry col-12">
-                    <div class="grid-inner row no-gutters">
-                        <div class="col-auto">
-                            <div class="entry-image">
-                                <a href="#">
-                                    <img src="assets/img/1.jpg" alt="Image">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col pl-3">
-                            <div class="entry-title">
-                                <h4>
-                                    <a href="#">Debitis nihil placeat, illum est nisi</a>
-                                </h4>
-                            </div>
-                            <div class="entry-meta">
-                                <ul>
-                                    <li>10th July 2021</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-        </div>
-
-        <div class="widget clearfix">
-
-            <h4>Sosyal Medya Hesaplarımız</h4>
-            <a href="#" class="social-icon si-colored si-small si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
-                <i class="icon-facebook"></i>
-                <i class="icon-facebook"></i>
-            </a>
-
-            <a href="#" class="social-icon si-colored si-small si-linkedin" data-toggle="tooltip" data-placement="top" title="Linked In">
-                <i class="icon-linkedin"></i>
-                <i class="icon-linkedin"></i>
-            </a>
-
-            <a href="#" class="social-icon si-colored si-small si-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
-                <i class="icon-twitter"></i>
-                <i class="icon-twitter"></i>
-            </a>
-
-            <a href="#" class="social-icon si-colored si-small si-youtube" data-toggle="tooltip" data-placement="top" title="Youtube">
-                <i class="icon-youtube"></i>
-                <i class="icon-youtube"></i>
-            </a>
-
-            <a href="#" class="social-icon si-colored si-small si-instagram" data-toggle="tooltip" data-placement="top" title="Instagram">
-                <i class="icon-instagram"></i>
-                <i class="icon-instagram"></i>
-            </a>
-
-        </div>
-
+        </div><!-- .sidebar end -->
     </div>
-</div><!-- .sidebar end -->
-</div>
 
 </div>
 
