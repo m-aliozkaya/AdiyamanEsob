@@ -1,0 +1,71 @@
+﻿@model Entities.Dto.EnterpriseComponentDto
+
+<li class="menu-item mega-menu sub-menu">
+    <a class="menu-link" href="#" style="padding-top: 39px; padding-bottom: 39px;">
+        <div>Kurumsal<i class="icon-angle-down"></i></div>
+    </a>
+    <div class="mega-menu-content mega-menu-style-2" style="width: 1459.2px;">
+        <div class="container" style="">
+            <div class="row">
+                <ul class="sub-menu-container mega-menu-column col-lg-4" style="">
+                    <li class="menu-item mega-menu-title sub-menu" style="">
+                        <h4 class="menu-title">Hakkımızda</h4>
+                        <ul class="sub-menu-container" style="">
+                            @foreach (var item in Model.AboutArticles)
+                            {
+                                <li class="menu-item" style="">
+                                    <a class="menu-link" href="/hakkimizda/@item.SeoUrl">
+                                        <div>Eski Başkanlarımız</div>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="sub-menu-container mega-menu-column col-lg-4" style="">
+                    <li class="menu-item mega-menu-title sub-menu" style="">
+                        <h4 class="menu-title">Organizasyon</h4>
+                        <ul class="sub-menu-container" style="">
+                            <li class="menu-item" style="">
+                                <a class="menu-link" href="/orgutlenme-semasi">
+                                    <div>Örgütlenme Şeması</div>
+                                </a>
+                            </li>
+                            @foreach (var item in Model.Organization)
+                            {
+                                <li class="menu-item" style="">
+                                    <a class="menu-link" href="/organizasyon/@item.SeoUrl">
+                                        <div>@item.Name</div>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="sub-menu-container mega-menu-column col-lg-4" style="">
+                    <li class="menu-item mega-menu-title sub-menu" style="">
+                        <h4 class="menu-title">Diğerleri</h4>
+                        <ul class="sub-menu-container" style="">
+                            <li class="menu-item" style="">
+                                <a class="menu-link" href="/projeler">
+                                    <div>Projeler</div>
+                                </a>
+                            </li>
+                            <li class="menu-item" style="">
+                                <a class="menu-link" href="/mevzuatlar">
+                                    <div>Mevzuatlar</div>
+                                </a>
+                            </li>
+                            <li class="menu-item" style="">
+                                <a class="menu-link" href="/odalar">
+                                    <div>Odalar</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button class="sub-menu-trigger icon-chevron-right"></button>
+</li>

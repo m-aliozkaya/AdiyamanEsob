@@ -314,6 +314,9 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Degree")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
@@ -346,6 +349,9 @@ namespace DataAccess.Migrations
 
                     b.Property<DateTime>("DecisionDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("DecisionNumber")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsCentre")
                         .HasColumnType("bit");

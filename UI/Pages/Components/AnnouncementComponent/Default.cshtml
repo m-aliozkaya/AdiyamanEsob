@@ -1,0 +1,33 @@
+﻿@model List<Entities.Entity.Announcement>
+
+<div class="col-lg-4">
+    <h2 class="font-secondary font-weight-medium mb-4 h2">Duyurular</h2>
+    <div class="row posts-md col-mb-30">
+        @foreach (var item in Model)
+        {
+            <article class="entry col-12">
+                <div class="grid-inner row gutter-20">
+                    <div class="entry-image col-md-4">
+                        <a href="/duyurular/@item.SeoUrl">
+                            <img src="/upload/announcement/small/@item.Image" alt="Image">
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="entry-title title-xs">
+                            <h3>
+                                <a href="/duyurular/@item.SeoUrl" class="stretched-link color-underline">@item.Description</a>
+                            </h3>
+                        </div>
+                        <div class="entry-meta">
+                            <ul>
+                                <li>
+                                    <a href="#">@item.CreationDate.ToShortDateString()</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        }
+    </div>
+</div>

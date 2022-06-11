@@ -1,0 +1,100 @@
+@page "{isCentre:bool?}"
+@using Core.Utilities.Extensions
+@model UI.Areas.Admin.Pages.Price.Index
+
+@{
+    ViewData["Title"] = ViewData["PriceType"] + " Tarifeleri";
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="d-flex justify-content-end mb-4">
+        <a href="/admin/price/edit" class="btn btn-success">Yeni Tarife Ekle</a>
+    </div>
+
+    @if (Model.Prices.Count <= 0)
+    {
+        <div class="alert alert-danger">@ViewData["PriceType"] Tarife bulunamadı.</div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <b class="text-danger">@ViewData["PriceType"] Tarifeleri</b>
+                </h3>
+            </div>
+            <div class="card-body p-0 table-responsive">
+                <table class="table table-striped projects">
+                    <thead>
+                    <tr>
+                        <th>
+                            Tarife Başlığı
+                        </th>
+                        <th>
+                            Tarife İçeriği
+                        </th>
+                        <th>
+                            Karar Günü
+                        </th>
+                        <th>
+                            Tarife Tipi
+                        </th>
+                        <th style="width: 10%">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach (var item in Model.Prices)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                @item.Title
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.Content.ShortText().StripTags()
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.DecisionDate.ToShortDateString()
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @if (item.IsCentre)
+                                {
+                                    <span class="badge badge-success">Merkez</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">İlçe</span>
+                                }
+                            </td>
+                            <td class="project-actions text-right align-middle text-center" style="min-width:300px">
+                                <a class="btn btn-primary btn-sm" href="/admin/price/detail/@item.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Detaylı Gör
+                                </a>
+                                <a class="btn btn-info btn-sm" href="/admin/price/edit/@item.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Düzenle
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="/admin/price/delete/@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    }
+</section>

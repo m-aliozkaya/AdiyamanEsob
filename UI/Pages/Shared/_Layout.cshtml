@@ -159,119 +159,25 @@
                             </a>
                         </li>
 
-                        <!-- ÖÖÖÖÖÖÖ -->
-
-                        <li class="menu-item mega-menu sub-menu">
-                            <a class="menu-link" href="#" style="padding-top: 39px; padding-bottom: 39px;">
-                                <div>Kurumsal<i class="icon-angle-down"></i></div>
-                            </a>
-                            <div class="mega-menu-content mega-menu-style-2" style="width: 1459.2px;">
-                                <div class="container" style="">
-                                    <div class="row">
-                                        <ul class="sub-menu-container mega-menu-column col-lg-4" style="">
-                                            <li class="menu-item mega-menu-title sub-menu" style="">
-                                                <h4 class="menu-title">Hakkımızda</h4>
-                                                <ul class="sub-menu-container" style="">
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog.html">
-                                                            <div>AESOB Hakkında</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-left-sidebar.html">
-                                                            <div>Tarihçe</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-both-sidebar.html">
-                                                            <div>Organların Görev ve Yetkileri</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-full-width.html">
-                                                            <div>Temsil Edilen Kurumlar</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-full-width.html">
-                                                            <div>Eski Başkanlarımız</div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <ul class="sub-menu-container mega-menu-column col-lg-4" style="">
-                                            <li class="menu-item mega-menu-title sub-menu" style="">
-                                                <h4 class="menu-title">Organizasyon</h4>
-                                                <ul class="sub-menu-container" style="">
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-timeline-right-sidebar.html">
-                                                            <div>Örgütlenme Şeması</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-timeline-left-sidebar.html">
-                                                            <div>Yönetim Kurulu Üyeleri</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-timeline-left-sidebar.html">
-                                                            <div>Denetim Kurulu Üyeleri</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-timeline-left-sidebar.html">
-                                                            <div>Disiplin Kurulu Üyeleri</div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                        <ul class="sub-menu-container mega-menu-column col-lg-4" style="">
-                                            <li class="menu-item mega-menu-title sub-menu" style="">
-                                                <h4 class="menu-title">Diğerleri</h4>
-                                                <ul class="sub-menu-container" style="">
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-timeline-right-sidebar.html">
-                                                            <div>Projeler</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-timeline-left-sidebar.html">
-                                                            <div>Mevzuatlar</div>
-                                                        </a>
-                                                    </li>
-                                                    <li class="menu-item" style="">
-                                                        <a class="menu-link" href="blog-timeline-left-sidebar.html">
-                                                            <div>Odalar</div>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="sub-menu-trigger icon-chevron-right"></button>
-                        </li>
+                        @await Component.InvokeAsync("EnterpriseComponent")
 
                         <li class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="/genelgeler">
                                 <div>Genelgeler</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="/uye-kayit">
                                 <div>Üye Kayıt İşlemleri</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="/blog">
                                 <div>Blog</div>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="/iletisim">
                                 <div>İletişim</div>
                             </a>
                         </li>
@@ -287,133 +193,15 @@
 
 @await RenderSectionAsync("HeaderTitle", required: false)
 
-<!-- Content
-============================================= -->
+<!-- Content -->
 <section id="content">
-<div class="content-wrap pt-5" style="overflow: visible;">
-
-    @RenderBody()
-    
-</div>
-</section><!-- #content end -->
-<!-- Footer
-============================================= -->
-<footer id="footer">
-    <div class="container">
-
-        <!-- Footer Widgets
-        ============================================= -->
-        <div class="footer-widgets-wrap row col-mb-50">
-
-            <!-- Footer Widget 3
-            ============================================= -->
-            <div class="col-lg-2 col-sm-6">
-                <div class="widget widget_links">
-                    <h4 class="mb-3 mb-sm-4 nott ls0">Hakkımızda</h4>
-                    <ul>
-                        <li>
-                            <a href="https://codex.wordpress.org/">AESOB Hakkında</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/forum/requests-and-feedback">Tarihçe</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/extend/plugins/">Organların Görev ve Yetkileri</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/">Temsil Edilen Kurumlar</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/extend/themes/">Eski Başkanlarımız</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Footer Widget 3
-            ============================================= -->
-            <div class="col-lg-2 col-sm-6">
-                <div class="widget widget_links">
-                    <h4 class="mb-3 mb-sm-4 nott ls0">Organizasyon</h4>
-                    <ul>
-                        <li>
-                            <a href="https://codex.wordpress.org/">Örgütlenme Şeması</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/forum/requests-and-feedback">Yönetim Kurulu Üyeleri</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/extend/plugins/">Denetim Kurulu Üyeleri</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/">Disiplin Kurulu Üyeleri</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Footer Widget 3
-            ============================================= -->
-            <div class="col-lg-2 col-sm-6">
-                <div class="widget widget_links">
-                    <h4 class="mb-3 mb-sm-4 nott ls0">Diğer</h4>
-                    <ul>
-                        <li>
-                            <a href="https://codex.wordpress.org/">Projeler</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/forum/requests-and-feedback">Mevzuatlar</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/extend/plugins/">Odalar</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/">Haberler</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/">Duyurular</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/">Blog</a>
-                        </li>
-                        <li>
-                            <a href="https://wordpress.org/support/">İletişim</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-sm-6">
-                <div class="widget widget_links">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12617.095726608373!2d38.25290508428607!3d37.76017464046244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1533139c5be96ea5%3A0xcbea8570c17c02c2!2sAd%C4%B1yaman%20Esnaf%20Ve%20Sanatkar%20Odalar%C4%B1%20Birli%C4%9Fi!5e0!3m2!1str!2str!4v1653588819916!5m2!1str!2str" width="400" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-
-        </div>
+    <div class="content-wrap pt-5" style="overflow: visible;">
+        @RenderBody()
     </div>
+</section>
+<!-- #content end -->
 
-    <!-- Copyrights
-    ============================================= -->
-    <div id="copyrights">
-        <div class="container">
-
-            <div class="row align-items-center justify-content-between col-mb-30">
-                <div class="col-lg-auto text-center text-lg-left">
-                    Copyrights &copy; 2018 All Rights Reserved by Canvas Inc.<br>
-                    <div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
-                </div>
-
-                <div class="col-lg-auto text-center text-lg-left">
-                    <div class="copyrights-menu copyright-links m-0">
-                        <a href="#">Home</a>/<a href="#">About</a>/<a href="#">Features</a>/<a href="#">Portfolio</a>/<a href="#">FAQs</a>/<a href="#">Contact</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div><!-- #copyrights end -->
-
-</footer><!-- #footer end -->
+@await Component.InvokeAsync("FooterComponent")
 
 </div><!-- #wrapper end -->
 <!-- Go To Top
