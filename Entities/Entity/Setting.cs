@@ -22,4 +22,7 @@ public class Setting:BaseEntity
     public string Phone { get; set; }
     [Required]
     public string Whatsapp { get; set; }
+    [Required]
+    [Display(Name ="Organizasyon Şeması")]
+    public string OrganizationSchema { get; set; }
 }
