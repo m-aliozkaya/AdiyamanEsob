@@ -57,6 +57,9 @@ namespace Business.DependencyResolvers
             
             builder.RegisterType<SettingManager>().As<ISettingService>();
             builder.RegisterType<EfSettingDal>().As<ISettingDal>();
+            
+			      builder.RegisterType<VideoManager>().As<IVideoService>();
+			      builder.RegisterType<EfVideoDal>().As<IVideoDal>();
         }
     }
 }

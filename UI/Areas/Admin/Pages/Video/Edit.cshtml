@@ -1,0 +1,101 @@
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Video.Edit
+
+@{
+    ViewData["Title"] = "Video Düzenle";
+}
+
+<form class="col-md-8 container" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Video.Id"/>
+    <input type="hidden" asp-for="Video.Image"/>
+    <h1 class="mb-5 mt-2">Video @ViewData["ActionName"]</h1>
+    @if (!string.IsNullOrEmpty(Model.Video.Image))
+    {
+        <div class="form-group">
+            <div class="col-sm-6 p-0 mt-2">
+                <img src="/upload/video/@Model.Video.Image" id="outputImage" width="100%" alt="Image to upload"/>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <div class="col-sm-6 p-0 mt-2 d-none">
+                <img src="" id="outputImage" width="100%" alt="Image to upload"/>
+            </div>
+        </div>
+    }
+    @if (!string.IsNullOrEmpty(Model.Video.VideoPath))
+        {
+            <div class="form-group">
+                <div class="col-sm-6 p-0 mt-2">
+                    <iframe id="showVideo" width="100%" height="300" src="https://www.youtube.com/embed/@Model.Video.VideoPath" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="form-group">
+                <div class="col-sm-6 p-0 mt-2 d-none">
+                    <iframe id="showVideo" width="100%" height="300"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        }
+    <div class="form-group">
+        <label asp-for="UploadFile" class="d-block"></label>
+        <input type="file" accept="image/*" asp-for="UploadFile" value="/upload/video/@Model.Video.Image" onchange="loadFile(event, 'outputImage')"/>
+        <span class="text-danger" asp-validation-for="UploadFile"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Video.Title"></label>
+        <input asp-for="Video.Title" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Video.Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Video.VideoPath"></label>
+        <input asp-for="Video.VideoPath" onkeyup="showVideo(event,'showVideo')" onpaste="showVideo(event,'showVideo')" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Video.VideoPath"></span>
+    </div>
+    <div class="row m-0">
+        <a href="/admin/video/" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            @ViewData["ActionName"]
+        </button>
+    </div>
+</form>
+
+@section scripts{
+
+
+    <script>
+    let loadFile = function (event, id) {
+        let output = document.getElementById(id);
+        output.style.border = "none";
+        if(event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                output.src = e.target.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            output.parentElement.classList.remove("d-none");
+        }else {
+            output.src = "";
+            output.parentElement.classList.add("d-none");
+        }
+    };
+    function showVideo(event, id) {
+            let video = document.getElementById(id);
+            
+            if (event.target.value != ""){
+                let link = event.target.value;
+                const url = 'https://www.youtube.com/embed/';
+                video.src = url+link;
+                video.parentElement.classList.remove("d-none");
+            }else{
+                video.src = "";
+                video.parentElement.classList.add("d-none");
+            }
+        }
+</script>
+
+}
