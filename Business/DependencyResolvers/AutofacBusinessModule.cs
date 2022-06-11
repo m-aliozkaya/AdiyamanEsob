@@ -54,9 +54,15 @@ namespace Business.DependencyResolvers
 
             builder.RegisterType<OrganizationMemberManager>().As<IOrganizationMemberService>();
             builder.RegisterType<EfOrganizationMemberDal>().As<IOrganizationMemberDal>();
-        
-			builder.RegisterType<LegislationManager>().As<ILegislationService>();
-			builder.RegisterType<EfLegislationDal>().As<ILegislationDal>();
-		}
+            
+            builder.RegisterType<SettingManager>().As<ISettingService>();
+            builder.RegisterType<EfSettingDal>().As<ISettingDal>();
+            
+			      builder.RegisterType<VideoManager>().As<IVideoService>();
+			      builder.RegisterType<EfVideoDal>().As<IVideoDal>();
+            
+            builder.RegisterType<LegislationManager>().As<ILegislationService>();
+			      builder.RegisterType<EfLegislationDal>().As<ILegislationDal>();
+        }
     }
 }

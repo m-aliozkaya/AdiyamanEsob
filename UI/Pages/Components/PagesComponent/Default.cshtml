@@ -1,0 +1,55 @@
+﻿@model Entities.Dto.EnterpriseComponentDto
+
+<ul>
+    @foreach (var item in Model.AboutArticles)
+    {
+        <li>
+            <a href="/hakkimizda/@item.SeoUrl">
+                <div>@item.Title</div>
+            </a>
+        </li>
+    }
+    <li>
+        <a href="#">
+            <div>Örgütlenme Şeması</div>
+        </a>
+    </li>
+    @foreach (var item in Model.Organization)
+    {
+        <li>
+            <a href="/organizasyon/@item.SeoUrl">
+                <div>@item.Name</div>
+            </a>
+        </li> 
+    }
+    <li>
+        <a href="/genelgeler">
+            <div>Genelgeler</div>
+        </a>
+    </li>
+    <li>
+        <a href="/duyurular">
+            <div>Duyurular</div>
+        </a>
+    </li>
+    <li>
+        <a href="/haberler">
+            <div>Haberler</div>
+        </a>
+    </li>
+    <li>
+        <a href="/uye-kayit">
+            <div>Üye Kayıt İşlemleri</div>
+        </a>
+    </li>
+    <li>
+        <a href="/blog">
+            <div>Blog</div>
+        </a>
+    </li>
+    <li>
+        <a href="/iletisim">
+            <div>İletişim</div>
+        </a>
+    </li>
+</ul>
