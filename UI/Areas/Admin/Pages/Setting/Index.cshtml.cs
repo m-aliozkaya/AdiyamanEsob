@@ -28,7 +28,9 @@ namespace UI.Areas.Admin.Pages.Setting
                 await _settingService.UpdateAsync(Setting);
             else
                 await _settingService.AddAsync(Setting);
-            return Redirect("/admin");
+
+            ViewData["Message"] = "Ayarlar başarıyla kaydedildi";
+            return Page();
         }
     }
 }
