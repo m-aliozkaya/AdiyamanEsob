@@ -1,0 +1,68 @@
+@page
+@model UI.Areas.Admin.Pages.Setting.Index
+@{
+    ViewBag.Title = "İletişim Ayarları";
+}
+
+<form method="post" class="container col-md-8">
+    <h1 class="mb-5 mt-2">İletişim Ayarları</h1>
+    <input type="hidden" asp-for="Setting.Id"/>
+    <div class="form-group">
+        <label asp-for="Setting.Facebook"></label>
+        <input type="text" class="form-control" asp-for="Setting.Facebook" placeholder="Facebook sayfa linki">
+        <span class="text-danger" asp-validation-for="Setting.Facebook"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Setting.Instagram"></label>
+        <input type="text" class="form-control" asp-for="Setting.Instagram" placeholder="Instagram sayfa linki">
+        <span class="text-danger" asp-validation-for="Setting.Instagram"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Setting.Twitter"></label>
+        <input type="text" class="form-control" asp-for="Setting.Twitter" placeholder="Twitter sayfa linki">
+        <span class="text-danger" asp-validation-for="Setting.Twitter"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Setting.Linkedin"></label>
+        <input type="text" class="form-control" asp-for="Setting.Linkedin" placeholder="Linkedin sayfa linki">
+        <span class="text-danger" asp-validation-for="Setting.Linkedin"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Setting.Youtube"></label>
+        <input type="text" class="form-control" asp-for="Setting.Youtube" placeholder="Youtube sayfa linki">
+        <span class="text-danger" asp-validation-for="Setting.Youtube"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Setting.Phone"></label>
+        <input type="text" class="form-control" asp-for="Setting.Phone" placeholder="Telefon numarası">
+        <span class="text-danger" asp-validation-for="Setting.Phone"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Setting.Whatsapp"></label>
+        <input type="text" class="form-control" asp-for="Setting.Whatsapp" placeholder="Whatsapp numarası">
+        <span class="text-danger" asp-validation-for="Setting.Whatsapp"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Setting.Email"></label>
+        <input type="text" class="form-control" asp-for="Setting.Email" placeholder="Sitenin email adresi">
+        <span class="text-danger" asp-validation-for="Setting.Email"></span>
+    </div>
+    <div class="row m-0">
+        <a href="/admin" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            Değişiklikleri kaydet
+        </button>
+    </div>
+</form>
+
+@section Scripts
+{
+    <script src="/lib/toastr/toastr.min.js"></script>
+
+    @if (ViewData["Message"] is not null)
+    {
+        <script>
+                toastr.success('@ViewData["Message"]', '', {timeOut: 1500});
+            </script>
+    }
+}
