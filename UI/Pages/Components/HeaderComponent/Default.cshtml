@@ -1,0 +1,165 @@
+﻿@using System.Web
+@using System.Text.RegularExpressions
+@model Entities.Entity.Setting
+
+<div id="top-bar">
+    <div class="container clearfix">
+
+        <div class="row justify-content-between align-items-center">
+
+            <div class="col-12 col-md-auto">
+                <!-- Top Social
+                ============================================= -->
+                <ul id="top-social">
+                    <li>
+                        <a href="#" class="si-facebook">
+                            <span class="ts-icon">
+                                <i class="icon-facebook"></i>
+                            </span><span class="ts-text">Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="si-twitter">
+                            <span class="ts-icon">
+                                <i class="icon-twitter"></i>
+                            </span><span class="ts-text">Twitter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="si-instagram">
+                            <span class="ts-icon">
+                                <i class="icon-instagram2"></i>
+                            </span><span class="ts-text">Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="si-youtube">
+                            <span class="ts-icon">
+                                <i class="icon-youtube"></i>
+                            </span><span class="ts-text">Youtube</span>
+                        </a>
+                    </li>
+                </ul><!-- #top-social end -->
+
+            </div>
+
+            <div class="col-12 col-md-auto">
+
+                <!-- Top Links
+                ================== ========================== -->
+                <div class="top-links">
+                    <!-- weather widget start -->
+                    <div id="m-booked-small-t3-91900">
+                        <div class="booked-weather-160x36 w160x36-03" style="color:#333333; border-radius:4px; -moz-border-radius:4px; border:none">
+                            <div style="color:#08488D;" class="booked-bl-simple-city">Adıyaman</div>
+                            <div class="booked-weather-160x36-degree"><span class="plus">+</span>27&deg;<span>C</span></div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">var css_file=document.createElement("link"); var widgetUrl = location.href; css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href",'https://s.bookcdn.com/css/w/bw-160-36.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData_91900(data) { if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-small-t3-91900'); if(objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-'+data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if(copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } var widgetSrc = "https://widgets.booked.net/weather/info?action=get_weather_info;ver=7;cityID=41415;type=13;scode=2;ltid=3457;domid=;anc_id=65419;countday=undefined;cmetric=1;wlangID=21;color=fff5d9;wwidth=158;header_color=fff5d9;text_color=333333;link_color=08488D;border_form=3;footer_color=fff5d9;footer_text_color=333333;transparent=1;v=0.0.1";widgetSrc += ';ref=' + widgetUrl;widgetSrc += ';rand_id=91900';var weatherBookedScript = document.createElement("script"); weatherBookedScript.setAttribute("type", "text/javascript"); weatherBookedScript.src = widgetSrc; document.body.appendChild(weatherBookedScript)</script><!-- weather widget end -->
+                </div><!-- .top-links end -->
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@{
+    var whatsappMessage = "Merhaba, websiteniz üzerinden ulaşıyorum. Daha fazla bilgi alabilir miyim?";
+    var whatsappText = HttpUtility.UrlEncode(whatsappMessage);
+    var whatsappNumber = Model.Whatsapp.Replace(" ", "");
+}
+
+<header id="header" data-sticky-shrink="false" class="no-sticky">
+    <div class="container">
+        <div class="header-row">
+            <!-- Logo
+            ============================================= -->
+            <div id="logo" class="ml-auto ml-lg-0 mr-lg-auto">
+                <a href="/" class="standard-logo">
+                    <img style="margin:10px;" src="/assets/img/logo-2.png" alt="Canvas Logo">
+                </a>
+                <span style="font-size:30px;" class="ml-4">
+                    Adıyaman ESOB
+                </span>
+            </div><!-- #logo end -->
+            <div class="header-misc d-none d-lg-flex">
+                <ul class="header-extras">
+                    <li>
+                        <i class="i-plain icon-call m-0"></i>
+                        <div class="he-text">
+                            Bize Ulaşın
+                            <span>
+                                <a class="d-block" href="tel:@Model.Phone">@Model.Phone</a>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="i-plain icon-whatsapp m-0"></i>
+                        <div class="he-text">
+                            Whatsapp
+                            <span>
+                                <a href="https://wa.me/@whatsappNumber/?text=@whatsappText">@Model.Whatsapp</a>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+
+                        <i class="i-plain icon-line2-envelope m-0"></i>
+                        <div class="he-text">
+                            Email
+                            <span>
+                                <a href="mailto:@Model.Email">
+                                    @Model.Email
+                                </a>
+                            </span>
+
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="header-wrap" class="">
+        <div class="container">
+            <div class="header-row justify-content-between flex-row-reverse flex-lg-row justify-content-lg-center top-search-parent">
+                <div id="primary-menu-trigger">
+                    <svg class="svg-trigger" viewBox="0 0 100 100">
+                        <path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path>
+                    </svg>
+                </div>
+                <nav class="primary-menu with-arrows">
+                    <ul class="menu-container">
+                        <li class="menu-item current">
+                            <a class="menu-link" href="/">
+                                <div>Anasayfa</div>
+                            </a>
+                        </li>
+                        @await Component.InvokeAsync("EnterpriseComponent")
+                        <li class="menu-item">
+                            <a class="menu-link" href="/genelgeler">
+                                <div>Genelgeler</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="/uye-kayit">
+                                <div>Üye Kayıt İşlemleri</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="/blog">
+                                <div>Blog</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a class="menu-link" href="/iletisim">
+                                <div>İletişim</div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

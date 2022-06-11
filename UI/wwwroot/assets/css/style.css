@@ -3557,6 +3557,16 @@ only screen and (                min-resolution: 2dppx) {
 	color: #003049;
 }
 
+.header-extras li .he-text a{
+	display: block;
+	font-weight: 400;
+	color: #003049!important;
+}
+
+.header-extras li .he-text a:hover{
+	color: #00739e!important;
+}
+
 
 /* ----------------------------------------------------------------
 	Primary Menu

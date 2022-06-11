@@ -1,4 +1,5 @@
 ﻿@page
+@using Entities.Entity
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -236,27 +237,27 @@
                 <div class="widget clearfix">
 
                     <h4>Sosyal Medya Hesaplarımız</h4>
-                    <a href="#" class="social-icon si-colored si-small si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
+                    <a href="@Model.Setting.Facebook" class="social-icon si-colored si-small si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
                         <i class="icon-facebook"></i>
                         <i class="icon-facebook"></i>
                     </a>
 
-                    <a href="#" class="social-icon si-colored si-small si-linkedin" data-toggle="tooltip" data-placement="top" title="Linked In">
+                    <a href="@Model.Setting.Linkedin" class="social-icon si-colored si-small si-linkedin" data-toggle="tooltip" data-placement="top" title="Linked In">
                         <i class="icon-linkedin"></i>
                         <i class="icon-linkedin"></i>
                     </a>
 
-                    <a href="#" class="social-icon si-colored si-small si-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
+                    <a href="@Model.Setting.Twitter" class="social-icon si-colored si-small si-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
                         <i class="icon-twitter"></i>
                         <i class="icon-twitter"></i>
                     </a>
 
-                    <a href="#" class="social-icon si-colored si-small si-youtube" data-toggle="tooltip" data-placement="top" title="Youtube">
+                    <a href="@Model.Setting.Youtube" class="social-icon si-colored si-small si-youtube" data-toggle="tooltip" data-placement="top" title="Youtube">
                         <i class="icon-youtube"></i>
                         <i class="icon-youtube"></i>
                     </a>
 
-                    <a href="#" class="social-icon si-colored si-small si-instagram" data-toggle="tooltip" data-placement="top" title="Instagram">
+                    <a href="@Model.Setting.Instagram" class="social-icon si-colored si-small si-instagram" data-toggle="tooltip" data-placement="top" title="Instagram">
                         <i class="icon-instagram"></i>
                         <i class="icon-instagram"></i>
                     </a>
