@@ -1,0 +1,71 @@
+﻿@page "/duyurular/{currentPage:int=1}"
+@model UI.Pages.Announcement.Index
+
+@{
+    ViewData["Title"] = "Duyurular";
+}
+
+@section HeaderTitle
+{
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Duyurular</h1>
+            <span>Duyuruları kaçırmayın</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Duyurular</li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+}
+
+@if (Model.Announcements.Count <= 0)
+{
+    <div class="alert alert-danger">Duyuru bulunamadı.</div>
+}
+else
+{
+    <div class="container clearfix">
+
+        <!-- Posts
+        ============================================= -->
+        <div id="posts" class="post-grid row grid-container gutter-30" data-layout="fitRows">
+
+            @foreach (var item in Model.Announcements)
+            {
+                <div class="entry col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="grid-inner">
+                        <div class="entry-image">
+                            <img src="/upload/announcement/small/@item.Image" alt="@item.Title">
+                        </div>
+                        <div class="entry-title">
+                            <h2>
+                                <a href="/duyurular/@item.SeoUrl">@item.Title</a>
+                            </h2>
+                        </div>
+                        <div class="entry-meta">
+                            <ul>
+                                <li><i class="icon-calendar3"></i>@item.CreationDate.ToShortDateString()</li>
+                            </ul>
+                        </div>
+                        <div class="entry-content">
+                            <p>
+                                @item.Description
+                            </p>
+                            <a href="/duyurular/@item.SeoUrl" class="more-link">Devamını oku</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div><!-- #posts end -->
+
+        <paginator custom-list-class="pagination-circle" current-page="@Model.Paging.CurrentPage" link-url="duyurular" total-pages="@Model.Paging.TotalPages"></paginator>
+    </div>
+}

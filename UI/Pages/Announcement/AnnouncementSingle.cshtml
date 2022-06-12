@@ -1,0 +1,74 @@
+﻿@page "/duyurular/{seoUrl}"
+@model UI.Pages.Announcement.AnnouncementSingle
+
+@{
+    ViewData["Title"] = Model.Announcement.Title;
+}
+
+@section HeaderTitle
+{
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Duyurular</h1>
+            <span>@Model.Announcement.Title</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item" aria-current="page">
+                    <a href="/duyurular">
+                        Duyurular
+                    </a> 
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Announcement.Title</li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+}
+
+<!-- Post Content
+============================================= -->
+<div class="postcontent col-lg-8 container">
+
+    <div class="single-post mb-0">
+
+        <!-- Single Post
+        ============================================= -->
+        <div class="entry clearfix">
+
+            <!-- Entry Title
+            ============================================= -->
+            <div class="entry-title">
+                <h2>@Model.Announcement.Title</h2>
+            </div><!-- .entry-title end -->
+
+            <!-- Entry Meta
+            ============================================= -->
+            <div class="entry-meta">
+                <ul>
+                    <li>
+                        <i class="icon-calendar3"></i>@Model.Announcement.CreationDate.ToShortDateString()
+                    </li>
+                </ul>
+            </div><!-- .entry-meta end -->
+
+            <!-- Entry Image
+            ============================================= -->
+            <div class="entry-image">
+                <img class="img-fluid" src="/upload/announcement/medium/@Model.Announcement.Image" alt="@Model.Announcement.Title">
+            </div><!-- .entry-image end -->
+
+            <!-- Entry Content
+            ============================================= -->
+            <div class="entry-content mt-0">
+                @Html.Raw(Model.Announcement.Content)
+            </div>
+        </div><!-- .entry end -->
+
+    </div>
+
+</div><!-- .postcontent end -->
