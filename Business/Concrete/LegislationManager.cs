@@ -28,6 +28,18 @@ public class LegislationManager : ILegislationService
         return new ErrorDataResult<Legislation>();
     }
 
+    public async Task<IDataResult<Legislation>> GetBySeoUrl(string seoUrl)
+    {
+        var result = await _legislationDal.GetAsync(x => x.SeoUrl == seoUrl);
+
+        if (result is not null)
+        {
+            return new SuccessDataResult<Legislation>(result); 
+        }
+
+        return new ErrorDataResult<Legislation>();
+    }
+
     public async Task<IDataResult<List<Legislation>>> GetListAsync()
     {
         var result = await _legislationDal.GetAllAsync();

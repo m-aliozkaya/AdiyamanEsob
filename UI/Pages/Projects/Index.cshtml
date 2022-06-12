@@ -1,0 +1,63 @@
+﻿@page "/projeler"
+@model UI.Pages.Projects.Index
+
+@{
+    ViewData["Title"] = "Projeler";
+}
+
+@section HeaderTitle
+{
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Projeler</h1>
+            <span>Projelerimizden haberdar olun.</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Projeler</li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+}
+
+<div class="container clearfix">
+    @if (Model.Project.Count <= 0)
+    {
+        <div class="alert alert-danger">Proje bulunamadı.</div>
+    }
+    else
+    {
+        <!-- Posts
+        ============================================= -->
+        <div id="posts" class="post-grid row grid-container gutter-30" data-layout="fitRows">
+
+            @foreach (var item in Model.Project)
+            {
+                <div class="entry col-12">
+                    <div class="grid-inner">
+                        <div class="entry-image">
+                            <img src="/upload/project/medium/@item.Image" alt="@item.Title">
+                        </div>
+                        <div class="entry-title">
+                            <h2>
+                                @item.Title
+                            </h2>
+                        </div>
+                        <div class="entry-content">
+                            <p>
+                                @item.Content
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <!-- #posts end -->
+    }
+</div>

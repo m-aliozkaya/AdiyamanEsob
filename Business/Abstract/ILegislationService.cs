@@ -6,6 +6,7 @@ namespace Business.Abstract;
 public interface ILegislationService
 {
     Task<IDataResult<Legislation>> GetAsync(int id);
+    Task<IDataResult<Legislation>> GetBySeoUrl(string seoUrl);
     Task<IDataResult<List<Legislation>>> GetListAsync();
     Task<IDataResult<Legislation>> AddAsync(Legislation aboutArticle);
     Task<IDataResult<Legislation>> UpdateAsync(Legislation aboutArticle);

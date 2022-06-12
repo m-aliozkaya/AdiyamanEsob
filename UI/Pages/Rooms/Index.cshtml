@@ -1,0 +1,100 @@
+﻿@page "/odalar"
+@model UI.Pages.Rooms.Index
+
+@section HeaderTitle
+{
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+        <div class="container clearfix">
+            <h1>Odalar</h1>
+            <span>Odalarımız</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Odalarımız</li>
+            </ol>
+        </div>
+    </section><!-- #page-title end -->
+}
+
+<div class="container col-8 mb-5">
+    <h3>Merkez Odalarımız</h3>
+    @foreach (var item in Model.CentralRooms)
+    {
+        <div class="card mb-4">
+            <div class="card-header text-white bg-secondary">
+                @item.Title
+            </div>
+            <table class="table table-striped mb-0">
+                <tbody>
+                <tr>
+                    <th scope="col">Başkan:</th>
+                    <td>@item.Leader</td>
+                </tr>
+                <tr>
+                    <th scope="col">Genel Sekreter:</th>
+                    <td>@item.Secretary</td>
+                </tr>
+                <tr>
+                    <th scope="col">Adres:</th>
+                    <td>@item.Address</td>
+                </tr>
+                <tr>
+                    <th scope="col">Tel No:</th>
+                    <td>@item.Phone</td>
+                </tr>
+                <tr>
+                    <th scope="col">Fax No:</th>
+                    <td>@item.Fax</td>
+                </tr>
+                <tr>
+                    <th scope="col">Web:</th>
+                    <td>@(string.IsNullOrEmpty(item.Website) ? "Yok" : item.Website)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<div class="container col-8 mb-5 mt-5 pt-5">
+    <h3>Şubelerimiz</h3>
+    @foreach (var item in Model.BranchRooms)
+    {
+        <div class="card mb-2">
+            <div class="card-header text-white bg-secondary">
+                @item.Title
+            </div>
+            <table class="table table-striped mb-0">
+                <tbody>
+                <tr>
+                    <th scope="col">Başkan:</th>
+                    <td>@item.Leader</td>
+                </tr>
+                <tr>
+                    <th scope="col">Genel Sekreter:</th>
+                    <td>@item.Secretary</td>
+                </tr>
+                <tr>
+                    <th scope="col">Adres:</th>
+                    <td>@item.Address</td>
+                </tr>
+                <tr>
+                    <th scope="col">Tel No:</th>
+                    <td>@item.Phone</td>
+                </tr>
+                <tr>
+                    <th scope="col">Fax No:</th>
+                    <td>@item.Fax</td>
+                </tr>
+                <tr>
+                    <th scope="col">Web:</th>
+                    <td>@(string.IsNullOrEmpty(item.Website) ? "Yok" : item.Website)</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

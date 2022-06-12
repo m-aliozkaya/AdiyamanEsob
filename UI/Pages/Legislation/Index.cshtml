@@ -1,37 +1,31 @@
-﻿@page "/genelgeler"
-@model UI.Pages.Circulars.IndexModel
-
-@{
-    ViewData["Title"] = "Genelgeler";
-}
+﻿@page "/mevzuatlar"
+@model UI.Pages.Legislation.Index
 
 @section HeaderTitle
 {
     <!-- Page Title
     ============================================= -->
     <section id="page-title">
-
         <div class="container clearfix">
-            <h1>Genelgeler</h1>
-            <span>Genelgelerimiz</span>
+            <h1>Mevzuatlar</h1>
+            <span>Mevzuatlarımız</span>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="/">Anasayfa</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Genelgeler</li>
+                <li class="breadcrumb-item active" aria-current="page">Mevzuatlar</li>
             </ol>
         </div>
-
     </section><!-- #page-title end -->
 }
 
 <div class="container col-8">
     <ul class="list-group">
-        @foreach (var item in Model.Years)
+        @foreach (var item in Model.Legislation)
         {
             <li class="list-group-item">
-                <a href="/genelgeler/@item">
-                    @item Yılı Genelgeleri
+                <a href="/mevzuatlar/@item.SeoUrl">
+                    @item.Title
                 </a>         
             </li>
         }
