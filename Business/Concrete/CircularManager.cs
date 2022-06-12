@@ -3,6 +3,7 @@ using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
 using DataAccess.Abstract;
 using Entities.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Concrete;
 
@@ -71,4 +72,11 @@ public class CircularManager : ICircularService
         await _circularDal.DeleteAsync(result.Data);
         return new SuccessDataResult<Circular>(result.Data);
     }
+
+    public async Task<IDataResult<List<int>>> GetYearsAsync()
+    {
+        var result = await _circularDal.GetQueryable().Select(x => x.Year).Distinct().ToListAsync();
+        return new SuccessDataResult<List<int>>(result);
+    }
+
 }

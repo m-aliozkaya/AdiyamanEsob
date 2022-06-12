@@ -1,0 +1,17 @@
+﻿@page "/genelgeler"
+@model UI.Pages.Circulars.IndexModel
+@{
+}
+
+<div class="container col-8">
+    <ul class="list-group">
+        @foreach (var item in Model.Years)
+        {
+            <li class="list-group-item">
+                <a href="/genelgeler/@item">
+                    @item Yılı Genelgeleri
+                </a>         
+            </li>
+        }
+    </ul>
+</div>

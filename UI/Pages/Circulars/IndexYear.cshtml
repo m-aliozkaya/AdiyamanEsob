@@ -1,0 +1,21 @@
+﻿@page "/genelgeler/{year:int}"
+@model UI.Pages.Circulars.IndexYearModel
+
+
+<table class="table table-bordered table-striped container col-md-8">
+    <thead>
+        <tr>
+            <th>@Model.Year Yılı Genelgeleri</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Circulars)
+        {
+            <tr>
+                <td>
+                    <a href="/upload/circular/@item.File">@item.Title</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -9,4 +9,5 @@ public class EfCircularDal : MyEntityRepositoryBase<Circular>, ICircularDal
     public EfCircularDal(EsobContext context) : base(context)
     {
     }
+
 }
