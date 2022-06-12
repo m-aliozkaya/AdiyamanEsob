@@ -16980,3 +16980,26 @@ label.checkbox { padding-left: 20px; }
 #slider{
 	min-height: 550px!important;
 }
+
+.accordion .card-header .title {
+	font-size: 17px;
+	color: #000;
+}
+.accordion .card-header .accicon {
+	float: right;
+	font-size: 20px;
+	width: 1.2em;
+}
+.accordion .card-header{
+	cursor: pointer;
+	border-bottom: none;
+}
+.accordion .card{
+	border: 1px solid #ddd;
+}
+.accordion .card-body{
+	border-top: 1px solid #ddd;
+}
+.accordion .card-header:not(.collapsed) .rotate-icon {
+	transform: rotate(180deg);
+}

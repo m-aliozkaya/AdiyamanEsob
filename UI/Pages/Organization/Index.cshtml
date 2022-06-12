@@ -1,6 +1,24 @@
 ﻿@page "/organizasyon/{seoUrl}"
 @model UI.Pages.Organization.IndexModel
-@{
+
+@section HeaderTitle
+{
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Organizasyon Şeması</h1>
+            <span>@Model.Organization.Name</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Organization.Name</li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
 }
 
 <div class="container">

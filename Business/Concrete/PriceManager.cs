@@ -43,7 +43,7 @@ public class PriceManager : IPriceService
         }
         else
         {
-            result = result = await _priceDal.GetAllAsync(x => x.IsCentre == isCentre);
+            result  = await _priceDal.GetAllAsync(x => x.IsCentre == isCentre);
         }
 
         return new SuccessDataResult<List<Price>>(result);
