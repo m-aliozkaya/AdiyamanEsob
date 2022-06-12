@@ -15,14 +15,26 @@ public class AboutArticleManager : IAboutArticleService
     {
         _aboutArticleDal = aboutArticleDal;
     }
-    
+
     public async Task<IDataResult<AboutArticle>> GetAsync(int id)
     {
         var result = await _aboutArticleDal.GetAsync(x => x.Id == id);
 
         if (result is not null)
         {
-            return new SuccessDataResult<AboutArticle>(result); 
+            return new SuccessDataResult<AboutArticle>(result);
+        }
+
+        return new ErrorDataResult<AboutArticle>();
+    }
+
+    public async Task<IDataResult<AboutArticle>> GetBySeoUrl(string seoUrl)
+    {
+        var result = await _aboutArticleDal.GetAsync(x => x.SeoUrl == seoUrl);
+
+        if (result is not null)
+        {
+            return new SuccessDataResult<AboutArticle>(result);
         }
 
         return new ErrorDataResult<AboutArticle>();
@@ -52,9 +64,9 @@ public class AboutArticleManager : IAboutArticleService
     public async Task<IDataResult<AboutArticle>> DeleteAsync(int id)
     {
         var result = await GetAsync(id);
-        
+
         if (!result.Success) return new ErrorDataResult<AboutArticle>();
-        
+
         await _aboutArticleDal.DeleteAsync(result.Data);
         return new SuccessDataResult<AboutArticle>(result.Data);
     }
