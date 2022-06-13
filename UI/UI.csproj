@@ -150,6 +150,16 @@
       <_ContentIncludedByDefault Remove="wwwroot\upload\news\small\5e735a00-6732-49dd-906d-e65a0a99264d.png" />
       <_ContentIncludedByDefault Remove="wwwroot\upload\news\small\7a980910-0e4a-49f2-9cb0-50e9a0ed3202.png" />
       <_ContentIncludedByDefault Remove="wwwroot\upload\news\small\f047c131-ecea-45d7-b2b9-b30040d9b151.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\news\medium\366f59e6-bf13-4874-9d37-e6c6a9653d8d.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\news\medium\3702f87d-2182-490b-b446-0c8e6b292940.webp" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\news\medium\5a21da24-7d17-426b-ae01-4e6cb5a5e52c.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\news\medium\5e245889-d3b6-4432-ae42-250b9d6adbd6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\news\small\366f59e6-bf13-4874-9d37-e6c6a9653d8d.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\news\small\3702f87d-2182-490b-b446-0c8e6b292940.webp" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\news\small\5a21da24-7d17-426b-ae01-4e6cb5a5e52c.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\news\small\5e245889-d3b6-4432-ae42-250b9d6adbd6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\announcement\medium\66ab6494-2f17-44a0-9579-d50c7b220561.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\upload\announcement\small\66ab6494-2f17-44a0-9579-d50c7b220561.jpg" />
       
     </ItemGroup>
 

@@ -1,21 +1,54 @@
 ﻿@page "/genelgeler/{year:int}"
 @model UI.Pages.Circulars.IndexYearModel
 
+@{
+    ViewData["Title"] = Model.Year + " Yılı Genelgeleri";
+}
 
-<table class="table table-bordered table-striped container col-md-8">
-    <thead>
-        <tr>
-            <th>@Model.Year Yılı Genelgeleri</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Circulars)
-        {
-            <tr>
-                <td>
-                    <a href="/upload/circular/@item.File">@item.Title</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@section HeaderTitle
+{
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Genelgeler</h1>
+            <span>@Model.Year Yılı Genelgeleri</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item" aria-current="page">
+                    <a href="/genelgeler">Genelgeler</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Year Yılı Genelgeleri</li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+}
+
+<div class="container">
+    <div class="row col-mb-80">
+        <div class="col-lg-9">
+            <table class="table table-bordered table-striped col-md-10">
+                <thead>
+                <tr>
+                    <th>@Model.Year Yılı Genelgeleri</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.Circulars)
+                {
+                    <tr>
+                        <td>
+                            <a href="/upload/circular/@item.File">@item.Title</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        @await Component.InvokeAsync("RightBarComponent")
+    </div>
+</div>

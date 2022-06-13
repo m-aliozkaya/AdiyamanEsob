@@ -1,9 +1,14 @@
 ﻿<!DOCTYPE html>
 <html dir="ltr" lang="tr">
 <head>
-
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="author" content="SemiColonWeb"/>
+    <meta name="author" content="Aesob"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!-- Document Title
+    ============================================= -->
+    <title>@ViewData["Title"] | Adiyaman Esob</title>
+    <meta name="description" content="@(string.IsNullOrEmpty(ViewData["Description"]?.ToString()) ? "Adiyaman esnaf ve sanatkarlar odası birliği. Detaylı bilgi için websitesini ziyaret ediniz." : ViewData["Description"]?.ToString())" />
 
     <!-- Stylesheets
     ============================================= -->
@@ -18,11 +23,6 @@
     <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css"/>
 
     <link rel="stylesheet" href="/assets/css/custom.css" type="text/css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <!-- Document Title
-    ============================================= -->
-    <title>Adiyaman Esob | @ViewData["Title"]</title>
 </head>
 
 <body class="stretched search-overlay">
@@ -37,7 +37,9 @@
     <!-- Content -->
     <section id="content">
         <div class="content-wrap pt-5" style="overflow: visible;">
+
             @RenderBody()
+
         </div>
     </section>
     <!-- #content end -->

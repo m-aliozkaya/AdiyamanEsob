@@ -18,7 +18,7 @@ public class EnterpriseComponent : ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var organizations = await _organizationService.GetListAsync();
-        var aboutArticles = await _aboutArticleService.GetListAsync();
+        var aboutArticles = await _aboutArticleService.GetActiveListAsync();
         
         var model = new EnterpriseComponentDto
         {

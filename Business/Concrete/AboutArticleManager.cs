@@ -4,6 +4,7 @@ using Core.Utilities.Result.Concrete;
 using Core.Utilities.Seo;
 using DataAccess.Abstract;
 using Entities.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Concrete;
 
@@ -43,6 +44,12 @@ public class AboutArticleManager : IAboutArticleService
     public async Task<IDataResult<List<AboutArticle>>> GetListAsync()
     {
         var result = await _aboutArticleDal.GetAllAsync();
+        return new SuccessDataResult<List<AboutArticle>>(result);
+    }
+
+    public async Task<IDataResult<List<AboutArticle>>> GetActiveListAsync()
+    {
+        var result = await _aboutArticleDal.GetQueryable().Where(x => x.IsActive).ToListAsync();
         return new SuccessDataResult<List<AboutArticle>>(result);
     }
 

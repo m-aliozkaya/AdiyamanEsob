@@ -21,62 +21,71 @@
     </section><!-- #page-title end -->
 }
 
-<div class="accordion container col-8 mb-5" id="accordionCentral">
-    <h3>Merkez Rayiçler</h3>
-    @foreach (var item in Model.CentralPrices)
-    {
-        <div class="card">
-            <div class="card-header" data-toggle="collapse" data-target="#price-@item.Id" aria-expanded="true">
-                <span class="title">
-                    <b>@item.Title</b>
-                </span>
-                <span class="accicon">
-                    <i class="icon-angle-down rotate-icon"></i>
-                </span>
-            </div>
-            <div id="price-@item.Id" class="collapse" data-parent="#accordionCentral">
-                <div class="card-body">
-                    <p class="mb-1">
-                        <b>Karar Tarihi: </b>@item.DecisionDate.ToShortDateString()
-                    </p>
-                    <p class="mb-1">
-                        <b>Karar Sayısı: </b>@item.DecisionNumber
-                    </p>
-                    <p>
-                        @Html.Raw(item.Content)
-                    </p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="col-md-10">
+                <div class="accordion mb-5" id="accordionCentral">
+                    <h3>Merkez Rayiçler</h3>
+                    @foreach (var item in Model.CentralPrices)
+                    {
+                        <div class="card">
+                            <div class="card-header" data-toggle="collapse" data-target="#price-@item.Id" aria-expanded="true">
+                                <span class="title">
+                                    <b>@item.Title</b>
+                                </span>
+                                <span class="accicon">
+                                    <i class="icon-angle-down rotate-icon"></i>
+                                </span>
+                            </div>
+                            <div id="price-@item.Id" class="collapse" data-parent="#accordionCentral">
+                                <div class="card-body">
+                                    <p class="mb-1">
+                                        <b>Karar Tarihi: </b>@item.DecisionDate.ToShortDateString()
+                                    </p>
+                                    <p class="mb-1">
+                                        <b>Karar Sayısı: </b>@item.DecisionNumber
+                                    </p>
+                                    <p>
+                                        @Html.Raw(item.Content)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
-            </div>
-        </div>
-    }
-</div>
 
-<div class="accordion container col-8 mb-5 pt-5" id="accordionBranch">
-    <h3>İlçe Rayiçler</h3>
-    @foreach (var item in Model.BranchPrices)
-    {
-        <div class="card">
-            <div class="card-header" data-toggle="collapse" data-target="#price-@item.Id" aria-expanded="true">
-                <span class="title">
-                    <b>@item.Title</b>
-                </span>
-                <span class="accicon">
-                    <i class="icon-angle-down rotate-icon"></i>
-                </span>
-            </div>
-            <div id="price-@item.Id" class="collapse" data-parent="#accordionBranch">
-                <div class="card-body">
-                    <p class="mb-1">
-                        <b>Karar Tarihi: </b>@item.DecisionDate.ToShortDateString()
-                    </p>
-                    <p class="mb-1">
-                        <b>Karar Sayısı: </b>@item.DecisionNumber
-                    </p>
-                    <p>
-                        @Html.Raw(item.Content)
-                    </p>
+                <div class="accordion mb-5 pt-5" id="accordionBranch">
+                    <h3>İlçe Rayiçler</h3>
+                    @foreach (var item in Model.BranchPrices)
+                    {
+                        <div class="card">
+                            <div class="card-header" data-toggle="collapse" data-target="#price-@item.Id" aria-expanded="true">
+                                <span class="title">
+                                    <b>@item.Title</b>
+                                </span>
+                                <span class="accicon">
+                                    <i class="icon-angle-down rotate-icon"></i>
+                                </span>
+                            </div>
+                            <div id="price-@item.Id" class="collapse" data-parent="#accordionBranch">
+                                <div class="card-body">
+                                    <p class="mb-1">
+                                        <b>Karar Tarihi: </b>@item.DecisionDate.ToShortDateString()
+                                    </p>
+                                    <p class="mb-1">
+                                        <b>Karar Sayısı: </b>@item.DecisionNumber
+                                    </p>
+                                    <p>
+                                        @Html.Raw(item.Content)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
-    }
+        @await Component.InvokeAsync("RightBarComponent")
+    </div>
 </div>

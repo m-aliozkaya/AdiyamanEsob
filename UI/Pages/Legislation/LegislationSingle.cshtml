@@ -11,8 +11,8 @@
     ============================================= -->
     <section id="page-title">
 
-        <div class="container clearfix">
-            <h1>Mevzuatlar</h1>
+        <div class="container">
+            <h1 class="clearfix">Mevzuatlar</h1>
             <span>@Model.Legislation.Title</span>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -25,29 +25,36 @@
     </section><!-- #page-title end -->
 }
 
-<!-- Post Content
-============================================= -->
-<div class="postcontent col-lg-8 container">
-
-    <div class="single-post mb-0">
-
-        <!-- Single Post
-        ============================================= -->
-        <div class="entry clearfix">
-
-            <!-- Entry Title
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <!-- Post Content
             ============================================= -->
-            <div class="entry-title">
-                <h2>@Model.Legislation.Title</h2>
-            </div><!-- .entry-title end -->
-
-            <!-- Entry Content
-            ============================================= -->
-            <div class="entry-content mt-0">
-                @Html.Raw(Model.Legislation.Content)
-            </div>
-        </div><!-- .entry end -->
-
+            <div class="postcontent col-lg-10 container">
+            
+                <div class="single-post mb-0">
+            
+                    <!-- Single Post
+                    ============================================= -->
+                    <div class="entry">
+            
+                        <!-- Entry Title
+                        ============================================= -->
+                        <div class="entry-title clearfix">
+                            <h2>@Model.Legislation.Title</h2>
+                        </div><!-- .entry-title end -->
+            
+                        <!-- Entry Content
+                        ============================================= -->
+                        <div class="entry-content mt-0">
+                            @Html.Raw(Model.Legislation.Content)
+                        </div>
+                    </div><!-- .entry end -->
+            
+                </div>
+            
+            </div><!-- .postcontent end -->
+        </div>
+        @await Component.InvokeAsync("RightBarComponent")
     </div>
-
-</div><!-- .postcontent end -->
+</div>

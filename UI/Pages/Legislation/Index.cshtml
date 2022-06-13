@@ -19,15 +19,22 @@
     </section><!-- #page-title end -->
 }
 
-<div class="container col-8">
-    <ul class="list-group">
-        @foreach (var item in Model.Legislation)
-        {
-            <li class="list-group-item">
-                <a href="/mevzuatlar/@item.SeoUrl">
-                    @item.Title
-                </a>         
-            </li>
-        }
-    </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="container">
+                <ul class="list-group col-md-10">
+                    @foreach (var item in Model.Legislation)
+                    {
+                        <li class="list-group-item">
+                            <a href="/mevzuatlar/@item.SeoUrl">
+                                @item.Title
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        @await Component.InvokeAsync("RightBarComponent")
+    </div>
 </div>

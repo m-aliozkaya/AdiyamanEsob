@@ -1,0 +1,18 @@
+﻿@model Entities.Entity.Setting
+
+<div class="sidebar col-lg-3">
+    <div class="sidebar-widgets-wrap">
+
+        <div class="widget widget_links clearfix">
+
+            <h4>Sayfalar</h4>
+            @await Component.InvokeAsync("PagesComponent")
+
+        </div>
+
+        @await Component.InvokeAsync("LastBlogComponent")
+
+   
+
+    </div>
+</div><!-- .sidebar end -->

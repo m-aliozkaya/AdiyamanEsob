@@ -27,8 +27,13 @@ public class VideoManager : IVideoService
         return new ErrorDataResult<Video>();
     }
 
-    public async Task<IDataResult<List<Video>>> GetListAsync()
+    public async Task<IDataResult<List<Video>>> GetListAsync(int? count)
     {
+        if (count.HasValue)
+        {
+            return new SuccessDataResult<List<Video>>(_videoDal.GetQueryable().Take(count.Value).ToList());
+        }
+        
         var result = await _videoDal.GetAllAsync();
         return new SuccessDataResult<List<Video>>(result);
     }

@@ -1,0 +1,37 @@
+﻿@model List<Entities.Entity.Video>
+
+@if (Model.Count > 0)
+{
+    <div class="container">
+
+        <!-- Video Section
+        ============================================= -->
+        <div class="d-flex justify-content-between mb-4">
+            <h3 class="font-secondary font-weight-medium m-0">Adıyaman ESOB TV</h3>
+            <a href="#" class="btn btn-sm btn-outline-secondary">Devamı <i class="icon-line-arrow-right"></i></a>
+        </div>
+
+        <div class="row posts-md col-mb-30">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <a href="https://www.youtube.com/watch?v=@item.VideoPath" data-lightbox="iframe">
+                        <article class="entry border-bottom-0 mb-0">
+                            <div class="entry-image">
+
+                                <img src="/upload/video/@item.Image" alt="@item.Title">
+                                <div class="play-icon"><i class="icon-play"></i>Watch</div>
+
+                            </div>
+                            <div class="entry-title title-sm color-underline">
+                                <h3>
+                                    @item.Title
+                                </h3>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+            }
+        </div> <!-- Video Section End -->
+    </div>
+}

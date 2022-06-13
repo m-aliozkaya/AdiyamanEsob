@@ -1,8 +1,7 @@
 ﻿@page
-@using Entities.Entity
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Anasayfa";
 }
 
 <div class="container">
@@ -27,8 +26,8 @@
                 <div class="widget subscribe-widget" data-loader="button">
 
                     <div class="widget-subscribe-form-result"></div>
-                    <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0 d-flex">
-                        <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control form-control-lg not-dark required email" placeholder="Email adresi">
+                    <form id="widget-subscribe-form" onsubmit=" this.reset(); return false;" class="mb-0 d-flex">
+                        <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control form-control-lg not-dark email" placeholder="Email adresi">
                         <button class="button button-large button-black button-dark font-weight-medium ls0 button-rounded m-0 ml-3" type="submit">Şimdi Abone Ol</button>
                     </form>
                 </div>
@@ -48,83 +47,86 @@
             <img class="op-05" src="assets/demos/finance/images/grid.svg" alt="Grid Image" style="position: absolute; left: -20px; top: -30px; z-index: -1;">
 
             <div class="col-lg-4 col-md-6 d-flex align-self-stretch">
-                <div class="feature-box flex-column h-shadow mx-0" style="background-image: linear-gradient(#2646532b, #264653f7), url('assets/demos/finance/images/services/1.jpg')">
-                    <a href="#">
+                <div class="feature-box flex-column h-shadow mx-0 w-100" style="background-image: linear-gradient(#2646532b, #264653f7), url('assets/demos/finance/images/services/1.jpg')">
+                    <a href="/fiyat-tarifeleri">
                         <div class="fbox-icon mb-4">
                             <i class="icon-line-dollar-sign color-2"></i>
                         </div>
                         <div class="fbox-content">
-                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott">Financial Services</h4>
-                            <p>Globally mesh multifunctional without competitive benefits. Synergistically procrastinate effective.</p>
+                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott">Fiyat Tarifeleri</h4>
+                            <p>
+                                Güncel fiyat tarifelerine bakabilirsiniz.
+                            </p>
                         </div>
                     </a>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 d-flex align-self-stretch">
-                <div class="feature-box flex-column h-shadow mx-0" style="background-image: linear-gradient(#2646532b, #264653f7), url('assets/demos/finance/images/services/2.jpg')">
-                    <a href="#">
+                <div class="feature-box flex-column h-shadow mx-0 w-100" style="background-image: linear-gradient(#2646532b, #264653f7), url('assets/demos/finance/images/services/2.jpg')">
+                    <a href="/genelgeler">
                         <div class="fbox-icon mb-4">
                             <i class="icon-line-paper color-2"></i>
                         </div>
                         <div class="fbox-content">
-                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott"> Audit &amp; Taxes</h4>
-                            <p>Appropriately parallel task mission-critical communities after team building quality vectors seamlessly promote.</p>
+                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott">Genelgeler</h4>
+                            <p>Genelgelerimizi bu linkten hızlı bir şekilde ulaşabilirsiniz.</p>
                         </div>
                     </a>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 d-flex align-self-stretch">
-                <div class="feature-box flex-column h-shadow mx-0" style="background-image: linear-gradient(#264653A8, #264653), url('assets/demos/finance/images/services/3.jpg')">
-                    <a href="#">
+                <div class="feature-box flex-column h-shadow mx-0 w-100" style="background-image: linear-gradient(#264653A8, #264653), url('assets/demos/finance/images/services/3.jpg')">
+                    <a href="/odalar">
                         <div class="fbox-icon mb-4">
                             <i class="icon-line-flag color-2"></i>
                         </div>
                         <div class="fbox-content">
-                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott"> Business Planning</h4>
-                            <p>Globally deploy cost effective internal, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est.</p>
+                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott">Odalar</h4>
+                            <p>Esnaf odalarımıza bu linkten ulaşabilirsiniz.</p>
                         </div>
                     </a>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 d-flex align-self-stretch">
-                <div class="feature-box flex-column h-shadow mx-0" style="background-image: linear-gradient(#26465398, #264653), url('assets/demos/finance/images/services/4.jpg')">
-                    <a href="#">
+                <div class="feature-box flex-column h-shadow mx-0 w-100" style="background-image: linear-gradient(#26465398, #264653), url('assets/demos/finance/images/services/4.jpg')">
+                    <a href="/blog/esnaf-olma-sartlari">
                         <div class="fbox-icon mb-4">
                             <i class="icon-line-users color-2"></i>
                         </div>
                         <div class="fbox-content">
-                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott">Acountants Experts</h4>
-                            <p>Globally mesh multifunctional without competitive benefits. Synergistically procrastinate effective.</p>
+                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott">Esnaf Olma Şartları</h4>
+                            <p>AESOB | Esnaf olmanın şartları Nelerdir?</p>
                         </div>
                     </a>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 d-flex align-self-stretch">
-                <div class="feature-box flex-column h-shadow mx-0" style="background-image: linear-gradient(#264653A8, #264653), url('assets/demos/finance/images/services/5.jpg')">
-                    <a href="">
+                <div class="feature-box flex-column h-shadow mx-0 w-100" style="background-image: linear-gradient(#264653A8, #264653), url('assets/demos/finance/images/services/5.jpg')">
+                    <a href="/organizasyon/yonetim-kurulu-uyeleri">
                         <div class="fbox-icon mb-4">
                             <i class="icon-line-globe color-2"></i>
                         </div>
                         <div class="fbox-content">
-                            <p>Appropriately parallel task mission-critical communities after team building quality vectors seamlessly promote.</p>
+                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott">Yönetim Kurulu Üyeleri</h4>
+                            <p>Yönetim kurulu üyelerini görüntüleyin.</p>
                         </div>
                     </a>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 d-flex align-self-stretch">
-                <div class="feature-box flex-column h-shadow mx-0" style="background-image: linear-gradient(#26465398, #264653), url('assets/demos/finance/images/services/6.jpg')">
-                    <a href="">
+                <div class="feature-box flex-column h-shadow mx-0 w-100" style="background-image: linear-gradient(#26465398, #264653), url('assets/demos/finance/images/services/6.jpg')">
+                    <a href="/projeler">
                         <div class="fbox-icon mb-4">
                             <i class="icon-line-briefcase color-2"></i>
                         </div>
                         <div class="fbox-content">
-                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott"> Stocks &amp; Trades</h4>
-                            <p>Globally deploy cost effective internal, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est.</p>
+                            <h4 class="font-body font-weight-semibold h4 mb-4 mt-2 ls0 nott">Projelerimiz</h4>
+                            <p>Yaptığımız projelere bir göz atın!</p>
                         </div>
                     </a>
                 </div>
@@ -136,136 +138,14 @@
 
 </div>
 
-<div class="container">
-
-    <!-- Video Section
-    ============================================= -->
-    <div class="d-flex justify-content-between mb-4">
-        <h3 class="font-secondary font-weight-medium m-0">Adıyaman ESOB TV</h3>
-        <a href="#" class="btn btn-sm btn-outline-secondary">Devamı <i class="icon-line-arrow-right"></i></a>
-    </div>
-
-    <div class="row posts-md col-mb-30">
-        <div class="col-md-4">
-            <article class="entry border-bottom-0 mb-0">
-                <div class="entry-image">
-                    <a href="https://www.youtube.com/watch?v=P3Huse9K6Xs" data-lightbox="iframe">
-                        <img src="assets/demos/blog/images/video-thumbs/1.jpg" alt="Image 3">
-                        <div class="play-icon"><i class="icon-play"></i>Watch</div>
-                    </a>
-                </div>
-                <div class="entry-title title-sm">
-                    <h3>
-                        <a href="demo-blog-single.html" class="color-underline">The Best Destinations in Asia for Solo Travel</a>
-                    </h3>
-                </div>
-                <div class="entry-meta">
-                    <ul>
-                        <li>
-                            <a href="#">Mar 11, 2016</a>
-                        </li>
-                    </ul>
-                </div>
-            </article>
-        </div>
-        <div class="col-md-4">
-            <article class="entry border-bottom-0 mb-0">
-                <div class="entry-image">
-                    <a href="https://www.youtube.com/watch?v=P3Huse9K6Xs" data-lightbox="iframe">
-                        <img src="assets/demos/blog/images/video-thumbs/2.jpg" alt="Image 3">
-                        <div class="play-icon"><i class="icon-play"></i>Watch</div>
-                    </a>
-                </div>
-                <div class="entry-title title-sm">
-                    <h3>
-                        <a href="demo-blog-single.html" class="color-underline">10 Trendy Fashion Instagram Profile You Need to Follow</a>
-                    </h3>
-                </div>
-                <div class="entry-meta">
-                    <ul>
-                        <li>
-                            <a href="#">Mar 11, 2016</a>
-                        </li>
-                    </ul>
-                </div>
-            </article>
-        </div>
-        <div class="col-md-4">
-            <article class="entry border-bottom-0 mb-0">
-                <div class="entry-image">
-                    <a href="https://www.youtube.com/watch?v=P3Huse9K6Xs" data-lightbox="iframe">
-                        <img src="assets/demos/blog/images/video-thumbs/3.jpg" alt="Image 3">
-                        <div class="play-icon"><i class="icon-play"></i>Watch</div>
-                    </a>
-                </div>
-                <div class="entry-title title-sm">
-                    <h3>
-                        <a href="demo-blog-single.html" class="color-underline">23 Top Travel Bloggers Who Inspire Us To Travel</a>
-                    </h3>
-                </div>
-                <div class="entry-meta">
-                    <ul>
-                        <li>
-                            <a href="#">Mar 11, 2016</a>
-                        </li>
-                    </ul>
-                </div>
-            </article>
-        </div>
-    </div> <!-- Video Section End -->
-</div>
-
+@await Component.InvokeAsync("VideoComponent")
 @await Component.InvokeAsync("BlogComponent")
 
 <div class="container clearfix">
 
     <div class="row col-mb-80">
         @await Component.InvokeAsync("FaqComponent")
-
-        <div class="sidebar col-lg-3">
-            <div class="sidebar-widgets-wrap">
-
-                <div class="widget widget_links clearfix">
-
-                    <h4>Sayfalar</h4>
-                    @await Component.InvokeAsync("PagesComponent")
-
-                </div>
-
-                @await Component.InvokeAsync("LastBlogComponent")
-
-                <div class="widget clearfix">
-
-                    <h4>Sosyal Medya Hesaplarımız</h4>
-                    <a href="@Model.Setting.Facebook" class="social-icon si-colored si-small si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
-                        <i class="icon-facebook"></i>
-                        <i class="icon-facebook"></i>
-                    </a>
-
-                    <a href="@Model.Setting.Linkedin" class="social-icon si-colored si-small si-linkedin" data-toggle="tooltip" data-placement="top" title="Linked In">
-                        <i class="icon-linkedin"></i>
-                        <i class="icon-linkedin"></i>
-                    </a>
-
-                    <a href="@Model.Setting.Twitter" class="social-icon si-colored si-small si-twitter" data-toggle="tooltip" data-placement="top" title="Twitter">
-                        <i class="icon-twitter"></i>
-                        <i class="icon-twitter"></i>
-                    </a>
-
-                    <a href="@Model.Setting.Youtube" class="social-icon si-colored si-small si-youtube" data-toggle="tooltip" data-placement="top" title="Youtube">
-                        <i class="icon-youtube"></i>
-                        <i class="icon-youtube"></i>
-                    </a>
-
-                    <a href="@Model.Setting.Instagram" class="social-icon si-colored si-small si-instagram" data-toggle="tooltip" data-placement="top" title="Instagram">
-                        <i class="icon-instagram"></i>
-                        <i class="icon-instagram"></i>
-                    </a>
-
-                </div>
-
-            </div>
-        </div><!-- .sidebar end -->
+        @await Component.InvokeAsync("RightBarComponent")
     </div>
 
 </div>

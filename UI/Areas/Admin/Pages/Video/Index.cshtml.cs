@@ -15,7 +15,7 @@ public class Index : PageModel
     public List<Entities.Entity.Video> Videos { get; set; }
     public async Task<IActionResult> OnGet()
     {
-       var result = await _videoService.GetListAsync();
+       var result = await _videoService.GetListAsync(null);
        Videos = result.Data;
        return Page();
     }

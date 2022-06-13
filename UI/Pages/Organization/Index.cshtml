@@ -1,6 +1,11 @@
 ﻿@page "/organizasyon/{seoUrl}"
 @model UI.Pages.Organization.IndexModel
 
+@{
+    ViewData["Title"] = Model.Organization.Name;
+    ViewData["Description"] = Model.Organization.Name + " hakkında bilgi.";
+}
+
 @section HeaderTitle
 {
     <!-- Page Title
@@ -8,7 +13,7 @@
     <section id="page-title">
 
         <div class="container clearfix">
-            <h1>Organizasyon Şeması</h1>
+            <h1>Organizasyon</h1>
             <span>@Model.Organization.Name</span>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -22,15 +27,18 @@
 }
 
 <div class="container">
+    <div class="entry-title">
+        <h1 class="clearfix">@Model.Organization.Name</h1>
+    </div>
     <div class="row">
         @foreach (var item in Model.OrganizationMembers)
         {
-            <div class="col-md-4">
+            <div class="col-md-3 mb-5">
                 <div class="card">
                     <img class="card-img-top" src="/upload/organizationmember/@item.Image" alt="@item.Name">
                     <div class="card-body">
-                        <h4 class="card-title text-center">@item.Degree</h4>
-                        <h5 class="card-title text-center">@item.Name</h5>
+                        <h4 class="card-title text-center">@item.Name</h4>
+                        <h5 class="card-title text-center">@item.Degree</h5>
                         <p class="card-text text-center">@item.Title</p>
                     </div>
                 </div>

@@ -3505,24 +3505,6 @@ html[xmlns] .slider-wrap {
 -----------------------------------------------------------------*/
 
 
-@media
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (   min--moz-device-pixel-ratio: 2),
-only screen and (     -o-min-device-pixel-ratio: 2/1),
-only screen and (        min-device-pixel-ratio: 2),
-only screen and (                min-resolution: 192dpi),
-only screen and (                min-resolution: 2dppx) {
-
-	#logo a.standard-logo { display: none; }
-
-	#logo a.retina-logo {
-		display: -ms-flexbox;
-		display: flex;
-	}
-
-}
-
-
 /* ----------------------------------------------------------------
 	Header Right Area
 -----------------------------------------------------------------*/
@@ -7570,6 +7552,15 @@ body:not(.device-touch) .portfolio {
 	position: relative;
 	height: 2px;
 	margin-top: 50px;
+	background-color: #F5F5F5;
+}
+
+.entry-title h1::after {
+	content: '';
+	position: relative;
+	height: 2px;
+	margin-bottom: 50px;
+	margin-top: 15px;
 	background-color: #F5F5F5;
 }
 

@@ -1,6 +1,11 @@
 ﻿@page "/organizasyon/organizasyon-semasi"
 @model UI.Pages.Organization.OrganizationalChartModel
 
+@{
+    ViewData["Title"] = "Örgütlenme Şeması";
+    ViewData["Description"] = "Aesob örgütlenme şeması, örgütün şematik olarak hiyerarşisi";
+}
+
 @section HeaderTitle
 {
     <!-- Page Title
@@ -8,13 +13,12 @@
     <section id="page-title">
 
         <div class="container clearfix">
-            <h1>Organizasyon Şeması</h1>
-            <span>Organizasyonun şemasını görüntüleyin</span>
+            <h1>Örgütlenme Şeması</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="/">Anasayfa</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Organizasyon Şeması</li>
+                <li class="breadcrumb-item active" aria-current="page">Örgütlenme Şeması</li>
             </ol>
         </div>
 

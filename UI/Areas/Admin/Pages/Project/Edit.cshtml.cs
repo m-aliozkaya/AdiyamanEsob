@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Business.Abstract;
 using Core.Utilities.Files;
+using Core.Utilities.Images;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -15,7 +16,6 @@ public class Edit : PageModel
     public Entities.Entity.Project Project { get; set; }
 
     [DisplayName("Dosya")]
-    [Required]
     [BindProperty]
     public IFormFile UploadFile { get; set; }
 
@@ -52,13 +52,18 @@ public class Edit : PageModel
         
         if (Project.Id > 0)
         {
-            var result = await FileHelper.UpdateFileAsync(UploadFile, "project", Project.Image);
-            Project.Image= result.Data;
+            var result = await ImageUploadHelper.UpdateImageAsync(UploadFile, "project", Project.Image);
+
+            if (result.Success)
+            {
+                Project.Image= result.Data;
+            }
+            
             await _projectService.UpdateAsync(Project);
         }
         else
         {
-            var result=await FileHelper.UploadFileAsync(UploadFile, "project");
+            var result=await ImageUploadHelper.UploadImage(UploadFile, "project");
             Project.Image = result.Data;
             await _projectService.AddAsync(Project);
         }

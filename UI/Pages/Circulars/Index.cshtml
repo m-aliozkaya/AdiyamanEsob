@@ -25,15 +25,24 @@
     </section><!-- #page-title end -->
 }
 
-<div class="container col-8">
-    <ul class="list-group">
-        @foreach (var item in Model.Years)
-        {
-            <li class="list-group-item">
-                <a href="/genelgeler/@item">
-                    @item Yılı Genelgeleri
-                </a>         
-            </li>
-        }
-    </ul>
+<div class="container">
+    <div class="row col-mb-80">
+            <div class="col-lg-9">
+                <ul class="list-group col-md-10">
+                    @foreach (var item in Model.Years)
+                    {
+                        <li class="list-group-item">
+                            <a href="/genelgeler/@item">
+                                @item Yılı Genelgeleri
+                            </a>         
+                        </li>
+                    }
+                </ul>
+            </div>
+            @await Component.InvokeAsync("RightBarComponent")
+        </div>
 </div>
+
+
+
+
