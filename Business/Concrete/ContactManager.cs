@@ -9,7 +9,7 @@ namespace Business.Concrete;
 
 public class ContactManager : IContactService
 {
-    private readonly IContactDal _contactDal;
+        private readonly IContactDal _contactDal;
         private readonly IMailService _mailService;
 
         public ContactManager(IContactDal contactDal, IMailService mailService)
@@ -54,14 +54,7 @@ public class ContactManager : IContactService
             };
             var mail = new Mail("Adıyaman Esob iletişim formundan mesaj", data, "İletişim Formu");
 
-            var result = await _mailService.SendAsync(mail);
-
-            if (result.Success)
-            {
-                return new SuccessResult();
-            }
-
-            return new ErrorResult();
+            return await _mailService.SendAsync(mail);
         }
 
         public async Task<IResult> UpdateAsync(Contact contact)

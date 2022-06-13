@@ -1,0 +1,186 @@
+﻿@page "/iletisim"
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model UI.Pages.Contact.IndexModel
+
+@{
+    ViewData["Title"] = "İletişim";
+}
+
+@section HeaderTitle
+{
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>İletişim</h1>
+            <span>Bize Ulaşın! Mesajlarınızı önemsiyoruz.</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">İletişim</li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+}
+
+<div class="container">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-lg-5">
+            <img class="img-fluid"
+                 src="/assets/img/contact_us.svg"
+                 alt="contact" />
+        </div>
+        <div class="col-lg-6">
+            <form id="contactForm"
+                  class="col-lg-12 p-3"
+                  method="POST"
+                  action="/iletisim">
+                <div class="form-process">
+                    <div class="css3-spinner">
+                        <div class="css3-spinner-scaler"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Name">İsim</label>
+                    <input type="text"
+                           class="form-control"
+                           id="Name"
+                           name="Name"
+                           placeholder="İsminiz"
+                           required />
+                </div>
+                <div class="form-group">
+                    <label for="Phone">Telefon</label>
+                    <input type="text"
+                           class="form-control"
+                           id="Phone"
+                           name="Phone"
+                           placeholder="Telefon numaranız"
+                           required />
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input type="email"
+                           class="form-control"
+                           id="Email"
+                           name="Email"
+                           placeholder="Email adresiniz"
+                           required />
+                </div>
+                <div class="form-group">
+                    <label for="Message">Mesaj</label>
+                    <textarea placeholder="Mesajınız"
+                              class="form-control"
+                              id="Message"
+                              name="Message"
+                              rows="5"
+                              required></textarea>
+                </div>
+                <button type="submit" class="btn btn-success col-4">Gönder</button>
+            </form>
+            <!-- /.8 -->
+        </div>
+        <!-- /.row-->
+    </div>
+</div>
+<div class="contact-information">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h4>Telefon</h4>
+                    <p>
+                        7 / 24 İletişim
+                    </p>
+                    <div class="contact-social">
+                        <a href="tel:@Model.Setting.Phone">@Model.Setting.Phone</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-item">
+                    <i class="fa fa-envelope"></i>
+                    <h4>Email</h4>
+                    <p>
+                        Sorularınız için çekinmeyin
+                    </p>
+                    <a href="mailto:@Model.Setting.Email">@Model.Setting.Email</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-item">
+                    <i class="fas fa-hashtag"></i>
+                    <h4>Sosyal Medya</h4>
+                    <p>
+                        Takip etmeyi unutmayın
+                    </p>
+                    <div class="contact-social d-flex justify-content-evenly">
+                        <a href="@Model.Setting.Facebook">
+                            <i class="icon-facebook-f"></i>
+                        </a>
+                        <a href="@Model.Setting.Twitter">
+                            <i class="icon-twitter"></i>
+                        </a>
+                        <a href="@Model.Setting.Instagram">
+                            <i class="icon-instagram"></i>
+                        </a>
+                        <a href="@Model.Setting.Linkedin">
+                            <i class="icon-linkedin"></i>
+                        </a>
+                        <a href="@Model.Setting.Youtube">
+                            <i class="icon-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+    $(document).ready(function () {
+      $('#contactForm').validate({
+        submitHandler: function (form) {
+          const name = $('#Name').val();
+          const phone = $('#Phone').val();
+          const message = $('#Message').val();
+          const email = $('#Email').val();
+          const url = $('#contactForm').attr('action');
+          
+          const data = {
+              "Name" : name, 
+              "Phone" : phone,
+              "Message": message,
+              "Email": email
+          };
+
+          $('.form-process').show();
+          $.ajax({
+            type: 'post',
+            url: url,
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=UTF-8',
+            success: function (response) {
+                toastr.success(response, '', {
+                  timeOut: 1500,
+                });
+                $('#contactForm').trigger('reset');
+                $('.form-process').hide();
+            },
+            error: function (response) { 
+              toastr.error(response, '', {
+                timeOut: 1500,
+              });
+              $('.form-process').hide();
+            },
+          });
+        },
+      });
+    });
+</script>
+}

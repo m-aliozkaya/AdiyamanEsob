@@ -6,6 +6,7 @@ using Business.DependencyResolvers;
 using DataAccess.Context;
 using Entities;
 using Entities.Dto;
+using Entities.Entity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
@@ -66,6 +67,25 @@ app.MapPost("/account/register", async (UserForRegisterDto dto, IAuthService aut
 {
     await authService.RegisterAsync(dto);
     return Results.Ok();
+});
+
+app.MapPost("/iletisim", async (Contact contact, IContactService contactService) =>
+{
+    if (contact is null)
+    {
+        return Results.BadRequest("Form boş gönderilemez.");
+    }
+    
+    var result = await contactService.SendMailAsync(contact);
+    contact.Date = DateTime.Now;
+    await contactService.AddAsync(contact);
+    
+    if (result.Success)
+    {
+        return Results.Ok("Mesajınız başarıyla gönderildi.");
+    }
+    
+    return Results.BadRequest(result.Message);
 });
 
 app.Run();

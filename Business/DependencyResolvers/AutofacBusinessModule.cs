@@ -58,11 +58,11 @@ namespace Business.DependencyResolvers
             builder.RegisterType<SettingManager>().As<ISettingService>();
             builder.RegisterType<EfSettingDal>().As<ISettingDal>();
             
-			      builder.RegisterType<VideoManager>().As<IVideoService>();
-			      builder.RegisterType<EfVideoDal>().As<IVideoDal>();
+            builder.RegisterType<VideoManager>().As<IVideoService>();
+            builder.RegisterType<EfVideoDal>().As<IVideoDal>();
             
             builder.RegisterType<LegislationManager>().As<ILegislationService>();
-			      builder.RegisterType<EfLegislationDal>().As<ILegislationDal>();
+            builder.RegisterType<EfLegislationDal>().As<ILegislationDal>();
         }
     }
 }

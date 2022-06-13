@@ -6481,6 +6481,7 @@ body:not(.has-plugin-html5video) .video-wrap video {
 	padding: 4rem 0;
 	background-color: #F5F5F5;
 	border-bottom: 1px solid #EEE;
+	margin-bottom: 120px;
 }
 
 #page-title .container {
@@ -14495,6 +14496,7 @@ button.toast-close-button {
 	position: relative;
 	background-color: #EEE;
 	border-top: 5px solid rgba(0,0,0,0.2);
+	margin-top: 120px;
 }
 
 @media (min-width: 992px) {
@@ -17002,4 +17004,67 @@ label.checkbox { padding-left: 20px; }
 }
 .accordion .card-header:not(.collapsed) .rotate-icon {
 	transform: rotate(180deg);
+}
+
+/* Contact Form Animation */
+
+.contact-information {
+	margin-top: 140px;
+	margin-bottom: 140px
+}
+
+.contact-information .contact-item {
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	padding: 60px 30px;
+	background-color: #f7f7f7;
+	text-align: center;
+	height: 350px;
+}
+
+.contact-information .contact-item i {
+	color: #08488D;
+	font-size: 48px;
+	margin-bottom: 40px
+}
+
+.contact-information .contact-item i:hover{
+	color: #16b6ce;
+}
+
+.contact-information .contact-item .contact-social {
+	justify-content: space-evenly;
+}
+
+.contact-information .contact-item .contact-social a {
+	padding: 5px;
+}
+
+
+.contact-information .contact-item .contact-social i {
+	font-size: 24px;
+	margin-bottom: 0px;
+}
+
+.contact-information .contact-item h4 {
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 0.25px;
+	margin-bottom: 15px
+}
+
+.contact-information .contact-item p {
+	margin-bottom: 20px
+}
+
+.contact-information .contact-item a {
+	font-weight: 600;
+	color: #08488D;
+	font-size: 15px
+}
+
+.contact-information .contact-item a:hover{
+	color: #16b6ce;
 }
