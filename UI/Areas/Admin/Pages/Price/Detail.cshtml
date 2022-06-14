@@ -26,13 +26,13 @@
                         <span class="h6">Başlığı:</span> @Model.Price.Title
                     </p>
                     <p>
-                        <span class="h6">İçeriği:</span> @Model.Price.Content.StripTags()
-                    </p>
-                    <p>
                         <span class="h6">Karar Sayısı:</span> @Model.Price.DecisionNumber
                     </p>
                     <p>
                         <span class="h6">Karar Tarihi:</span> @Model.Price.DecisionDate.ToShortDateString()
+                    </p>
+                    <p>
+                        <span class="h6">İçeriği:</span> @Html.Raw(Model.Price.Content) 
                     </p>
                 </div>
             </div>

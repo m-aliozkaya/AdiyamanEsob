@@ -20,7 +20,7 @@ public class AnnouncementSingle : PageModel
 
         if (!result.Success)
         {
-            return RedirectToPage("./NotFound");
+           return Redirect("/NotFound");
         }
 
         Announcement = result.Data;

@@ -20,7 +20,7 @@ public class NewsSingle : PageModel
 
         if (!result.Success)
         {
-            return RedirectToPage("./NotFound");
+           return Redirect("/NotFound");
         }
 
         News = result.Data;

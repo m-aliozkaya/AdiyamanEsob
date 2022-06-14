@@ -3,6 +3,7 @@ using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
 using DataAccess.Abstract;
 using Entities.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Business.Concrete;
 
@@ -29,7 +30,7 @@ public class PriceManager : IPriceService
     
     public async Task<IDataResult<List<Price>>> GetListAsync()
     {
-        var result = await _priceDal.GetAllAsync();
+        var result = await _priceDal.GetQueryable().OrderByDescending(x => x.DecisionDate).ToListAsync();
         
         return new SuccessDataResult<List<Price>>(result);
     }

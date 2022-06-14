@@ -23,7 +23,7 @@ namespace UI.Pages.Circulars
 
             if (result.Data.Count <= 0)
             {
-                return RedirectToPage("./NotFound");
+               return Redirect("/NotFound");
             }
 
             Circulars = result.Data;

@@ -27,22 +27,25 @@
 
 <div class="container">
     <div class="row col-mb-80">
-            <div class="col-lg-9">
+        <div class="col-lg-9">
+            @if (Model.Years.Count <= 0)
+            {
+                <div class="alert alert-danger col-md-10">Genelge bulunamadı.</div>
+            }
+            else
+            {
                 <ul class="list-group col-md-10">
                     @foreach (var item in Model.Years)
                     {
                         <li class="list-group-item">
                             <a href="/genelgeler/@item">
                                 @item Yılı Genelgeleri
-                            </a>         
+                            </a>
                         </li>
                     }
                 </ul>
-            </div>
-            @await Component.InvokeAsync("RightBarComponent")
+            }
         </div>
+        @await Component.InvokeAsync("RightBarComponent")
+    </div>
 </div>
-
-
-
-

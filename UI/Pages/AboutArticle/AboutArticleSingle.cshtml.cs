@@ -19,7 +19,7 @@ public class AboutArticleSingle : PageModel
 
         if (!result.Success)
         {
-            return RedirectToPage("./NotFound");
+           return Redirect("/NotFound");
         }
 
         AboutArticle = result.Data;
