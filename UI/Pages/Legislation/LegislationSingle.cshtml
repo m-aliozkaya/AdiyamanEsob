@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = Model.Legislation.Title;
+    ViewData["Description"] = Model.Legislation.Description;
 }
 
 @section HeaderTitle
@@ -40,8 +41,8 @@
             
                         <!-- Entry Title
                         ============================================= -->
-                        <div class="entry-title clearfix">
-                            <h2>@Model.Legislation.Title</h2>
+                        <div class="entry-title">
+                            <h1 class="clearfix">@Model.Legislation.Title</h1>
                         </div><!-- .entry-title end -->
             
                         <!-- Entry Content

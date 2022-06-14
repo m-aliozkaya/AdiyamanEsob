@@ -7,8 +7,8 @@
 
     <!-- Document Title
     ============================================= -->
-    <title>@ViewData["Title"] | Adiyaman Esob</title>
-    <meta name="description" content="@(string.IsNullOrEmpty(ViewData["Description"]?.ToString()) ? "Adiyaman esnaf ve sanatkarlar odası birliği. Detaylı bilgi için websitesini ziyaret ediniz." : ViewData["Description"]?.ToString())" />
+    <title>@(string.IsNullOrEmpty(ViewData["Title"]?.ToString()) ? "Adıyaman Esob" : ViewData["Title"]?.ToString() + " | Adıyaman Esob")</title>
+    <meta name="description" content="@(string.IsNullOrEmpty(ViewData["Description"]?.ToString()) ? "Adıyaman esnaf ve sanatkarlar odası birliği. Detaylı bilgi için websitesini ziyaret ediniz." : ViewData["Description"]?.ToString())" />
 
     <!-- Stylesheets
     ============================================= -->
