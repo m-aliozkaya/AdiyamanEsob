@@ -66,12 +66,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.MapPost("/account/register", async (UserForRegisterDto dto, IAuthService authService) =>
-{
-    await authService.RegisterAsync(dto);
-    return Results.Ok();
-});
-
 app.MapPost("/iletisim", async (Contact contact, IContactService contactService) =>
 {
     if (contact is null)

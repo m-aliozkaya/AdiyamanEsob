@@ -36,12 +36,17 @@ public class AuthManager : IAuthService
     public async Task<IResult> LoginAsync(UserForLoginDto userForLoginDto)
     {
         var userToCheck = (await _userService.GetByUserName(userForLoginDto.Username)).Data;
+
+        if (userToCheck is null)
+        {
+            return new ErrorResult("Giriş yapılamadı.");
+        }
         
         if (HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
         {
             return new SuccessResult("Başarılı giriş");
         }
 
-        return new ErrorResult("Parola hatası");
+        return new ErrorResult("Giriş yapılamadı.");
     }
 }
