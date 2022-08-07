@@ -11,7 +11,6 @@ namespace UI.Areas.Admin.Pages.Setting;
 public class OrganizationSchemaModel : PageModel
 {
     [DisplayName("Organizasyon Şeması")]
-    [Required]
     [BindProperty]
     public IFormFile UploadFile { get; set; }
     public string FilePath { get; set; }

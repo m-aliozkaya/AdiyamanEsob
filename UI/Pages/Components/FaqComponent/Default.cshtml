@@ -15,7 +15,7 @@
                 <li>
                     <i class="icon-caret-right"></i>
                     <strong>
-                        <a href="#" data-scrollto="#faq-@item.Id">@item.Title</a>
+                        <a href="/faq/@item.SeoUrl">@item.Title</a>
                     </strong>
                 </li>
             }
@@ -24,22 +24,6 @@
         <div class="divider">
             <i class="icon-circle"></i>
         </div>
-
-        @foreach (var item in Model)
-        {
-            <h3 id="faq-@item.Id">
-                <strong>Q.</strong> @item.Title
-            </h3>
-            <p>
-                @Html.Raw(item.Content)
-            </p>
-
-            <div class="divider divider-right">
-                <a href="#" data-scrollto="#faqs-list">
-                    <i class="icon-chevron-up"></i>
-                </a>
-            </div>
-        }
-
+        
     </div><!-- .postcontent end -->
 </div>

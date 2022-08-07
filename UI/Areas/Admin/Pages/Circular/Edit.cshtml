@@ -10,6 +10,12 @@
     <input type="hidden" asp-for="Circular.File"/>
     <h1 class="mb-5 mt-2">Genelge @ViewData["ActionName"]</h1>
     <div class="form-group">
+        <label>Öncelik Sırası</label>
+        <input asp-for="Circular.Priority" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Circular.Title"></span>
+        <div class="form-text">'-' ile yazdığınız değer sondan sıralanacaktır.</div>
+    </div>
+    <div class="form-group">
         <label asp-for="Circular.Title"></label>
         <input asp-for="Circular.Title" class="form-control"/>
         <span class="text-danger" asp-validation-for="Circular.Title"></span>

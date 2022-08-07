@@ -1,8 +1,8 @@
-﻿@page "/blog/{currentPage:int=1}"
+﻿@page "/ahilik/{currentPage:int=1}"
 @model UI.Pages.Blog.Index
 
 @{
-    ViewData["Title"] = "Blog";
+    ViewData["Title"] = "Ahilik";
 }
 
 @section HeaderTitle
@@ -12,13 +12,13 @@
     <section id="page-title">
 
         <div class="container clearfix">
-            <h1>Blog</h1>
-            <span>Bilgilendirici blog yazılarımıza bir göz atın.</span>
+            <h1>Ahilik</h1>
+            <span>Ahilik hakkındaki yazılarımıza bir göz atın.</span>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="/">Anasayfa</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                <li class="breadcrumb-item active" aria-current="page">Ahilik</li>
             </ol>
         </div>
 
@@ -46,7 +46,7 @@
                         </div>
                         <div class="entry-title">
                             <h2>
-                                <a href="/blog/@item.SeoUrl">@item.Title</a>
+                                <a href="/ahilik/@item.SeoUrl">@item.Title</a>
                             </h2>
                         </div>
                         <div class="entry-meta">
@@ -60,7 +60,7 @@
                             <p>
                                 @item.Description
                             </p>
-                            <a href="/blog/@item.SeoUrl" class="more-link">Devamını oku</a>
+                            <a href="/ahilik/@item.SeoUrl" class="more-link">Devamını oku</a>
                         </div>
                     </div>
                 </div>

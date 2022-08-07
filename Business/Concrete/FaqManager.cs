@@ -1,6 +1,7 @@
 using Business.Abstract;
 using Core.Utilities.Result.Abstract;
 using Core.Utilities.Result.Concrete;
+using Core.Utilities.Seo;
 using DataAccess.Abstract;
 using Entities.Entity;
 
@@ -26,6 +27,19 @@ public class FaqManager : IFaqService
 
         return new ErrorDataResult<Faq>();
     }
+    
+    public async Task<IDataResult<Faq>> GetBySeoUrl(string seoUrl)
+    {
+        var result = await _faqDal.GetAsync(x => x.SeoUrl == seoUrl);
+
+        if (result is not null)
+        {
+            return new SuccessDataResult<Faq>(result); 
+        }
+
+        return new ErrorDataResult<Faq>();
+    }
+    
 
     public async Task<IDataResult<List<Faq>>> GetListAsync()
     {
@@ -41,13 +55,16 @@ public class FaqManager : IFaqService
 
     public async Task<IDataResult<Faq>> AddAsync(Faq faq)
     {
+        faq.SeoUrl = SeoHelper.GetFriendlyTitle(faq.Title);
         await _faqDal.AddAsync(faq);
         return new SuccessDataResult<Faq>(faq);
     }
 
     public async Task<IDataResult<Faq>> UpdateAsync(Faq faq)
     {
-        if (faq is null) return new ErrorDataResult<Faq>();
+        faq.SeoUrl = SeoHelper.GetFriendlyTitle(faq.Title);
+        if (faq is null) 
+            return new ErrorDataResult<Faq>();
         
         await _faqDal.UpdateAsync(faq);
         return new SuccessDataResult<Faq>(faq);

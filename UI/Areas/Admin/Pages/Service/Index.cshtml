@@ -1,0 +1,107 @@
+﻿@page
+@model UI.Areas.Admin.Pages.Service.Index
+
+@{
+    ViewData["Title"] = "Hizmetler";
+}
+
+<section class="content">
+    <!-- Default box -->
+    <div class="d-flex justify-content-end mb-4">
+        <a href="/admin/service/edit" class="btn btn-success">Yeni Hizmet Ekle</a>
+    </div>
+    @if (Model.Services.Count <= 0)
+    {
+        <div class="alert alert-danger">Hizmet bulunamadı. Lütfen yeni bir tane ekleyin.</div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <b class="text-danger">Faaliyet alanları</b>
+                </h3>
+            </div>
+
+            <div class="card-body p-0 table-responsive">
+
+                <table class="table table-striped projects">
+                    <thead>
+                    <tr>
+                        <th style="width: 150px" class="text-center">
+                            İsim
+                        </th>
+                        <th style="width: 300px" class="text-center">
+                            İçerik
+                        </th>
+                        <th style="width: 150px" class="text-center">
+                            Durum
+                        </th>
+                        <th style="width: 10%">
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach (var item in Model.Services)
+                    {
+                        <tr>
+                            <td class="align-middle">
+                                @item.Title
+                                <br/>
+                            </td>
+                            <td class="align-middle">
+                                @item.Description
+                                <br/>
+                            </td>
+                            <td class="project-state align-middle">
+                                @if (item.IsActive)
+                                {
+                                    <span class="badge badge-success">Aktif</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">Aktif değil</span>
+                                }
+                            </td>
+                            <td class="project-actions text-right align-middle text-center" style="min-width:300px">
+                                @if (item.IsActive)
+                                {
+                                    <a class="btn btn-secondary btn-sm" href="/admin/service/changeStatus/@item.Id">
+                                        Deaktive et
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-success btn-sm" href="/admin/service/changeStatus/@item.Id">
+                                        Aktifleştir
+                                    </a>
+                                }
+                                <a class="btn btn-primary btn-sm" href="/admin/service/detail/@item.SeoUrl">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Detay
+                                </a>
+                                <a class="btn btn-info btn-sm" href="/admin/service/edit/@item.Id">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Düzenle
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="/admin/service/delete/@item.Id">
+                                    <i class="fas fa-trash">
+                                    </i>
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!-- /.card-body -->
+        </div>
+    }
+    <!-- /.card -->
+</section>

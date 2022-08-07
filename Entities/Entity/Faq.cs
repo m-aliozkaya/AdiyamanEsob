@@ -14,4 +14,6 @@ public class Faq : BaseEntity
     public string Content { get; set; }
     [DisplayName("Durum")]
     public bool IsActive { get; set; }
+
+    public string SeoUrl { get; set; }
 }

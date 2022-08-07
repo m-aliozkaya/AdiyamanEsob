@@ -12,7 +12,7 @@ public class Video : BaseEntity
     [Display(Name = "Video Resmi")]
     public string Image { get; set; }
     [Required]
-    [Display(Name = "Video Linki")]
+    [Display(Name = "Video Kodu")]
     public string VideoPath { get; set; }
     public DateTime CreationDate { get; set; }
 }

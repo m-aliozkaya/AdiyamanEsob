@@ -6,6 +6,7 @@ namespace Entities.Entity;
 public class Setting:BaseEntity
 {
     [Required]
+    public string Address { get; set; }
     public string Facebook { get; set; }
     [Required]
     public string Instagram { get; set; }

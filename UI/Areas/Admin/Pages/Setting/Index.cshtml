@@ -39,8 +39,13 @@
         <span class="text-danger" asp-validation-for="Setting.Phone"></span>
     </div>
     <div class="form-group">
+        <label asp-for="Setting.Address"></label>
+        <input type="text" class="form-control" asp-for="Setting.Address" placeholder="Adres">
+        <span class="text-danger" asp-validation-for="Setting.Address"></span>
+    </div>
+    <div class="form-group">
         <label asp-for="Setting.Whatsapp"></label>
-        <input type="text" class="form-control" asp-for="Setting.Whatsapp" placeholder="Whatsapp numarası">
+        <input type="text" class="form-control" asp-for="Setting.Whatsapp" placeholder="Kep Adresi">
         <span class="text-danger" asp-validation-for="Setting.Whatsapp"></span>
     </div>
     <div class="form-group">

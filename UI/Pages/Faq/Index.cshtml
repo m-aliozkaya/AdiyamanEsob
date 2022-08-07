@@ -1,0 +1,53 @@
+﻿@page "/faq/{seoUrl}"
+@model UI.Pages.Faq.Index
+
+@{
+    ViewData["Title"] = Model.Faq.Title;
+}
+
+@section HeaderTitle
+{
+    <!-- Page Title
+    ============================================= -->
+    <section id="page-title">
+
+        <div class="container clearfix">
+            <h1>Sık Sorulan Sorular</h1>
+            <span>@Model.Faq.Title</span>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">@Model.Faq.Title</li>
+            </ol>
+        </div>
+
+    </section><!-- #page-title end -->
+}
+
+<!-- Post Content
+============================================= -->
+<div class="postcontent col-lg-8 container">
+
+    <div class="single-post mb-0">
+
+        <!-- Single Post
+        ============================================= -->
+        <div class="entry clearfix">
+
+            <!-- Entry Title
+            ============================================= -->
+            <div class="entry-title">
+                <h2>@Model.Faq.Title</h2>
+            </div><!-- .entry-title end -->
+
+            <!-- Entry Content
+            ============================================= -->
+            <div class="entry-content mt-0">
+                @Html.Raw(Model.Faq.Content)
+            </div>
+        </div><!-- .entry end -->
+
+    </div>
+
+</div><!-- .postcontent end -->

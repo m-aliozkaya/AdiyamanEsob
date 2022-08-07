@@ -11,4 +11,5 @@ public interface IFaqService
     Task<IDataResult<Faq>> AddAsync(Faq faq);
     Task<IDataResult<Faq>> UpdateAsync(Faq faq);
     Task<IDataResult<Faq>> DeleteAsync(int id);
+    Task<IDataResult<Faq>> GetBySeoUrl(string seoUrl);
 }

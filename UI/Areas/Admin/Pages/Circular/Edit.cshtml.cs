@@ -15,7 +15,6 @@ public class Edit : PageModel
     public Entities.Entity.Circular Circular { get; set; }
 
     [DisplayName("Dosya")]
-    [Required]
     [BindProperty]
     public IFormFile UploadFile { get; set; }
 
@@ -53,8 +52,13 @@ public class Edit : PageModel
     {
         if (Circular.Id > 0)
         {
-            var result = await FileHelper.UpdateFileAsync(UploadFile, "circular", Circular.File);
-            Circular.File= result.Data;
+            
+            if (UploadFile != null)
+            {
+                var result = await FileHelper.UpdateFileAsync(UploadFile, "circular", Circular.File);
+                Circular.File= result.Data;
+            }
+
             await _circularService.UpdateAsync(Circular);
         }
         else

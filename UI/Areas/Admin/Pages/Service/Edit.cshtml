@@ -1,0 +1,58 @@
+@page "{id:int?}"
+@model UI.Areas.Admin.Pages.Service.Edit
+
+@{
+    ViewData["Title"] = "Hizmet " + ViewData["ActionName"];
+}
+
+<form class="col-md-8 container" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Service.Id"/>
+    <h1 class="mb-5 mt-2">Hizmet @ViewData["ActionName"]</h1>
+    <div class="form-group">
+        <label asp-for="Service.Title"></label>
+        <input asp-for="Service.Title" class="form-control">
+        <span asp-validation-for="Service.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Service.Description"></label>
+        <textarea asp-for="Service.Description" class="form-control"></textarea>
+        <span asp-validation-for="Service.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Service.Content"></label>
+        <textarea asp-for="Service.Content" class="form-control editor"></textarea>
+        <span asp-validation-for="Service.Content" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+            @Html.CheckBoxFor(model => model.Service.IsActive, new { @class = "custom-control-input", @id = "customSwitch2" })
+            <label class="custom-control-label" for="customSwitch2">Durum</label>
+        </div>
+    </div>
+    <div class="row m-0">
+        <a href="/admin/activityField" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            @ViewData["ActionName"]
+        </button>
+    </div>
+</form>
+
+@section scripts{
+
+    <script src="/admin/plugins/ck-editor-5/ckeditor.js"></script>
+
+    <script>  
+    $(function () {
+        let allEditors = document.querySelectorAll('.editor');
+        for (let i = 0; i < allEditors.length; ++i) {
+            ClassicEditor
+                .create(allEditors[i])
+                .then(editor => {
+                    window.editor = editor;
+                })
+                .catch(error => {
+                });
+        }
+    });
+    </script>
+}

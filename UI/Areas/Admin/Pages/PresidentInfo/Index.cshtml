@@ -1,0 +1,119 @@
+@page
+@model UI.Areas.Admin.Pages.PresidentInfo.Index
+@{
+    ViewBag.Title = "Başkan Ayarları";
+}
+
+<form method="post" class="container col-md-8" enctype="multipart/form-data">
+    <input type="hidden" asp-for="President.Id"/>
+    <input type="hidden" asp-for="President.Image"/>
+    <h1 class="mb-5 mt-2">Başkan Bilgisi @ViewData["ActionName"]</h1>
+    @if (!string.IsNullOrEmpty(Model.President.Image))
+    {
+        <div class="form-group">
+            <div class="col-sm-6 p-0 mt-2">
+                <img src="/upload/setting/@Model.President.Image" id="outputImage" width="100%" alt="Image to upload"/>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <div class="col-sm-6 p-0 mt-2 d-none">
+                <img src="" id="outputImage" width="100%" alt="Image to upload"/>
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <label asp-for="UploadFile" class="d-block"></label>
+        <input type="file" asp-for="UploadFile" onchange="loadFile(event, 'outputImage')"/>
+        <span class="text-danger" asp-validation-for="UploadFile"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.Facebook"></label>
+        <input type="text" class="form-control" asp-for="President.Facebook" placeholder="Facebook sayfa linki">
+        <span class="text-danger" asp-validation-for="President.Facebook"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.Instagram"></label>
+        <input type="text" class="form-control" asp-for="President.Instagram" placeholder="Instagram sayfa linki">
+        <span class="text-danger" asp-validation-for="President.Instagram"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.Twitter"></label>
+        <input type="text" class="form-control" asp-for="President.Twitter" placeholder="Twitter sayfa linki">
+        <span class="text-danger" asp-validation-for="President.Twitter"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.Name"></label>
+        <input type="text" class="form-control" asp-for="President.Name" placeholder="Başkan İsmi">
+        <span class="text-danger" asp-validation-for="President.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.Title"></label>
+        <input type="text" class="form-control" asp-for="President.Title" placeholder="Başkan Unvanı">
+        <span class="text-danger" asp-validation-for="President.Title"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.About"></label>
+        <textarea asp-for="President.About" class="form-control editor"></textarea>
+        <span class="text-danger" asp-validation-for="President.About"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.Resume"></label>
+        <textarea asp-for="President.Resume" class="form-control editor"></textarea>
+        <span class="text-danger" asp-validation-for="President.Resume"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.Projects"></label>
+        <textarea asp-for="President.Projects" class="form-control editor"></textarea>
+        <span class="text-danger" asp-validation-for="President.Projects"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="President.Message"></label>
+        <textarea asp-for="President.Message" class="form-control editor"></textarea>
+        <span class="text-danger" asp-validation-for="President.Message"></span>
+    </div>
+    <div class="row m-0">
+        <a href="/admin" class="btn btn-secondary ml-auto">Geri Dön</a>
+        <button type="submit" class="btn btn-success ml-2">
+            Değişiklikleri kaydet
+        </button>
+    </div>
+</form>
+
+@section scripts{
+
+    <script src="/admin/plugins/ck-editor-5/ckeditor.js"></script>
+
+    <script>
+    let loadFile = function (event, id) {
+        let output = document.getElementById(id);
+        output.style.border = "none";
+        if(event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                output.src = e.target.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+            output.parentElement.classList.remove("d-none");
+        }else {
+            output.src = "";
+            output.parentElement.classList.add("d-none");
+        }
+    };
+    $(function () {
+            let allEditors = document.querySelectorAll('.editor');
+            for (let i = 0; i < allEditors.length; ++i) {
+                ClassicEditor
+                    .create(allEditors[i])
+                    .then(editor => {
+                        window.editor = editor;
+                    })
+                    .catch(error => {
+                    });
+            }
+        });
+</script>
+
+}

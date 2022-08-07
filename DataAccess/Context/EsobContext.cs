@@ -26,4 +26,7 @@ public class EsobContext : DbContext
     public DbSet<Video> Videos { get; set; }
     public DbSet<Legislation> Legislations { get; set; }    
     public DbSet<Setting> Settings { get; set; }
+    public DbSet<PresidentInfo> PresidentInfos { get; set; }
+    public DbSet<ActivityField> ActivityFields { get; set; }
+    public DbSet<Service> Services { get; set; }
 }

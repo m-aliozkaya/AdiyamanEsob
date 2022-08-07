@@ -1,0 +1,64 @@
+﻿@model Entities.Entity.PresidentInfo
+
+<div class="container" style="margin-top: 100px;">
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mx-auto mb-5 border-0" style="width: 18rem;">
+                <img class="card-img-top" src="/upload/setting/@Model.Image" alt="@Model.Name">
+                <div class="card-body text-center">
+                    <h3 class="card-title">@Model.Name</h3>
+                    <p class="card-text">@Model.Title</p>
+                    <div class="precident-social-media">
+                        <a href="@Model.Facebook" class="h3">
+                            <i class="icon-facebook"></i>
+                        </a>
+                        <a href="@Model.Twitter" class="h3 ml-2">
+                            <i class="icon-twitter"></i>
+                        </a>
+                        <a href="@Model.Instagram" class="h3 ml-2">
+                            <i class="icon-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="tabs tabs-responsive clearfix tabs-bordered">
+
+                <ul class="tab-nav clearfix">
+                    <li>
+                        <a href="#tab-responsive-1">
+                            Görevleri
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab-responsive-2">Özgeçmiş</a>
+                    </li>
+                    <li>
+                        <a href="#tab-responsive-3">Projeler</a>
+                    </li>
+                    <li class="d-none d-md-block">
+                        <a href="#tab-responsive-4">Başkan'ın Mesajı</a>
+                    </li>
+                </ul>
+
+                <div class="tab-container">
+
+                    <div class="tab-content clearfix" id="tab-responsive-1">
+                        @Html.Raw(Model.About)
+                    </div>
+                    <div class="tab-content clearfix" id="tab-responsive-2">
+                        @Html.Raw(Model.Resume)
+                    </div>
+                    <div class="tab-content clearfix" id="tab-responsive-3">
+                        @Html.Raw(Model.Projects)
+                    </div>
+                    <div class="tab-content clearfix" id="tab-responsive-4">
+                        @Html.Raw(Model.Message)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

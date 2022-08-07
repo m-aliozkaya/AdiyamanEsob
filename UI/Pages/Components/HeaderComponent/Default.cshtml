@@ -1,6 +1,4 @@
-﻿@using System.Web
-@using System.Text.RegularExpressions
-@model Entities.Entity.Setting
+﻿@model Models.HeaderViewModel
 
 <div id="top-bar">
     <div class="container clearfix">
@@ -64,12 +62,6 @@
     </div>
 </div>
 
-@{
-    var whatsappMessage = "Merhaba, websiteniz üzerinden ulaşıyorum. Daha fazla bilgi alabilir miyim?";
-    var whatsappText = HttpUtility.UrlEncode(whatsappMessage);
-    var whatsappNumber = Model.Whatsapp.Replace(" ", "");
-}
-
 <header id="header" data-sticky-shrink="false" class="no-sticky">
     <div class="container">
         <div class="header-row">
@@ -90,16 +82,16 @@
                         <div class="he-text">
                             Bize Ulaşın
                             <span>
-                                <a class="d-block" href="tel:@Model.Phone">@Model.Phone</a>
+                                <a class="d-block" href="tel:@Model.Setting.Phone">@Model.Setting.Phone</a>
                             </span>
                         </div>
                     </li>
                     <li>
-                        <i class="i-plain icon-whatsapp m-0"></i>
+                        <i class="i-plain icon-line2-envelope m-0"></i>
                         <div class="he-text">
-                            Whatsapp
+                            Kep Adresi
                             <span>
-                                <a href="https://wa.me/@whatsappNumber/?text=@whatsappText">@Model.Whatsapp</a>
+                                <a href="mailto:@Model.Setting.Whatsapp">@Model.Setting.Whatsapp</a>
                             </span>
                         </div>
                     </li>
@@ -109,8 +101,8 @@
                         <div class="he-text">
                             Email
                             <span>
-                                <a href="mailto:@Model.Email">
-                                    @Model.Email
+                                <a href="mailto:@Model.Setting.Email">
+                                    @Model.Setting.Email
                                 </a>
                             </span>
 
@@ -137,24 +129,59 @@
                             </a>
                         </li>
                         @await Component.InvokeAsync("EnterpriseComponent")
-                        <li class="menu-item">
+                        <li class="menu-item sub-menu">
                             <a class="menu-link" href="/genelgeler">
                                 <div>Genelgeler</div>
                             </a>
+                            <ul class="sub-menu-container">
+                                @foreach (var item in @Model.CircularYears)
+                                {
+                                    <li class="menu-item">
+                                        <a href="/genelgeler/@item" class="menu-link">@item Yılı Genelgeleri</a>
+                                    </li>
+                                }
+                            </ul>
                         </li>
                         <li class="menu-item">
                             <a class="menu-link" href="/odalar">
                                 <div>Odalar</div>
                             </a>
                         </li>
+                        @if (Model.ActivityFields.Any())
+                        {
+                            <li class="menu-item sub-menu">
+                                <a class="menu-link" href="#">
+                                    <div>Faaliyet Alanları</div>
+                                </a>
+                                <ul class="sub-menu-container">
+                                    @foreach (var item in @Model.ActivityFields)
+                                    {
+                                        <li class="menu-item">
+                                            <a href="/faaliyet-alanlari/@item.SeoUrl" class="menu-link">@item.Title</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        @if (Model.Services.Any())
+                        {
+                            <li class="menu-item sub-menu">
+                                <a class="menu-link" href="#">
+                                    <div>Hizmetler</div>
+                                </a>
+                                <ul class="sub-menu-container">
+                                    @foreach (var item in @Model.Services)
+                                    {
+                                        <li class="menu-item">
+                                            <a href="/hizmetler/@item.SeoUrl" class="menu-link">@item.Title</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        }
                         <li class="menu-item">
-                            <a class="menu-link" href="/uye-sicil-islemleri">
-                                <div>Üye Sicil İşlemleri</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a class="menu-link" href="/blog">
-                                <div>Blog</div>
+                            <a class="menu-link" href="/ahilik">
+                                <div>Ahilik</div>
                             </a>
                         </li>
                         <li class="menu-item">

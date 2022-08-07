@@ -164,11 +164,19 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Content Include=".well-known\pki-validation\C7DFD429ED06DC92AC08181D0642C6F0.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
       <None Include="Web.config">
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Admin\Pages\Service\Index.cshtml" />
     </ItemGroup>
 
 </Project>

@@ -30,7 +30,7 @@ public class CircularManager : ICircularService
 
     public async Task<IDataResult<List<Circular>>> GetListAsync()
     {
-        var result = await _circularDal.GetAllAsync();
+        var result = await _circularDal.GetQueryable().OrderByDescending(x => x.Year).ToListAsync();;
         return new SuccessDataResult<List<Circular>>(result);
     }
 
@@ -39,11 +39,16 @@ public class CircularManager : ICircularService
         List<Circular> result;
         if (!year.HasValue)
         {
-            result = await _circularDal.GetAllAsync();
+            result = await _circularDal.GetQueryable().OrderByDescending(x => x.Year).ToListAsync();
         }
         else
         {
-            result = await _circularDal.GetAllAsync(x => x.Year == year);
+            result = await _circularDal
+                .GetQueryable()
+                .Where(x => x.Year == year)
+                .OrderByDescending(x => x.Priority)
+                .ThenByDescending(x => x.Id)
+                .ToListAsync();
         }
 
         return new SuccessDataResult<List<Circular>>(result);
@@ -75,7 +80,12 @@ public class CircularManager : ICircularService
 
     public async Task<IDataResult<List<int>>> GetYearsAsync()
     {
-        var result = await _circularDal.GetQueryable().Select(x => x.Year).Distinct().ToListAsync();
+        var result = await _circularDal
+            .GetQueryable()
+            .Select(x => x.Year)
+            .Distinct()
+            .OrderByDescending(x => x)
+            .ToListAsync();
         return new SuccessDataResult<List<int>>(result);
     }
 

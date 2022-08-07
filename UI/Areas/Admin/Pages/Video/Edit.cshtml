@@ -55,6 +55,8 @@
         <label asp-for="Video.VideoPath"></label>
         <input asp-for="Video.VideoPath" onkeyup="showVideo(event,'showVideo')" onpaste="showVideo(event,'showVideo')" class="form-control"/>
         <span class="text-danger" asp-validation-for="Video.VideoPath"></span>
+        <small class="form-text text-muted">Youtube video kodu alma</small>
+        <img class="img-fluid" src="/assets/img/video-code.png" alt="How to get video code"/>
     </div>
     <div class="row m-0">
         <a href="/admin/video/" class="btn btn-secondary ml-auto">Geri Dön</a>
@@ -65,8 +67,6 @@
 </form>
 
 @section scripts{
-
-
     <script>
     let loadFile = function (event, id) {
         let output = document.getElementById(id);

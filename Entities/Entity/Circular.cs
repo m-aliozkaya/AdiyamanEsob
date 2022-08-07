@@ -12,5 +12,7 @@ public class Circular : BaseEntity
     [Required]
     [DisplayName("Genelge Başlığı")]
     public string Title { get; set; }
+
+    public int Priority { get; set; }
     public string File { get; set; }
 }

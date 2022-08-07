@@ -63,6 +63,15 @@ namespace Business.DependencyResolvers
             
             builder.RegisterType<LegislationManager>().As<ILegislationService>();
             builder.RegisterType<EfLegislationDal>().As<ILegislationDal>();
+
+            builder.RegisterType<PresidentManager>().As<IPresidentService>();
+            builder.RegisterType<EfPresidentDal>().As<IPresidentDal>();
+            
+            builder.RegisterType<ActivityFieldManager>().As<IActivityFieldService>();
+            builder.RegisterType<EfActivityFieldDal>().As<IActivityFieldDal>();
+            
+            builder.RegisterType<ServiceManager>().As<IServiceService>();
+            builder.RegisterType<EfServiceDal>().As<IServiceDal>();
         }
     }
 }

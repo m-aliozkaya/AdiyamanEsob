@@ -1,4 +1,4 @@
-﻿@page "/blog/{seoUrl}"
+﻿@page "/ahilik/{seoUrl}"
 @model UI.Pages.Blog.NewsSingle
 
 @{
@@ -12,15 +12,15 @@
     <section id="page-title">
 
         <div class="container clearfix">
-            <h1>Bloglar</h1>
+            <h1>Ahilik</h1>
             <span>@Model.Blog.Title</span>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="/">Anasayfa</a>
                 </li>
                 <li class="breadcrumb-item" aria-current="page">
-                    <a href="/blog">
-                        Blog Yazıları
+                    <a href="/ahilik">
+                        Ahilik
                     </a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">@Model.Blog.Title</li>

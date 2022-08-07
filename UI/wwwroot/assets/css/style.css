@@ -17059,3 +17059,12 @@ label.checkbox { padding-left: 20px; }
 .contact-information .contact-item a:hover{
 	color: #16b6ce;
 }
+
+.tab-container{
+	overflow-y: auto;
+	height: 500px;
+}
+
+.ui-tabs-nav ul li a{
+	padding-bottom: 7px;
+}
